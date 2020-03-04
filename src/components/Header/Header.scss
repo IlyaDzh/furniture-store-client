@@ -1,0 +1,28 @@
+.header {
+    &-info:not(:first-child) {
+        margin-left: 10px;
+    }
+
+    &-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+
+        img {
+            height: 30px;
+            width: auto;
+            margin-right: 7px;
+        }
+
+        &__title {
+            opacity: 0.8;
+        }
+
+        &__location {}
+
+        &__feedback {}
+
+        &__phone {}
+    }
+}

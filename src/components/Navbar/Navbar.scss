@@ -1,0 +1,50 @@
+@import 'styles/_variables.scss';
+
+.navbar {
+    background-color: $navbar;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0px 16px !important;
+
+    &-toggler {
+        margin: 5px 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        &__register {
+            position: relative;
+            background: $orange;
+            color: #fff !important;
+            margin-left: 13px;
+
+            &:after,
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                display: block;
+                width: 0;
+                height: 0;
+                border-style: solid;
+            }
+
+            &:before {
+                right: 100%;
+                border-width: 0 0 37px 10px;
+                border-color: transparent transparent $orange transparent;
+            }
+
+            &:after {
+                left: 100%;
+                border-width: 37px 10px 0 0;
+                border-color: $orange transparent transparent transparent;
+            }
+
+            &:hover {
+                color: rgba(0, 0, 0, 0.6) !important;
+            }
+        }
+    }
+}
