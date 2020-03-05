@@ -1,3 +1,5 @@
+@import 'styles/_variables.scss';
+
 .header {
     &-info:not(:first-child) {
         margin-left: 10px;
@@ -18,11 +20,123 @@
         &__title {
             opacity: 0.8;
         }
+    }
 
-        &__location {}
+    &-products {
+        .products-top {
+            &__items {
+                display: flex;
 
-        &__feedback {}
+                .top-item {
+                    position: relative;
+                    width: 100%;
 
-        &__phone {}
+                    &>a {
+                        color: $blue;
+                        text-decoration: none;
+                        opacity: .65;
+                        display: block;
+                        text-align: center;
+                        padding: 10px 0;
+                    }
+
+                    &__image {
+                        margin-bottom: 10px;
+                    }
+
+                    &__title {
+                        font-style: italic;
+                        font-size: 14px;
+                    }
+
+                    &:hover>a {
+                        opacity: 1;
+                        background: $blue--hover;
+                    }
+
+                    .categories__block {
+                        background: #f9fafa;
+                    }
+
+                    &:hover .categories__block {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        .bottom-wrapper {
+            background: $orange;
+        }
+
+        .products-bottom {
+            &__items {
+                display: flex;
+
+                .bottom-item {
+                    position: relative;
+                    width: 100%;
+
+                    &>a {
+                        display: block;
+                        text-align: center;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #fff;
+                        text-transform: uppercase;
+                    }
+
+                    &:hover>a {
+                        background: $orange--hover;
+                    }
+
+                    .categories__block {
+                        background: $orange--hover;
+                    }
+
+                    &:hover .categories__block {
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        .categories__block {
+            display: none;
+            position: absolute;
+            left: 0;
+            z-index: 1;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, .45);
+            padding: 0 15px;
+
+            .categories-items {
+                padding: 15px;
+                white-space: nowrap;
+
+                &__title {
+                    font-weight: bold;
+                    font-size: 15px;
+                    text-transform: uppercase;
+                }
+
+                a,
+                a:hover,
+                a:focus {
+                    color: #0d0d0d;
+                }
+
+                a:hover,
+                a:focus {
+                    text-decoration: underline;
+                }
+            }
+
+            &--right {
+                left: auto;
+                right: 0;
+            }
+        }
     }
 }
