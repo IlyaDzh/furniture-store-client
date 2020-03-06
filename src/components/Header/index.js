@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 import { Navbar } from 'components';
 import logo from 'assets/image/logo.png';
 import bell from 'assets/image/header/bell.png';
 import phone from 'assets/image/header/phone.png';
 import pin from 'assets/image/header/pin.png';
-import catalog from 'catalog.json';
+import catalogJSON from 'catalog.json';
 import './Header.scss';
 
 const Header = () => {
@@ -53,77 +53,71 @@ const Header = () => {
             <div className="header-products">
                 <div className="container products-top">
                     <ul className="products-top__items">
-                        {catalog.top &&
-                            catalog.top.map(item => {
-                                return (
-                                    <li className="top-item" key={item.id}>
-                                        <Link to="#">
-                                            <div className="top-item__image">
-                                                <img
-                                                    className="img-fluid"
-                                                    src={require(`assets/image/${item.image}`)}
-                                                    alt={item.title}
-                                                />
-                                            </div>
-                                            <span className="top-item__title">{item.title}</span>
-                                        </Link>
-                                        <div className={
-                                            classnames('categories__block',
-                                                { 'categories__block--right': item.position === 'right' })
-                                        }>
-                                            {item.categories &&
-                                                item.categories.map(category => {
-                                                    return (
-                                                        <ul className='categories-items' key={category.id}>
-                                                            <li className='categories-items__title'>{category.title}</li>
-                                                            {
-                                                                category.content.map((item, index) => {
-                                                                    return <li key={index}><Link to="#1">{item}</Link></li>
-                                                                })
-                                                            }
-                                                        </ul>
-                                                    )
-                                                })
-                                            }
-
+                        {catalogJSON.top &&
+                            catalogJSON.top.map(item => (
+                                <li className="top-item" key={item.id}>
+                                    <Link to="#">
+                                        <div className="top-item__image">
+                                            <img
+                                                className="img-fluid"
+                                                src={require(`assets/image/${item.image}`)}
+                                                alt={item.title}
+                                            />
                                         </div>
-                                    </li>
-                                )
-                            })
+                                        <span className="top-item__title">{item.title}</span>
+                                    </Link>
+                                    <div className={
+                                        classNames('categories__block',
+                                            { 'categories__block--right': item.position === 'right' })
+                                    }>
+
+                                        {item.categories &&
+                                            item.categories.map(category => (
+                                                <ul className='categories-items' key={category.id}>
+                                                    <li className='categories-items__title'>{category.title}</li>
+                                                    {
+                                                        category.content.map((item, index) => (
+                                                            <li key={index}><Link to="#1">{item}</Link></li>
+                                                        ))
+                                                    }
+                                                </ul>
+                                            ))
+                                        }
+                                        
+                                    </div>
+                                </li>
+                            ))
                         }
                     </ul>
                 </div>
                 <div className="bottom-wrapper">
                     <div className="container products-bottom">
                         <ul className="products-bottom__items">
-                            {catalog.bottom &&
-                                catalog.bottom.map(item => {
-                                    return (
-                                        <li className="bottom-item" key={item.id}>
-                                            <Link to="#">{item.title}</Link>
-                                            <div className={
-                                                classnames('categories__block',
-                                                    { 'categories__block--right': item.position === 'right' })
-                                            }>
-                                                {item.categories &&
-                                                    item.categories.map(category => {
-                                                        return (
-                                                            <ul className='categories-items' key={category.id}>
-                                                                <li className='categories-items__title'>{category.title}</li>
-                                                                {
-                                                                    category.content.map((item, index) => {
-                                                                        return <li key={index}><Link to="#1">{item}</Link></li>
-                                                                    })
-                                                                }
-                                                            </ul>
-                                                        )
-                                                    })
-                                                }
+                            {catalogJSON.bottom &&
+                                catalogJSON.bottom.map(item => (
+                                    <li className="bottom-item" key={item.id}>
+                                        <Link to="#">{item.title}</Link>
+                                        <div className={
+                                            classNames('categories__block',
+                                                { 'categories__block--right': item.position === 'right' })
+                                        }>
 
-                                            </div>
-                                        </li>
-                                    )
-                                })
+                                            {item.categories &&
+                                                item.categories.map(category => (
+                                                    <ul className='categories-items' key={category.id}>
+                                                        <li className='categories-items__title'>{category.title}</li>
+                                                        {
+                                                            category.content.map((item, index) => (
+                                                                <li key={index}><Link to="#1">{item}</Link></li>
+                                                            ))
+                                                        }
+                                                    </ul>
+                                                ))
+                                            }
+
+                                        </div>
+                                    </li>
+                                ))
                             }
                         </ul>
                     </div>

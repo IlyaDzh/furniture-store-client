@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { FaSignInAlt, FaUserEdit } from 'react-icons/fa';
 import { Navbar as BaseNavbar, Container, Nav } from 'react-bootstrap';
 
 import { Modal } from 'components';
 import './Navbar.scss';
 
 const Navbar = props => {
-    const [showRegister, setShowRegister] = useState(false);
+    const [showRegistry, setShowRegistry] = useState(false);
     const [showEntry, setShowEntry] = useState(false);
 
     return (
@@ -25,15 +26,18 @@ const Navbar = props => {
                         <Nav className="mr-auto">
                             <Nav.Link
                                 href="#7"
+                                className='navbar__entry'
                                 onClick={() => setShowEntry(true)}
                             >
+                                <FaSignInAlt style={{ fontSize:'16', marginRight: '4' }} />
                                 Вход
                             </Nav.Link>
                             <Nav.Link
-                                className='navbar__register'
+                                className='navbar__registry'
                                 href="#8"
-                                onClick={() => setShowRegister(true)}
+                                onClick={() => setShowRegistry(true)}
                             >
+                                <FaUserEdit style={{ fontSize:'16', marginRight: '4' }} />
                                 Регистрация
                         </Nav.Link>
                         </Nav>
@@ -44,7 +48,7 @@ const Navbar = props => {
             <Modal show={showEntry} onHide={() => setShowEntry(false)}>
                 Форма входа
             </Modal>
-            <Modal show={showRegister} onHide={() => setShowRegister(false)}>
+            <Modal show={showRegistry} onHide={() => setShowRegistry(false)}>
                 Форма регистрации
             </Modal>
         </>

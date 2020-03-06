@@ -1,0 +1,32 @@
+.card {
+    margin: 0 15px;
+    height: 100%;
+
+    &-body {
+        text-align: center;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-title {
+        font-size: 18px !important;
+    }
+
+    &-text {
+        font-size: 20px !important;
+
+        &>span {
+            display: block;
+            font-size: 14px !important;
+            text-decoration: line-through;
+        }
+    }
+
+    &-btn {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+}

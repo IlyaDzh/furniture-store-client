@@ -9,11 +9,22 @@
     &-toggler {
         margin: 5px 0;
     }
+
+    &__entry,
+    &__registry {
+        display: flex !important;
+        align-items: center;
+    }
 }
 
 @media (min-width: 768px) {
     .navbar {
-        &__register {
+        &__entry {
+            justify-content: center;
+        }
+
+        &__registry {
+            justify-content: center;
             position: relative;
             background: $orange;
             color: #fff !important;
