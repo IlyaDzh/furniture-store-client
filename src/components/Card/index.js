@@ -1,30 +1,34 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Card as BaseCard, Button } from 'react-bootstrap';
 
 import './Card.scss';
 
-const Card = ({ image, title, price, oldPrice }) => {
-    return (
-        <BaseCard>
+const Card = ({ id, image, title, price, oldPrice }) => (
+    <BaseCard className='card-item'>
+        <Link to={`catalog/${id}`}>
             <BaseCard.Img variant="top" src={require(`assets/image/${image}`)} />
-            <BaseCard.Body>
+        </Link>
+        <BaseCard.Body>
+            <Link to={`catalog/${id}`}>
                 <BaseCard.Title>{title}</BaseCard.Title>
-                <BaseCard.Text>
-                    {price} руб.
+            </Link>
+            <BaseCard.Text>
+                {price} руб.
                     <span>{oldPrice} руб.</span>
-                </BaseCard.Text>
-                <Button className='card-btn btn-orange'>
-                    <FaShoppingCart style={{ fontSize: '18', marginRight: '5' }} />
-                    В корзину
+            </BaseCard.Text>
+            <Button className='card-btn btn-orange'>
+                <FaShoppingCart style={{ fontSize: '18', marginRight: '5' }} />
+                В корзину
                 </Button>
-            </BaseCard.Body>
-        </BaseCard>
-    )
-}
+        </BaseCard.Body>
+    </BaseCard>
+)
 
 Card.propTypes = {
+    id: PropTypes.number,
     image: PropTypes.string,
     title: PropTypes.string,
     price: PropTypes.string,

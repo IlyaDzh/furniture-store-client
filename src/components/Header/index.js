@@ -7,8 +7,9 @@ import logo from 'assets/image/logo.png';
 import bell from 'assets/image/header/bell.png';
 import phone from 'assets/image/header/phone.png';
 import pin from 'assets/image/header/pin.png';
-import catalogJSON from 'catalog.json';
 import './Header.scss';
+
+import catalogJSON from 'catalog.json';
 
 const Header = () => {
     return (
@@ -90,7 +91,7 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <div className="bottom-wrapper">
+                <div className="section-orange">
                     <div className="container products-bottom">
                         <ul className="products-bottom__items">
                             {catalogJSON.bottom &&

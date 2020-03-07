@@ -1,13 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Carousel as BaseCarousel } from 'react-bootstrap';
 
-import carouselJSON from 'carousel.json';
+import './Carousel.scss';
 
-const Carousel = () => (
-    carouselJSON.length > 0 && (
+const Carousel = ({ items }) => (
+    items.length > 0 && (
         <BaseCarousel fade>
             {
-                carouselJSON.map(item => (
+                items.map(item => (
                     <BaseCarousel.Item key={item.id}>
                         <img
                             className="d-block w-100"
@@ -20,5 +21,9 @@ const Carousel = () => (
         </BaseCarousel>
     )
 )
+
+Carousel.propTypes = {
+    items: PropTypes.array
+}
 
 export default Carousel;

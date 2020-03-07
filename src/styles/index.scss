@@ -17,6 +17,25 @@ a {
     }
 }
 
+.card {
+    height: 100%;
+
+    a {
+        color: #000;
+        transition: opacity 0.15s ease;
+
+        &:hover {
+            color: #000;
+            opacity: 0.85;
+            text-decoration: underline;
+        }
+    }
+}
+
+.section-orange {
+    background: $orange;
+}
+
 .btn-orange {
     text-transform: uppercase;
     font-weight: 500;

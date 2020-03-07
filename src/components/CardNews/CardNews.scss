@@ -1,0 +1,39 @@
+.card {
+    $self: &;
+
+    &-news {
+        #{$self}-body {
+            justify-content: space-between;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #{$self}-title {
+            font-size: 20px !important;
+        }
+
+        #{$self}-text {
+            font-size: 15px !important;
+        }
+
+        #{$self}-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &>span {
+                font-size: 14px;
+            }
+
+            &__link {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .card-displaying:last-child {
+        display: none;
+    }
+}

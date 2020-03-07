@@ -25,6 +25,7 @@ const SliderArrow = ({ onClick, to }) => {
 const Slider = ({ items }) => {
     const settings = {
         infinite: true,
+        swipe: false,
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,

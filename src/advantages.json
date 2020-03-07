@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "image": "advantages/1.png",
+        "description": "Рассрочка без переплат"
+    },
+    {
+        "id": 2,
+        "image": "advantages/2.png",
+        "description": "Быстрая доставка"
+    },
+    {
+        "id": 3,
+        "image": "advantages/3.png",
+        "description": "Низкие цены каждый день"
+    },
+    {
+        "id": 4,
+        "image": "advantages/4.png",
+        "description": "Мебель высокого качества"
+    },
+    {
+        "id": 5,
+        "image": "advantages/5.png",
+        "description": "Профессиональный сервис"
+    },
+    {
+        "id": 6,
+        "image": "advantages/6.png",
+        "description": "Различные способы оплаты"
+    }
+]
