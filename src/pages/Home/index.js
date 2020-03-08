@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Carousel, Section, Slider, CardNews, Modal } from 'components';
+import { Carousel, Section, Slider, CardNews, Modal, Comment } from 'components';
 import './Home.scss';
 
 import popularJSON from 'popular.json';
@@ -64,8 +64,30 @@ const Home = () => {
 
             <Section title='Отзывы наших клиентов'>
                 <div className="row">
-                    
+                    {commentJSON.length > 0 && (
+                        commentJSON.map(item => (
+                            <Comment key={item.id} {...item} />
+                        ))
+                    )}
                 </div>
+            </Section>
+
+            <Section className='section-orange feedback' >
+                <h3 className='feedback__title'>Нужна консультация?</h3>
+                <h4 className='feedback__subtitle'>Заполните форму, и наш менеджер свяжется с Вами в течение 15 минут.</h4>
+                <form>
+                    <div className="row">
+                        <div className="col-md-4">
+                            <input className="form-control feedback__input" placeholder="Ваше имя" />
+                        </div>
+                        <div className="col-md-4">
+                            <input className="form-control feedback__input" placeholder="+7 (___) ___-___-__" />
+                        </div>
+                        <div className="col-md-4">
+                            <button className='btn btn-orange' type="button">Заказать звонок</button>
+                        </div>
+                    </div>
+                </form>
             </Section>
 
             <Modal show={showIndividual} onHide={() => setShowIndividual(false)}>

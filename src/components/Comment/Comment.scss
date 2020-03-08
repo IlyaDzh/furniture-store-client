@@ -1,0 +1,63 @@
+@import 'styles/_variables.scss';
+
+.comment {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background: #fff;
+    height: 100%;
+    border-radius: 4px;
+    padding: 20px;
+    border: 1px solid #cacaca;
+
+
+    &__text {
+        font-size: 15px;
+        font-style: italic;
+        margin-bottom: 15px;
+        opacity: 0.87;
+    }
+
+    &-bottom {
+        display: flex;
+        justify-content: space-between;
+
+        &__inner {
+            max-width: 75%;
+        }
+    }
+
+    &__name {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    &__date {
+        font-size: 14px;
+        font-weight: 500;
+        color: $orange;
+        margin: 0;
+    }
+
+    &__avatar {
+        position: relative;
+
+        img {
+            width: 90px;
+            height: 90px;
+            position: absolute;
+            left: -90px;
+            bottom: -47px;
+            border-radius: 100%;
+            box-shadow: 0 0 0px 1px #cacaca;
+            border: 6px solid #fff;
+            object-fit: cover;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .comment-displaying:last-child {
+        display: none;
+    }
+}
