@@ -12,7 +12,7 @@ const Navbar = props => {
 
     return (
         <>
-            <BaseNavbar expand="md" {...props}>
+            <BaseNavbar className='navbar-top' expand="md" {...props}>
                 <Container>
                     <BaseNavbar.Toggle aria-controls="basic-navbar-nav" />
                     <BaseNavbar.Collapse id="basic-navbar-nav">

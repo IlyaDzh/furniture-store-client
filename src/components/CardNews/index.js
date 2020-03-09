@@ -9,7 +9,7 @@ const CardNews = ({ id, image, title, description, date }) => (
     <div className='card-displaying col-lg-4 col-md-6 col-sm-6 mb-4'>
         <BaseCard className='card-news'>
             <Link to={`news/${id}`}>
-                <BaseCard.Img variant="top" src={require(`assets/image/${image}`)} />
+                <BaseCard.Img variant="top" src={require(`assets/${image}`)} />
             </Link>
             <BaseCard.Body>
                 <Link to={`news/${id}`}>

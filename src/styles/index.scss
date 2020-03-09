@@ -63,3 +63,33 @@ a {
         box-shadow: 0 0 0 0.2rem #ffbd7a;
     }
 }
+
+.btn-outline-orange {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    color: $orange;
+    border-color: $orange;
+    background-color: transparent;
+
+    &:hover {
+        color: #fff;
+        background: $orange;
+        border-color: $orange;
+    }
+    
+    &:active {
+        color: #fff;
+        background: #e6790d !important;
+        border-color: #e6790d !important;
+        box-shadow: 0 0 0 0.2rem #ffb468 !important;
+    }
+
+    &:focus {
+        color: #fff;
+        background-color: #f78a1e;
+        border-color: #f78a1e;
+        box-shadow: 0 0 0 0.2rem #ffbd7a;
+    }
+}

@@ -9,7 +9,7 @@ import './Card.scss';
 const Card = ({ id, image, title, price, oldPrice }) => (
     <BaseCard className='card-item'>
         <Link to={`catalog/${id}`}>
-            <BaseCard.Img variant="top" src={require(`assets/image/${image}`)} />
+            <BaseCard.Img variant="top" src={require(`assets/${image}`)} />
         </Link>
         <BaseCard.Body>
             <Link to={`catalog/${id}`}>

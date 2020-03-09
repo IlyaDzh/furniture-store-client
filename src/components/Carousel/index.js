@@ -12,7 +12,7 @@ const Carousel = ({ items }) => (
                     <BaseCarousel.Item key={item.id}>
                         <img
                             className="d-block w-100"
-                            src={require(`assets/image/${item.image}`)}
+                            src={require(`assets/${item.image}`)}
                             alt="Slide"
                         />
                     </BaseCarousel.Item>
