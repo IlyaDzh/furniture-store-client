@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { FaSignInAlt, FaUserEdit } from 'react-icons/fa';
 import { Navbar as BaseNavbar, Container, Nav } from 'react-bootstrap';
 
@@ -16,30 +17,30 @@ const Navbar = props => {
                     <BaseNavbar.Toggle aria-controls="basic-navbar-nav" />
                     <BaseNavbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="#1">Акции</Nav.Link>
-                            <Nav.Link href="#2">О фабрике</Nav.Link>
-                            <Nav.Link href="#3">Оплата</Nav.Link>
-                            <Nav.Link href="#4">Доставка</Nav.Link>
-                            <Nav.Link href="#5">Новости</Nav.Link>
-                            <Nav.Link href="#6">Контакты</Nav.Link>
+                            <NavLink className='nav-link' to="/catalog">Каталог</NavLink >
+                            <NavLink className='nav-link' to="/info">О фабрике</NavLink >
+                            <NavLink className='nav-link' to="/payment">Оплата и доставка</NavLink >
+                            <NavLink className='nav-link' to="/news">Новости</NavLink >
+                            <NavLink className='nav-link' to="/comments">Отзывы</NavLink >
+                            <NavLink className='nav-link' to="/contacts">Контакты</NavLink >
                         </Nav>
                         <Nav className="mr-auto">
-                            <Nav.Link
-                                href="#7"
-                                className='navbar__entry'
+                            <Link
+                                to="#7"
+                                className='nav-link navbar__entry'
                                 onClick={() => setShowEntry(true)}
                             >
-                                <FaSignInAlt style={{ fontSize:'16', marginRight: '4' }} />
+                                <FaSignInAlt style={{ fontSize: '16', marginRight: '4' }} />
                                 Вход
-                            </Nav.Link>
-                            <Nav.Link
-                                className='navbar__registry'
-                                href="#8"
+                            </Link>
+                            <Link
+                                className='nav-link navbar__registry'
+                                to="#8"
                                 onClick={() => setShowRegistry(true)}
                             >
-                                <FaUserEdit style={{ fontSize:'16', marginRight: '4' }} />
+                                <FaUserEdit style={{ fontSize: '16', marginRight: '4' }} />
                                 Регистрация
-                        </Nav.Link>
+                        </Link>
                         </Nav>
                     </BaseNavbar.Collapse>
                 </Container>

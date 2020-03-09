@@ -1,0 +1,87 @@
+@import 'styles/_variables.scss';
+
+.footer {
+    &-top {
+        &__items {
+            li {
+                display: inline-block;
+                padding: 10px 0;
+
+                a {
+                    color: rgba(#000, 0.75);
+                    padding: 10px 0;
+                    font-weight: 500;
+                    margin-right: 15px;
+
+                    &.active {
+                        color: $orange !important;
+                    }
+
+                    &:hover {
+                        color: $orange--hover;
+                    }
+                }
+            }
+        }
+    }
+
+    &-bottom {
+        background: #e7eced;
+        padding: 15px 0;
+
+        &__title {
+            position: relative;
+            margin-bottom: 20px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                height: 3px;
+                width: 55px;
+                top: 35px;
+                left: 0;
+                background: $orange;
+            }
+        }
+
+        &__catalog {
+            display: flex;
+
+            &-items {
+                width: 100%;
+                
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+
+                li {
+                    display: block;
+
+                    a {
+                        position: relative;
+                        display: block;
+                        padding-left: 15px;
+                        color: #000;
+
+                        &:hover {
+                            color: $orange;
+                        }
+
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            display: block;
+                            width: 6px;
+                            height: 6px;
+                            border-radius: 50%;
+                            background: black;
+                            left: 0px;
+                            top: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

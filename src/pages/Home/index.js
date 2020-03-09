@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 
 import { Carousel, Section, Slider, CardNews, Modal, Comment } from 'components';
+import designBg from 'assets/home/design/bg.png';
+import feedbackBg from 'assets/home/feedback/bg.jpg';
 import './Home.scss';
 
-import popularJSON from 'popular.json';
-import carouselJSON from 'carousel.json';
-import advantagesJSON from 'advantages.json';
-import newsJSON from 'news.json';
-import commentJSON from 'comment.json';
+import popularJSON from 'json/popular.json';
+import carouselJSON from 'json/carousel.json';
+import advantagesJSON from 'json/advantages.json';
+import newsJSON from 'json/news.json';
+import commentJSON from 'json/comment.json';
 
 const Home = () => {
     const [showIndividual, setShowIndividual] = useState(false);
@@ -30,7 +32,7 @@ const Home = () => {
                         advantagesJSON.map(item => (
                             <div key={item.id} className="advantages-item col-xs-6 col-sm-4 col-lg-2">
                                 <div className="advantages-item__image">
-                                    <img src={require(`assets/image/${item.image}`)} alt='Advantages' />
+                                    <img src={require(`assets/${item.image}`)} alt='Advantages' />
                                 </div>
                                 <div className="advantages-item__desc">{item.description}</div>
                             </div>
@@ -50,15 +52,14 @@ const Home = () => {
             </Section>
 
             <Section
-                className='individual'
+                className='design'
                 style={{
-                    background: '#e7eced url(https://woodland-mebel.ru/design/img/bg/bg-ban-calc768.png) no-repeat right top',
-                    backgroundSize: 'contain',
-                    height: '297px'
+                    background: `#e7eced url(${designBg}) no-repeat right top`,
+                    backgroundSize: 'contain'
                 }}
             >
-                <h3 className='individual__title'>Хотите индивидуальный дизайн мебели?</h3>
-                <h4 className='individual__subtitle'>Отправим к вам лучшего дизайнера-замерщика!</h4>
+                <h3 className='design__title'>Хотите индивидуальный дизайн мебели?</h3>
+                <h4 className='design__subtitle'>Отправим к вам лучшего дизайнера-замерщика!</h4>
                 <button className='btn btn-orange' onClick={() => setShowIndividual(true)}>Вызвать замерщика</button>
             </Section>
 
@@ -72,7 +73,13 @@ const Home = () => {
                 </div>
             </Section>
 
-            <Section className='section-orange feedback' >
+            <Section
+                className='feedback'
+                style={{
+                    background: `#e7eced url(${feedbackBg}) no-repeat center center`,
+                    backgroundSize: 'cover'
+                }}
+            >
                 <h3 className='feedback__title'>Нужна консультация?</h3>
                 <h4 className='feedback__subtitle'>Заполните форму, и наш менеджер свяжется с Вами в течение 15 минут.</h4>
                 <form>

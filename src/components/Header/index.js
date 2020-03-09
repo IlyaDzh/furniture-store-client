@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { Navbar } from 'components';
-import logo from 'assets/image/logo.png';
-import bell from 'assets/image/header/bell.png';
-import phone from 'assets/image/header/phone.png';
-import pin from 'assets/image/header/pin.png';
+import logo from 'assets/logo.png';
+import bell from 'assets/header/bell.png';
+import phone from 'assets/header/phone.png';
+import pin from 'assets/header/pin.png';
 import './Header.scss';
 
-import catalogJSON from 'catalog.json';
+import catalogJSON from 'json/catalog.json';
 
 const Header = () => {
     return (
@@ -20,7 +20,7 @@ const Header = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-md-4 d-flex justify-content-center">
-                            <Link to="#1">
+                            <Link to="/">
                                 <img className="img-fluid pt-3 pb-3" src={logo} alt="" />
                             </Link>
                         </div>
@@ -61,7 +61,7 @@ const Header = () => {
                                         <div className="top-item__image">
                                             <img
                                                 className="img-fluid"
-                                                src={require(`assets/image/${item.image}`)}
+                                                src={require(`assets/${item.image}`)}
                                                 alt={item.title}
                                             />
                                         </div>

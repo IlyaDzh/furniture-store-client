@@ -5,6 +5,19 @@
     font-size: 14px;
     font-weight: 500;
     padding: 0px 16px !important;
+    overflow: hidden;
+
+    .nav-link {
+        font-size: 14px;
+
+        &.active {
+            color: $orange !important;
+        }
+
+        &:hover {
+            color: $orange--hover !important;
+        }
+    }
 
     &-toggler {
         margin: 5px 0;
@@ -19,6 +32,10 @@
 
 @media (min-width: 768px) {
     .navbar {
+        .nav-link {
+            font-size: 13px;
+        }
+
         &__entry {
             justify-content: center;
         }
@@ -56,6 +73,14 @@
             &:hover {
                 color: rgba(0, 0, 0, 0.6) !important;
             }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar {
+        .nav-link {
+            font-size: 14px;
         }
     }
 }

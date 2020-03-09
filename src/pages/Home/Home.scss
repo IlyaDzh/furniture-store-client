@@ -28,7 +28,7 @@
     }
 }
 
-.individual {
+.design {
     text-align: center;
     text-transform: uppercase;
 
@@ -91,30 +91,11 @@
     .btn-orange {
         width: 100%;
         font-size: 17px;
-        background: #f88715;
-        border-color: #f88715;
-
-        &:hover {
-            background: #e07d1a !important;
-            border-color: #e07d1a !important;
-        }
-
-        &:focus {
-            background: #e77c10 !important;
-            border-color: #e77c10 !important;
-            box-shadow: 0 0 0 0.2rem #f8a048 !important;
-        }
-
-        &:active {
-            background: #d67412 !important;
-            border-color: #d67412 !important;
-            box-shadow: 0 0 0 0.2rem #e7882a !important;
-        }
     }
 }
 
 @media (max-width: 767px) {
-    .individual {
+    .design {
         background: #e7eced !important;
     }
 }
