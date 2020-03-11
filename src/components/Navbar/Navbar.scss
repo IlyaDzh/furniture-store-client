@@ -7,6 +7,25 @@
     padding: 0px 16px !important;
     overflow: hidden;
 
+    &-toggler {
+        border-color: rgba(0, 0, 0, 0.2) !important;
+        outline: none !important;
+        transition: border 0.2s ease;
+
+        &__icon {
+            height: 25px;
+            transition: color 0.2s ease;
+        }
+
+        &:hover {
+            border: 1px solid $orange !important;
+        }
+
+        &:hover &__icon {
+            color: $orange;
+        }
+    }
+
     .nav-link {
         font-size: 14px;
 
@@ -14,7 +33,7 @@
             color: $orange !important;
         }
 
-        &:hover {
+        &:hover:not(.navbar__registry) {
             color: $orange--hover !important;
         }
     }

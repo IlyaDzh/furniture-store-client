@@ -1,97 +1,99 @@
 @import 'styles/_variables.scss';
 
-.advantages {
-    color: #fff;
-    text-align: center;
-    padding-bottom: 10px;
+.home {
+    .advantages {
+        color: #fff;
+        text-align: center;
+        padding-bottom: 10px;
 
-    .section__title {
-        color: inherit;
+        .section__title {
+            color: inherit;
 
-        &::before,
-        &::after {
-            background: #fff;
+            &::before,
+            &::after {
+                background: #fff;
+            }
+        }
+
+        &-item {
+            margin-bottom: 30px;
+
+            &__image {
+                margin-bottom: 30px;
+            }
+
+            &__desc {
+                font-size: 18px;
+                font-weight: 500;
+            }
         }
     }
 
-    &-item {
-        margin-bottom: 30px;
+    .design {
+        text-align: center;
+        text-transform: uppercase;
 
-        &__image {
+        .container {
+            height: 100%;
+        }
+
+        .section__content {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &__title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        &__subtitle {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .btn-orange {
+            font-size: 20px;
+            padding: 6px 20px;
+        }
+    }
+
+    .feedback {
+        text-align: center;
+        color: #fff;
+
+        &__title {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        &__subtitle {
+            font-size: 16px;
             margin-bottom: 30px;
         }
 
-        &__desc {
-            font-size: 18px;
-            font-weight: 500;
+        &__input {
+            margin-bottom: 20px;
+
+            &:focus,
+            &:active {
+                box-shadow: none !important;
+                border-color: #ced4da !important;
+            }
         }
-    }
-}
 
-.design {
-    text-align: center;
-    text-transform: uppercase;
-
-    .container {
-        height: 100%;
-    }
-
-    .section__content {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    &__title {
-        font-size: 26px;
-        font-weight: 700;
-        margin-bottom: 20px;
-    }
-
-    &__subtitle {
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 40px;
-    }
-
-    .btn-orange {
-        font-size: 20px;
-        padding: 6px 20px;
-    }
-}
-
-.feedback {
-    text-align: center;
-    color: #fff;
-
-    &__title {
-        font-size: 26px;
-        font-weight: 700;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-    }
-
-    &__subtitle {
-        font-size: 16px;
-        margin-bottom: 30px;
-    }
-
-    &__input {
-        margin-bottom: 20px;
-
-        &:focus,
-        &:active {
-            box-shadow: none !important;
-            border-color: #ced4da !important;
+        .btn-orange {
+            width: 100%;
+            font-size: 17px;
+            margin-bottom: 10px;
         }
-    }
-
-    .btn-orange {
-        width: 100%;
-        font-size: 17px;
-        margin-bottom: 10px;
     }
 }
 

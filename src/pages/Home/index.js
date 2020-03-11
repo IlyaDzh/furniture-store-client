@@ -9,13 +9,13 @@ import popularJSON from 'json/popular.json';
 import carouselJSON from 'json/carousel.json';
 import advantagesJSON from 'json/advantages.json';
 import newsJSON from 'json/news.json';
-import commentJSON from 'json/comment.json';
+import newCommentsJSON from 'json/newComments.json';
 
 const Home = () => {
     const [showIndividual, setShowIndividual] = useState(false);
 
     return (
-        <>
+        <section className='home'>
             <Carousel items={carouselJSON} />
 
             <Section title='Популярные модели сезона'>
@@ -65,8 +65,8 @@ const Home = () => {
 
             <Section title='Отзывы наших клиентов'>
                 <div className="row">
-                    {commentJSON.length > 0 && (
-                        commentJSON.map(item => (
+                    {newCommentsJSON.length > 0 && (
+                        newCommentsJSON.map(item => (
                             <Comment key={item.id} {...item} />
                         ))
                     )}
@@ -100,7 +100,7 @@ const Home = () => {
             <Modal show={showIndividual} onHide={() => setShowIndividual(false)}>
                 Форма заказа замерщика
             </Modal>
-        </>
+        </section>
     )
 }
 

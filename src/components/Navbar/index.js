@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { FaSignInAlt, FaUserEdit } from 'react-icons/fa';
+import { FaSignInAlt, FaUserEdit, FaBars } from 'react-icons/fa';
 import { Navbar as BaseNavbar, Container, Nav } from 'react-bootstrap';
 
 import { Modal } from 'components';
@@ -14,7 +14,9 @@ const Navbar = props => {
         <>
             <BaseNavbar className='navbar-top' expand="md" {...props}>
                 <Container>
-                    <BaseNavbar.Toggle aria-controls="basic-navbar-nav" />
+                    <BaseNavbar.Toggle aria-controls="basic-navbar-nav">
+                        <FaBars className='navbar-toggler__icon' />
+                    </BaseNavbar.Toggle>
                     <BaseNavbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <NavLink className='nav-link' to="/catalog">Каталог</NavLink >
@@ -30,7 +32,7 @@ const Navbar = props => {
                                 className='nav-link navbar__entry'
                                 onClick={() => setShowEntry(true)}
                             >
-                                <FaSignInAlt style={{ fontSize: '16', marginRight: '4' }} />
+                                <FaSignInAlt style={{ fontSize: '16', marginRight: '6' }} />
                                 Вход
                             </Link>
                             <Link
@@ -38,7 +40,7 @@ const Navbar = props => {
                                 to="#8"
                                 onClick={() => setShowRegistry(true)}
                             >
-                                <FaUserEdit style={{ fontSize: '16', marginRight: '4' }} />
+                                <FaUserEdit style={{ fontSize: '16', marginRight: '6' }} />
                                 Регистрация
                         </Link>
                         </Nav>
