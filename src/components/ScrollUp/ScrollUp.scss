@@ -1,0 +1,58 @@
+@import 'styles/_variables.scss';
+
+.scrollup {
+    position: fixed;
+    z-index: 100;
+    bottom: 45px;
+    right: 4%;
+    border: none;
+    outline: none;
+    visibility: hidden;
+    padding: 6px;
+    background: $orange;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+    animation: fadeOut 0.7s forwards;
+
+    &--show {
+        animation: fadeIn 0.7s forwards;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background: $orange--hover;
+    }
+
+    svg {
+        display: block;
+        font-size: 37px;
+        color: #fff;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

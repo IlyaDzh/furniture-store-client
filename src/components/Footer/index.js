@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className="container">
                     <ul className='footer-top__items'>
                         <li><NavLink to='/catalog'>Каталог</NavLink></li>
-                        <li><NavLink to='/info'>О фабрике</NavLink></li>
+                        <li><NavLink to='/about'>О фабрике</NavLink></li>
                         <li><NavLink to='/payment'>Оплата и доставка</NavLink></li>
                         <li><NavLink to='/news'>Новости</NavLink></li>
                         <li><NavLink to='/comments'>Отзывы</NavLink></li>
@@ -85,7 +85,7 @@ const Footer = () => {
                         <div className="col-md-7">
                             <p>
                                 2014-2020 ФКМ&nbsp;|&nbsp;
-                            <Link to='privacy'>Политика конфиденциальности</Link>
+                                <Link to='privacy'>Политика конфиденциальности</Link>
                             </p>
                         </div>
                         <div className="col-md-5">

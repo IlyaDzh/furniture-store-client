@@ -20,7 +20,7 @@ const Navbar = props => {
                     <BaseNavbar.Collapse id="basic-navbar-nav">
                         <Nav className="mr-auto">
                             <NavLink className='nav-link' to="/catalog">Каталог</NavLink >
-                            <NavLink className='nav-link' to="/info">О фабрике</NavLink >
+                            <NavLink className='nav-link' to="/about">О фабрике</NavLink >
                             <NavLink className='nav-link' to="/payment">Оплата и доставка</NavLink >
                             <NavLink className='nav-link' to="/news">Новости</NavLink >
                             <NavLink className='nav-link' to="/comments">Отзывы</NavLink >

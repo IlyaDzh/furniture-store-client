@@ -41,7 +41,7 @@ const Home = () => {
                 </div>
             </Section>
 
-            <Section title='Последние новости'>
+            <Section title='Последние новости' viewAll='Больше новостей' viewAllUrl='/news'>
                 <div className="row">
                     {newsJSON.length > 0 && (
                         newsJSON.map(item => (
@@ -63,7 +63,7 @@ const Home = () => {
                 <button className='btn btn-orange' onClick={() => setShowIndividual(true)}>Вызвать замерщика</button>
             </Section>
 
-            <Section title='Отзывы наших клиентов'>
+            <Section title='Отзывы наших клиентов' viewAll='Еще отзывы' viewAllUrl='/comments' >
                 <div className="row">
                     {newCommentsJSON.length > 0 && (
                         newCommentsJSON.map(item => (
