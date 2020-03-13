@@ -1,0 +1,56 @@
+@import 'styles/_variables.scss';
+@import "~rc-pagination/assets/index.css";
+
+.rc-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+
+    &-item {
+        &-active {
+            color: #fff;
+            background-color: $orange;
+            border-color: $orange;
+        }
+
+        &:hover {
+            border-color: $orange;
+        }
+
+        &:hover:not(&-active) a {
+            color: $orange;
+        }
+    }
+
+    &-jump-prev:hover:after,
+    &-jump-next:hover:after {
+        color: $orange;
+        line-height: 36px;
+        font-size: 20px;
+    }
+
+    &-item,
+    &-prev,
+    &-next,
+    &-jump-prev,
+    &-jump-next {
+        outline: none;
+        min-width: 40px;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    &-prev a:after,
+    &-next a:after {
+        line-height: 36px;
+        height: 40px;
+        width: 40px;
+        font-size: 32px;
+    }
+
+    &-jump-prev:after,
+    &-jump-next:after {
+        font-size: 16px;
+    }
+}
