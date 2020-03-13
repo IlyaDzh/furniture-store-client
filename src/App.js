@@ -13,7 +13,7 @@ const App = () => {
                 <Route exact path={['/', '/home']} component={Home} />
                 <Route exact path='/about' component={About} />
                 <Route exact path='/catalog' component={Catalog} />
-                <Route exact path='/comments' component={Comments} />
+                <Route exact path={['/comments', '/comments/page/:pageUrl']} component={Comments} />
             </Switch>
 
             <ScrollUp />
