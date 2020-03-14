@@ -2,6 +2,7 @@ const initialState = {
     items: [],
     currentPage: 1,
     totalPage: 1,
+    error: false,
     isLoading: false
 }
 
@@ -22,6 +23,11 @@ export default (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 totalPage: payload
+            };
+        case 'COMMENTS:SET_ERROR':
+            return {
+                ...state,
+                error: payload
             };
         case 'COMMENTS:SET_IS_LOADING':
             return {

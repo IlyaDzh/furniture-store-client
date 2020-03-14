@@ -1,20 +1,28 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Spinner } from 'react-bootstrap';
+import { useHistory, useParams } from 'react-router-dom';
 
 import { commentsActions } from 'actions';
 import { ScrollToTop, Pagination, Section, Comment } from 'components';
 import './Comments.scss';
 
-const Comments = ({ fetchComments, setCurrentPage, items, currentPage, totalPage, isLoading }) => {
+const Comments = ({ fetchComments, setCurrentPage, items, currentPage, totalPage, setError, error, isLoading }) => {
+    let history = useHistory();
+    let { pageUrl } = useParams();
+
     useEffect(() => {
-        fetchComments(currentPage);
-        return () => console.log("UNMOUNT")
-    }, [currentPage]);
+        if (pageUrl) {
+            fetchComments(pageUrl);
+        } else {
+            fetchComments(1);
+        }
+        return () => setError(false);
+    }, [pageUrl]);
 
     const changePage = page => {
         setCurrentPage(page);
-        window.scroll({ top: 275, left: 0, behavior: 'smooth' })
+        history.push('/comments/page/' + page);
     }
 
     return (
@@ -24,20 +32,15 @@ const Comments = ({ fetchComments, setCurrentPage, items, currentPage, totalPage
 
             <div className="row">
                 {
-                    isLoading ? (
-                        <div className='spinner'>
-                            <Spinner animation="border" variant="warning" />
-                        </div>
-                    ) :
-                        items.length > 0 && (
-                            items.map(item => (
+                    isLoading ? <div className='spinner'><Spinner animation="border" variant="warning" /></div>
+                        : error ? <div>Error</div>
+                            : items.length > 0 && items.map(item => (
                                 <Comment key={item.id} {...item} />
                             ))
-                        )
                 }
             </div>
 
-            <Pagination total={totalPage} onChange={changePage} />
+            <Pagination total={totalPage} current={currentPage} onChange={changePage} />
 
         </Section>
     )
@@ -48,6 +51,7 @@ export default connect(
         items: comments.items,
         currentPage: comments.currentPage,
         totalPage: comments.totalPage,
+        error: comments.error,
         isLoading: comments.isLoading
     }),
     commentsActions
