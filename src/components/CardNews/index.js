@@ -8,19 +8,17 @@ import './CardNews.scss';
 const CardNews = ({ id, image, title, description, date }) => (
     <div className='card-displaying col-lg-4 col-md-6 col-sm-6 mb-4'>
         <BaseCard className='card-news'>
-            <Link to={`news/${id}`}>
-                <BaseCard.Img variant="top" src={require(`assets/${image}`)} />
+            <Link to={`/news/${id}`}>
+                <BaseCard.Img variant="top" src={image} />
             </Link>
             <BaseCard.Body>
-                <Link to={`news/${id}`}>
-                    <BaseCard.Title>{title}</BaseCard.Title>
-                </Link>
+                <BaseCard.Title>{title}</BaseCard.Title>
                 <BaseCard.Text>
                     {description}
                 </BaseCard.Text>
                 <div className="card-bottom">
                     <span>{date}</span>
-                    <Link to={`news/${id}`} className='card-bottom__link'>Читать далее</Link>
+                    <Link to={`/news/${id}`} className='card-bottom__link'>Читать далее</Link>
                 </div>
             </BaseCard.Body>
         </BaseCard>

@@ -2,6 +2,12 @@
     $self: &;
 
     &-news {
+        img {
+            object-fit: cover;
+            height: 210px;
+            width: 100%;
+        }
+
         #{$self}-body {
             justify-content: space-between;
             display: flex;
