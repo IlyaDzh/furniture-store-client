@@ -10,7 +10,7 @@ import phone from 'assets/header/phone.png';
 import pin from 'assets/header/pin.png';
 import './Header.scss';
 
-import catalogJSON from 'json/catalog.json';
+import catalogJSON from './catalog.json';
 
 const Header = () => (
     <header className='header'>
@@ -123,7 +123,6 @@ const Header = () => (
                     </ul>
                 </div>
             </div>
-
             <div className="products-mob">
                 <Container>
                     <BaseNavbar expand="md">
@@ -147,7 +146,6 @@ const Header = () => (
                     </BaseNavbar>
                 </Container>
             </div>
-
         </div>
 
     </header>

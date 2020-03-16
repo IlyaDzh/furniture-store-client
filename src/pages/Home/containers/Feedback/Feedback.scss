@@ -1,0 +1,38 @@
+.feedback {
+    text-align: center;
+    color: #fff;
+    min-height: 213px;
+
+    &--ready {
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    &__title {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+
+    &__subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    &__input {
+        margin-bottom: 20px;
+
+        &:focus,
+        &:active {
+            box-shadow: none !important;
+            border-color: #ced4da !important;
+        }
+    }
+
+    .btn-orange {
+        width: 100%;
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,39 @@
+.design {
+    text-align: center;
+    text-transform: uppercase;
+
+    .container {
+        height: 100%;
+    }
+
+    .section__content {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-size: 26px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    &__subtitle {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 40px;
+    }
+
+    .btn-orange {
+        font-size: 20px;
+        padding: 6px 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .design {
+        background: #e7eced !important;
+    }
+}
