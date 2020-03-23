@@ -17,6 +17,7 @@ const CommentsAll = ({ fetchComments, setCurrentPage, items, currentPage, totalP
             fetchComments(1);
         }
         return () => setError(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pageUrl]);
 
     const changePage = page => {

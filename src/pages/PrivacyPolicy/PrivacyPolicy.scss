@@ -1,0 +1,16 @@
+.privacy-policy {
+    &__title {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 40px;
+        margin: 16px 0;
+    }
+}

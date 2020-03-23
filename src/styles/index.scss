@@ -1,7 +1,7 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
-@import './variables.scss';
+@import "./variables.scss";
 
 ul {
     list-style: none;
@@ -97,4 +97,51 @@ a {
 .spinner {
     margin: 0 auto;
     margin-bottom: 30px;
+}
+
+.my-modal {
+    .modal {
+        &-content {
+            border-radius: 0;
+        }
+
+        &-header {
+            display: block;
+            border: 0;
+
+            .modal-title {
+                text-align: center;
+            }
+
+            button {
+                position: absolute;
+                right: 0;
+                top: 0;
+                margin: 0;
+                outline: 0;
+            }
+        }
+
+        &-body {
+            input {
+                border-radius: 0;
+            }
+
+            button {
+                width: 100%;
+                padding: 8px 12px;
+                border-radius: 0;
+            }
+        }
+
+        &-footer {
+            display: block;
+            text-align: center;
+            border: 0;
+
+            p {
+                font-size: 15px;
+            }
+        }
+    }
 }

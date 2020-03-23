@@ -13,6 +13,7 @@ const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
             fetchCurrentNews(newsId);
         }
         return () => setError(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newsId]);
 
     return (

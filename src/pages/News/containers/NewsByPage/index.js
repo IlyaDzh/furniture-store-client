@@ -17,6 +17,7 @@ const NewsByPage = ({ fetchNews, setCurrentPage, items, currentPage, totalPage, 
             fetchNews(1);
         }
         return () => setError(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pageUrl]);
 
     const changePage = page => {

@@ -1,15 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import { ScrollToTop, Section } from 'components';
-import './About.scss';
+import { ScrollToTop, Section } from "components";
+import { InfoAboutUs } from "./containers";
+import "./About.scss";
 
 const About = () => {
     return (
-        <Section className='about' title='О нашей фабрике'>
+        <Section className="about" title="О нашей фабрике">
             <ScrollToTop />
-            About
+            <InfoAboutUs />
         </Section>
-    )
-}
+    );
+};
 
 export default About;

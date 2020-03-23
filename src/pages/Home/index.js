@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Section, Slider } from 'components';
-import { Carousel, LastNews, Design, LastComments, Feedback } from './containers';
+import { Carousel, LastNews, Measurer, LastComments, OrderCall } from './containers';
 import { Advantages } from './components';
 import './Home.scss';
 
@@ -21,9 +21,9 @@ const Home = () => (
 
         <Advantages />
         <LastNews />
-        <Design />
+        <Measurer />
         <LastComments />
-        <Feedback />
+        <OrderCall />
     </section>
 )
 

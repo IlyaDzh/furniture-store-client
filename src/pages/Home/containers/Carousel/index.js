@@ -9,6 +9,7 @@ const Carousel = ({ fetchCarousel, carousel }) => {
         if (!carousel.length) {
             fetchCarousel();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [carousel]);
 
     return <BaseCarousel items={carousel} />
