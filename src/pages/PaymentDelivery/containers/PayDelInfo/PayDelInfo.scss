@@ -1,0 +1,56 @@
+@import "styles/_variables.scss";
+
+.pay-del {
+    $self: &;
+
+    &__title {
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        margin-top: 30px;
+    }
+
+    &__image {
+        width: 125px;
+        height: 125px;
+        margin: 10px auto;
+        border-radius: 50%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-width: 50%;
+        }
+    }
+
+    &__desc {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    &__list {
+        padding-left: 20px;
+    }
+
+    .payment {
+        #{$self}__image {
+            background: $blue;
+        }
+
+        #{$self}__desc {
+            color: $blue;
+        }
+    }
+
+    .delivery {
+        #{$self}__image {
+            background: $orange;
+        }
+
+        #{$self}__desc {
+            color: $orange;
+        }
+    }
+}

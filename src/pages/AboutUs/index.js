@@ -1,16 +1,16 @@
 import React from "react";
 
 import { ScrollToTop, Section } from "components";
-import { InfoAboutUs } from "./containers";
-import "./About.scss";
+import { AboutUsInfo } from "./containers";
+import "./AboutUs.scss";
 
-const About = () => {
+const AboutUs = () => {
     return (
         <Section className="about" title="О нашей фабрике">
             <ScrollToTop />
-            <InfoAboutUs />
+            <AboutUsInfo />
         </Section>
     );
 };
 
-export default About;
+export default AboutUs;

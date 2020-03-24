@@ -1,8 +1,8 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import { Header, ScrollUp, Footer } from 'components';
-import { Home, About, Catalog, News, Comments, PrivacyPolicy } from 'pages';
+import { Header, ScrollUp, Footer } from "components";
+import { Home, Catalog, AboutUs, PaymentDelivery, News, Comments, PrivacyPolicy } from "pages";
 
 const App = () => {
     return (
@@ -10,18 +10,19 @@ const App = () => {
             <Header />
 
             <Switch>
-                <Route exact path={['/', '/home']} component={Home} />
-                <Route exact path='/about' component={About} />
-                <Route exact path='/catalog' component={Catalog} />
-                <Route path='/news' component={News} />
-                <Route exact path={['/comments', '/comments/page/:pageUrl']} component={Comments} />
-                <Route path='/privacy-policy' component={PrivacyPolicy} />
+                <Route exact path={["/", "/home"]} component={Home} />
+                <Route exact path="/catalog" component={Catalog} />
+                <Route exact path="/about" component={AboutUs} />
+                <Route exact path="/payment-and-delivery" component={PaymentDelivery} />
+                <Route path="/news" component={News} />
+                <Route exact path={["/comments", "/comments/page/:pageUrl"]} component={Comments} />
+                <Route path="/privacy-policy" component={PrivacyPolicy} />
             </Switch>
 
             <ScrollUp />
             <Footer />
         </div>
     );
-}
+};
 
 export default App;

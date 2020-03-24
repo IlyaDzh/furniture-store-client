@@ -21,7 +21,7 @@ const Footer = () => {
                             <NavLink to="/about">О фабрике</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/payment">Оплата и доставка</NavLink>
+                            <NavLink to="/payment-and-delivery">Оплата и доставка</NavLink>
                         </li>
                         <li>
                             <NavLink to="/news">Новости</NavLink>
@@ -110,18 +110,12 @@ const Footer = () => {
                                 <a href="mailto:sale@bestmebelshop.ru">sale@bestmebelshop.ru</a>
                             </div>
                             <div className="mb-2">
-                                <button
-                                    className="btn btn-orange"
-                                    onClick={() => setShowMeasurer(true)}
-                                >
+                                <button className="btn btn-orange" onClick={() => setShowMeasurer(true)}>
                                     Вызвать замерщика
                                 </button>
                             </div>
                             <div>
-                                <button
-                                    className="btn btn-outline-orange"
-                                    onClick={() => setShowCall(true)}
-                                >
+                                <button className="btn btn-outline-orange" onClick={() => setShowCall(true)}>
                                     Заказать звонок
                                 </button>
                             </div>

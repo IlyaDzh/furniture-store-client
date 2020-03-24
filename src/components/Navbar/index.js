@@ -25,7 +25,7 @@ const Navbar = props => {
                             <NavLink className="nav-link" to="/about">
                                 О фабрике
                             </NavLink>
-                            <NavLink className="nav-link" to="/payment">
+                            <NavLink className="nav-link" to="/payment-and-delivery">
                                 Оплата и доставка
                             </NavLink>
                             <NavLink className="nav-link" to="/news">
@@ -39,11 +39,7 @@ const Navbar = props => {
                             </NavLink>
                         </Nav>
                         <Nav className="mr-auto">
-                            <Link
-                                to="#login"
-                                className="nav-link navbar__entry"
-                                onClick={() => setShowLogin(true)}
-                            >
+                            <Link to="#login" className="nav-link navbar__entry" onClick={() => setShowLogin(true)}>
                                 <FaSignInAlt style={{ fontSize: "16", marginRight: "6" }} />
                                 Вход
                             </Link>
