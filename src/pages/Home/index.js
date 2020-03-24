@@ -1,21 +1,21 @@
-import React from 'react';
+import React from "react";
 
-import { Section, Slider } from 'components';
-import { Carousel, LastNews, Measurer, LastComments, OrderCall } from './containers';
-import { Advantages } from './components';
-import './Home.scss';
+import { Section, Slider } from "components";
+import { LastNews, Measurer, LastComments, OrderCall } from "./containers";
+import { Carousel, Advantages } from "./components";
+import "./Home.scss";
 
-import popularJSON from './popular.json';
+import popularJSON from "./popular.json";
 
 const Home = () => (
-    <section className='home'>
+    <section className="home">
         <Carousel />
 
-        <Section title='Популярные модели сезона'>
+        <Section title="Популярные модели сезона">
             <Slider items={popularJSON} />
         </Section>
 
-        <Section title='Новые модели в каталоге'>
+        <Section title="Новые модели в каталоге">
             <Slider items={popularJSON} />
         </Section>
 
@@ -25,6 +25,6 @@ const Home = () => (
         <LastComments />
         <OrderCall />
     </section>
-)
+);
 
 export default Home;
