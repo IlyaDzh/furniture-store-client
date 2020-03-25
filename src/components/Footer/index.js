@@ -107,7 +107,7 @@ const Footer = () => {
                             </div>
                             <div className="footer-middle__contact">
                                 <FaEnvelope className="contact__icon" />
-                                <a href="mailto:sale@bestmebelshop.ru">sale@bestmebelshop.ru</a>
+                                <a href="mailto:info@fkm.ru">info@fkm.ru</a>
                             </div>
                             <div className="mb-2">
                                 <button className="btn btn-orange" onClick={() => setShowMeasurer(true)}>

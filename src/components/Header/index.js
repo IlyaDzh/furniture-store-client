@@ -35,7 +35,7 @@ const Header = () => (
                         <div className="header-info">
                             <img src={bell} alt="Feedback" />
                             <div>
-                                <div className="header-info__title">sale@bestmebelshop.ru</div>
+                                <div className="header-info__title">info@fkm.ru</div>
                                 <Link to="#3" className="header-info__feedback">Обратный звонок</Link>
                             </div>
                         </div>

@@ -1,0 +1,21 @@
+@import "styles/_variables.scss";
+
+.contacts {
+    &-list {
+        &__item {
+            display: flex;
+            margin-bottom: 15px;
+
+            .item__icon {
+                margin: 7px 12px 0 0;
+                font-size: 18px;
+            }
+
+            .item__info {
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
