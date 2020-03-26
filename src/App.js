@@ -11,11 +11,11 @@ const App = () => {
 
             <Switch>
                 <Route exact path={["/", "/home"]} component={Home} />
-                <Route exact path="/catalog" component={Catalog} />
+                <Route exact path={["/catalog", "/catalog/:catalogId"]} component={Catalog} />
                 <Route exact path="/about" component={AboutUs} />
                 <Route exact path="/payment-and-delivery" component={PaymentDelivery} />
                 <Route path="/news" component={News} />
-                <Route exact path={["/comments", "/comments/page/:pageUrl"]} component={Comments} />
+                <Route exact path={["/comments", "/comments/page/:pageNumber"]} component={Comments} />
                 <Route path="/contacts" component={Contacts} />
                 <Route path="/privacy-policy" component={PrivacyPolicy} />
             </Switch>

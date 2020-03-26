@@ -8,17 +8,17 @@ import { Pagination, CardNews } from 'components';
 
 const NewsByPage = ({ fetchNews, setCurrentPage, items, currentPage, totalPage, setError, error, isLoading }) => {
     let history = useHistory();
-    let { pageUrl } = useParams();
+    let { pageNumber } = useParams();
 
     useEffect(() => {
-        if (pageUrl) {
-            fetchNews(pageUrl);
+        if (pageNumber) {
+            fetchNews(pageNumber);
         } else {
             fetchNews(1);
         }
         return () => setError(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pageUrl]);
+    }, [pageNumber]);
 
     const changePage = page => {
         setCurrentPage(page);

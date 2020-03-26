@@ -8,17 +8,17 @@ import { Pagination, Comment } from 'components';
 
 const CommentsAll = ({ fetchComments, setCurrentPage, items, currentPage, totalPage, setError, error, isLoading }) => {
     let history = useHistory();
-    let { pageUrl } = useParams();
+    let { pageNumber } = useParams();
 
     useEffect(() => {
-        if (pageUrl) {
-            fetchComments(pageUrl);
+        if (pageNumber) {
+            fetchComments(pageNumber);
         } else {
             fetchComments(1);
         }
         return () => setError(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pageUrl]);
+    }, [pageNumber]);
 
     const changePage = page => {
         setCurrentPage(page);
