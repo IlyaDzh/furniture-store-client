@@ -1,7 +1,37 @@
-.rc-collapse {
+@import 'styles/_variables.scss';
+
+.catalog .rc-collapse {
+    background-color: #fff;
+    border-radius: 0px;
+
     &-header {
         flex-direction: row-reverse;
         justify-content: space-between;
+        font-weight: 500;
         outline: 0;
+    }
+
+    .rc-slider {
+        &-track {
+            background-color: $orange--hover;
+        }
+
+        &-handle {
+            border-color: $orange--hover;
+
+            &:hover {
+                border-color: $orange;
+            }
+
+            &:active {
+                border-color: $orange;
+                box-shadow: 0 0 0 5px $orange--hover;
+            }
+
+            &-dragging {
+                border-color: $orange !important;
+                box-shadow: 0 0 0 5px $orange--hover !important;
+            }
+        }
     }
 }

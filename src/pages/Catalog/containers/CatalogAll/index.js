@@ -1,11 +1,8 @@
 import React from "react";
 
-import { Collapse } from "../../components";
-
 const CatalogAll = () => {
     return (
-        <div>
-            <Collapse />
+        <div className="">
             <p>Test</p>
         </div>
     );
