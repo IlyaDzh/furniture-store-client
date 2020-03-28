@@ -2,7 +2,11 @@
 
 .catalog .rc-collapse {
     background-color: #fff;
-    border-radius: 0px;
+
+    p,
+    label {
+        margin: 0;
+    }
 
     &-header {
         flex-direction: row-reverse;
@@ -11,7 +15,19 @@
         outline: 0;
     }
 
+    &-footer {
+        border-top: 1px solid #d9d9d9;
+        padding: 10px 16px;
+        display: flex;
+
+        button {
+            width: 100%;
+        }
+    }
+
     .rc-slider {
+        margin-bottom: 10px;
+
         &-track {
             background-color: $orange--hover;
         }
@@ -31,6 +47,27 @@
             &-dragging {
                 border-color: $orange !important;
                 box-shadow: 0 0 0 5px $orange--hover !important;
+            }
+        }
+    }
+
+    .rc-checkbox {
+        &-checked {
+            .rc-checkbox-inner {
+                border-color: $orange--hover;
+                background-color: $orange--hover;
+            }
+        }
+
+        &-input:focus {
+            &+.rc-checkbox-inner {
+                border-color: $orange--hover;
+            }
+        }
+
+        &:hover {
+            .rc-checkbox-inner {
+                border-color: $orange--hover;
             }
         }
     }

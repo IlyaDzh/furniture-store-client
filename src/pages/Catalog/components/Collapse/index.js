@@ -1,9 +1,48 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { Form, Col, Button } from "react-bootstrap";
 import BaseCollapse from "rc-collapse";
 import Slider from "rc-slider";
-import { Form, Col } from "react-bootstrap";
 
 import "./Collapse.scss";
+
+const checkboxesType = [
+    {
+        id: 1,
+        name: "isNew",
+        label: "Банкетки"
+    },
+    {
+        id: 2,
+        name: "isHit",
+        label: "Диваны"
+    },
+    {
+        id: 3,
+        name: "is_new",
+        label: "Зеркала"
+    },
+    {
+        id: 4,
+        name: "is_hit",
+        label: "Комоды"
+    },
+    {
+        id: 5,
+        name: "is_hit",
+        label: "Кресла"
+    },
+    {
+        id: 6,
+        name: "is_new",
+        label: "Кровати"
+    },
+    {
+        id: 7,
+        name: "is_hit",
+        label: "Полки"
+    }
+];
 
 const Collapse = () => {
     const [maxValue, setMaxValue] = useState(75000);
@@ -11,15 +50,20 @@ const Collapse = () => {
     const [rangeValue, setRangeValue] = useState([minValue, maxValue]);
     const [lowerBound, setLowerBound] = useState(minValue);
     const [upperBound, setUpperBound] = useState(maxValue);
+    const { register, handleSubmit } = useForm();
 
-    const onLowerBoundChange = e => {
-        setLowerBound(e.target.value);
-        setRangeValue([e.target.value, upperBound]);
+    const onSubmit = data => {
+        console.log(data);
     };
 
-    const onUpperBoundChange = e => {
-        setUpperBound(e.target.value);
-        setRangeValue([lowerBound, e.target.value]);
+    const onLowerBoundChange = ({ target: { value } }) => {
+        setLowerBound(value);
+        setRangeValue([value, upperBound]);
+    };
+
+    const onUpperBoundChange = ({ target: { value } }) => {
+        setUpperBound(value);
+        setRangeValue([lowerBound, value]);
     };
 
     const onSliderChange = value => {
@@ -29,33 +73,63 @@ const Collapse = () => {
     };
 
     return (
-        <BaseCollapse defaultActiveKey="0">
-            <BaseCollapse.Panel header="Цена">
-                <Form.Row>
-                    <Form.Group as={Col} controlId="">
-                        <Form.Label>От</Form.Label>
-                        <Form.Control value={lowerBound} onChange={onLowerBoundChange} />
-                    </Form.Group>
-                    <Form.Group as={Col} controlId="">
-                        <Form.Label>До</Form.Label>
-                        <Form.Control value={upperBound} onChange={onUpperBoundChange} />
-                    </Form.Group>
-                </Form.Row>
-                <Slider.Range
-                    allowCross={false}
-                    step={10}
-                    min={minValue}
-                    max={maxValue}
-                    value={rangeValue}
-                    onChange={onSliderChange}
-                />
-            </BaseCollapse.Panel>
-            <BaseCollapse.Panel header="Вид">this is panel content</BaseCollapse.Panel>
-            <BaseCollapse.Panel header="Цвет">this is panel content</BaseCollapse.Panel>
-            <BaseCollapse.Panel header="Стиль">this is panel content</BaseCollapse.Panel>
-            <BaseCollapse.Panel header="Форма">this is panel content</BaseCollapse.Panel>
-            <BaseCollapse.Panel header="Материал">this is panel content</BaseCollapse.Panel>
-        </BaseCollapse>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            <BaseCollapse defaultActiveKey="0">
+                <BaseCollapse.Panel header="Цена">
+                    <Form.Row>
+                        <Form.Group as={Col}>
+                            <Form.Label>От</Form.Label>
+                            <Form.Control
+                                size="sm"
+                                type="number"
+                                name="lowerBound"
+                                value={lowerBound}
+                                onChange={onLowerBoundChange}
+                                ref={register}
+                            />
+                        </Form.Group>
+                        <Form.Group as={Col}>
+                            <Form.Label>До</Form.Label>
+                            <Form.Control
+                                size="sm"
+                                type="number"
+                                name="upperBound"
+                                value={upperBound}
+                                onChange={onUpperBoundChange}
+                                ref={register}
+                            />
+                        </Form.Group>
+                    </Form.Row>
+                    <Slider.Range
+                        allowCross={false}
+                        step={10}
+                        min={minValue}
+                        max={maxValue}
+                        value={rangeValue}
+                        onChange={onSliderChange}
+                    />
+                    <Form.Check name="isNew" label="Новинки" ref={register} />
+                    <Form.Check name="isHit" label="Хит продаж" ref={register} />
+                </BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Вид">
+                    {checkboxesType.map(item => (
+                        <Form.Check key={item.id} name={item.label} label={item.label} ref={register} />
+                    ))}
+                </BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Цвет">this is panel content</BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Стиль">this is panel content</BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Форма">this is panel content</BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Материал">this is panel content</BaseCollapse.Panel>
+                <div className="rc-collapse-footer">
+                    <Button variant="link" type="reset">
+                        Сбросить
+                    </Button>
+                    <Button className="btn-orange" type="submit">
+                        Найти
+                    </Button>
+                </div>
+            </BaseCollapse>
+        </Form>
     );
 };
 
