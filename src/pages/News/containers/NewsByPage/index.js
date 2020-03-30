@@ -1,12 +1,21 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { Spinner } from 'react-bootstrap';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { Spinner } from "react-bootstrap";
+import { useHistory, useParams } from "react-router-dom";
 
-import { newsActions } from 'actions';
-import { Pagination, CardNews } from 'components';
+import { newsActions } from "actions";
+import { Pagination, CardNews } from "components";
 
-const NewsByPage = ({ fetchNews, setCurrentPage, items, currentPage, totalPage, setError, error, isLoading }) => {
+const NewsByPage = ({
+    fetchNews,
+    setCurrentPage,
+    items,
+    currentPage,
+    totalPage,
+    setError,
+    error,
+    isLoading
+}) => {
     let history = useHistory();
     let { pageNumber } = useParams();
 
@@ -22,25 +31,27 @@ const NewsByPage = ({ fetchNews, setCurrentPage, items, currentPage, totalPage, 
 
     const changePage = page => {
         setCurrentPage(page);
-        history.push('/news/page/' + page);
-    }
+        history.push("/news/page/" + page);
+    };
 
     return (
         <>
             <div className="row">
-                {
-                    isLoading ? <div className='spinner'><Spinner animation="border" variant="warning" /></div>
-                        : error ? <div>Error</div>
-                            : items.length > 0 && items.map(item => (
-                                <CardNews key={item.id} {...item} />
-                            ))
-                }
+                {isLoading ? (
+                    <div className="spinner">
+                        <Spinner animation="border" variant="warning" />
+                    </div>
+                ) : error ? (
+                    <div>Error</div>
+                ) : (
+                    items.length > 0 && items.map(item => <CardNews key={item._id} {...item} />)
+                )}
             </div>
 
             <Pagination total={totalPage} current={currentPage} onChange={changePage} />
         </>
-    )
-}
+    );
+};
 
 export default connect(
     ({ news }) => ({

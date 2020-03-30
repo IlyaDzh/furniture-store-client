@@ -8,7 +8,7 @@ const News = () => (
     <Section className="news" title="Новости">
         <ScrollToTop />
         <Switch>
-            <Route exact path={["/news", "/news/page/:pageUrl"]} component={NewsByPage} />
+            <Route exact path={["/news", "/news/page/:pageNumber"]} component={NewsByPage} />
             <Route exact path="/news/:newsId" component={NewsById} />
         </Switch>
     </Section>

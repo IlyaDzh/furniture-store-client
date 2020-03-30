@@ -28,9 +28,9 @@ const actions = {
     fetchNews: page => dispatch => {
         dispatch(actions.setIsLoading(true));
         newsApi.getAll(page).then(({ data }) => {
-            dispatch(actions.setNews(data[0].results));
-            dispatch(actions.setCurrentPage(data[0].page));
-            dispatch(actions.setTotalPage(data[0].total_page));
+            dispatch(actions.setNews(data.results));
+            dispatch(actions.setCurrentPage(data.page));
+            dispatch(actions.setTotalPage(data.total_page));
         }).catch(() => {
             dispatch(actions.setIsLoading(false));
             dispatch(actions.setError(true));
