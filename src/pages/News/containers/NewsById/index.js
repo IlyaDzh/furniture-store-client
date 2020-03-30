@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { Spinner } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { Spinner } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
-import { newsActions } from 'actions';
+import { newsActions } from "actions";
 
 const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
     let { newsId } = useParams();
@@ -18,19 +18,23 @@ const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
 
     return (
         <div className="">
-            {
-                isLoading ? <div className='spinner'><Spinner animation="border" variant="warning" /></div>
-                    : error ? <div>Error</div>
-                        : item && (
-                            <>
-                                {item.title}
-                                {item.description}
-                            </>
-                        )
-            }
+            {isLoading ? (
+                <div className="spinner">
+                    <Spinner animation="border" variant="warning" />
+                </div>
+            ) : error ? (
+                <div>Error</div>
+            ) : (
+                item && (
+                    <>
+                        {item.title}
+                        {item.short_description}
+                    </>
+                )
+            )}
         </div>
-    )
-}
+    );
+};
 
 export default connect(
     ({ news }) => ({
