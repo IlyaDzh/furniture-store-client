@@ -1,0 +1,21 @@
+.full-news {
+    &__title {
+        font-size: 24px;
+        font-weight: 400;
+        padding-bottom: 14px;
+        border-bottom: 1px solid #d6d6d6;
+        margin-bottom: 15px;
+    }
+
+    &__image {
+        img {
+            width: 100%;
+        }
+    }
+
+    &__date {
+        margin-top: 15px;
+        margin-bottom: 35px;
+        color: #636466;
+    }
+}

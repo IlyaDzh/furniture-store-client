@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
+import { FullNews } from "../../components";
 import { newsActions } from "actions";
 
 const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
@@ -17,7 +18,7 @@ const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
     }, [newsId]);
 
     return (
-        <div className="">
+        <>
             {isLoading ? (
                 <div className="spinner">
                     <Spinner animation="border" variant="warning" />
@@ -25,14 +26,9 @@ const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
             ) : error ? (
                 <div>Error</div>
             ) : (
-                item && (
-                    <>
-                        {item.title}
-                        {item.short_description}
-                    </>
-                )
+                item && <FullNews {...item} />
             )}
-        </div>
+        </>
     );
 };
 

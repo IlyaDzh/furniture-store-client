@@ -17,7 +17,7 @@ const LastNews = ({ fetchNews, news }) => {
             <div className="row">
                 {news.length > 0 && (
                     news.map(item => (
-                        <CardNews key={item.id} {...item} />
+                        <CardNews key={item._id} {...item} />
                     ))
                 )}
             </div>
