@@ -18,9 +18,11 @@ const NewsAside = ({ fetchLastNews, news }) => {
 
     return (
         <div className="news-aside">
-            <p>Вам может быть интересно:</p>
+            <h5>Вам может быть интересно:</h5>
             {news.length > 0 &&
-                news.map(item => item._id !== newsId && <AsideCard key={item._id} {...item} />)}
+                news.map(
+                    item => item._id !== newsId && <AsideCard key={item._id} {...item} />
+                )}
         </div>
     );
 };

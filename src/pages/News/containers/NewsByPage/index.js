@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Spinner } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 
 import { newsActions } from "actions";
-import { Pagination, CardNews } from "components";
+import { Spinner, Pagination, CardNews } from "components";
 
 const NewsByPage = ({
     fetchNews,
@@ -38,13 +37,12 @@ const NewsByPage = ({
         <>
             <div className="row">
                 {isLoading ? (
-                    <div className="spinner">
-                        <Spinner animation="border" variant="warning" />
-                    </div>
+                    <Spinner />
                 ) : error ? (
                     <div>Error</div>
                 ) : (
-                    items.length > 0 && items.map(item => <CardNews key={item._id} {...item} />)
+                    items.length > 0 &&
+                    items.map(item => <CardNews key={item._id} {...item} />)
                 )}
             </div>
 

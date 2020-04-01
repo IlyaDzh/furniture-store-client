@@ -1,9 +1,7 @@
 .news-aside {
-    p {
-        font-size: 18px;
-        font-weight: 400;
+    & > h5 {
+        margin-bottom: 15px;
         padding-bottom: 14px;
         border-bottom: 1px solid #d6d6d6;
-        margin-bottom: 15px;
     }
 }

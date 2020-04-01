@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import { ScrollToTop, Section } from "components";
-import { NewsByPage, NewsById, NewsAside } from "./containers";
+import { NewsByPage, NewsById, NewsSubs, NewsAside } from "./containers";
 
 const News = () => (
     <Section className="news" title="Новости">
@@ -18,6 +18,7 @@ const News = () => (
                             <NewsById />
                         </div>
                         <div className="col-lg-3">
+                            <NewsSubs />
                             <NewsAside />
                         </div>
                     </div>

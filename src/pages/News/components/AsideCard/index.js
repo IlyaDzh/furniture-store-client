@@ -18,12 +18,6 @@ const AsideCard = ({ _id, image, title }) => {
     );
 };
 
-AsideCard.defaultProps = {
-    _id: "5e8227b79c9b3418647db089",
-    image: "https://source.unsplash.com/featured/?sofa/9",
-    title: "Тест боковая панель"
-};
-
 AsideCard.propTypes = {
     _id: PropTypes.string,
     image: PropTypes.string,

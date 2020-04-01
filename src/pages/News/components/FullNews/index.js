@@ -7,7 +7,7 @@ import "./FullNews.scss";
 const FullNews = ({ image, title, description, date }) => {
     return (
         <div className="full-news">
-            <h5 className="full-news__title">{title}</h5>
+            <h4 className="full-news__title">{title}</h4>
             <div className="full-news__image">
                 <img src={image} alt="" />
             </div>

@@ -1,24 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { FaRegArrowAltCircleUp } from 'react-icons/fa';
-import classNames from 'classnames';
+import React, { useEffect, useState } from "react";
+import { FaRegArrowAltCircleUp } from "react-icons/fa";
+import classNames from "classnames";
 
-import './ScrollUp.scss';
+import "./ScrollUp.scss";
 
 const ScrollUp = () => {
     const [height, setHeight] = useState();
 
+    // const handleSetHeight = useCallback(() => {
+    //     setHeight(window.pageYOffset);
+    // });
+
     useEffect(() => {
-        window.addEventListener('scroll', () => setHeight(window.pageYOffset))
+        const handleSetHeight = () => {
+            setHeight(window.pageYOffset);
+        };
+        window.addEventListener("scroll", handleSetHeight);
+        return () => window.removeEventListener("scroll", handleSetHeight);
     });
 
     return (
         <button
-            className={classNames('scrollup', { 'scrollup--show': height > 650 })}
-            onClick={() => window.scroll({ top: 0, left: 0, behavior: 'smooth' })}
+            className={classNames("scrollup", { "scrollup--show": height > 650 })}
+            onClick={() => window.scroll({ top: 0, left: 0, behavior: "smooth" })}
         >
             <FaRegArrowAltCircleUp />
         </button>
-    )
-}
+    );
+};
 
 export default ScrollUp;

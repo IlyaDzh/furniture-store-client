@@ -1,0 +1,20 @@
+.news-subs {
+    margin-bottom: 40px;
+
+    &--result {
+        text-align: center;
+        opacity: 0.8;
+    }
+
+    h5 {
+        margin-bottom: 15px;
+    }
+
+    &__input {
+        margin-bottom: 10px;
+    }
+
+    .btn-orange {
+        width: 100%;
+    }
+}

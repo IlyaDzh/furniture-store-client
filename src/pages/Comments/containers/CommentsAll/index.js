@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Spinner } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 
 import { commentsActions } from "actions";
-import { Pagination, Comment } from "components";
+import { Spinner, Pagination, Comment } from "components";
 
 const CommentsAll = ({
     fetchComments,
@@ -38,9 +37,7 @@ const CommentsAll = ({
         <>
             <div className="row">
                 {isLoading ? (
-                    <div className="spinner">
-                        <Spinner animation="border" variant="warning" />
-                    </div>
+                    <Spinner />
                 ) : error ? (
                     <div>Error</div>
                 ) : (
