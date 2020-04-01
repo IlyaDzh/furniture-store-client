@@ -5,6 +5,10 @@ const actions = {
         type: "COMMENTS:SET_ITEMS",
         payload: items
     }),
+    setLastComments: items => ({
+        type: "COMMENTS:SET_LAST_ITEMS",
+        payload: items
+    }),
     setCurrentPage: page => ({
         type: "COMMENTS:SET_CURRENT_PAGE",
         payload: page
@@ -34,6 +38,11 @@ const actions = {
                 dispatch(actions.setIsLoading(false));
                 dispatch(actions.setError(true));
             });
+    },
+    fetchLastComments: () => dispatch => {
+        commentsApi.getLastComments().then(({ data }) => {
+            dispatch(actions.setLastComments(data));
+        });
     }
 };
 

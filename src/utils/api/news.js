@@ -2,5 +2,6 @@ import { axios } from 'core';
 
 export default {
     getAll: page => axios.get('/news?page=' + page),
-    getById: id => axios.get('/news/' + id)
+    getById: id => axios.get('/news/' + id),
+    getLastNews: () => axios.get("/news/last"),
 };

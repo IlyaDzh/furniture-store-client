@@ -9,6 +9,10 @@ const actions = {
         type: "NEWS:SET_CURRENT_ITEM",
         payload: item
     }),
+    setLastNews: item => ({
+        type: "NEWS:SET_LAST_ITEMS",
+        payload: item
+    }),
     setCurrentPage: page => ({
         type: "NEWS:SET_CURRENT_PAGE",
         payload: page
@@ -55,6 +59,11 @@ const actions = {
                 dispatch(actions.setIsLoading(false));
                 dispatch(actions.setError(true));
             });
+    },
+    fetchLastNews: () => dispatch => {
+        newsApi.getLastNews().then(({ data }) => {
+            dispatch(actions.setLastNews(data));
+        });
     }
 };
 
