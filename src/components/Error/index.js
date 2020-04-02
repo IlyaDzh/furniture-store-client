@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import errorImage from "assets/error-smile.png";
+import errorImage from "assets/error.png";
 import "./Error.scss";
 
 const Error = () => (
@@ -13,16 +14,12 @@ const Error = () => (
             </div>
             <h2>Oops! Страница не найдена</h2>
             <p>
-                Извините, но страница, которую вы ищете, не существует, удалена или временно
-                недоступна
+                Извините, но страница, которую вы ищете, не существует, удалена или
+                временно недоступна
             </p>
-            <button
-                className="btn btn-orange"
-                type="button"
-                onClick={() => console.log("click")}
-            >
+            <Link to="/" className="btn btn-orange">
                 Вернуться на главную страницу
-            </button>
+            </Link>
         </div>
     </section>
 );

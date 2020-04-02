@@ -1,5 +1,6 @@
 .not-found {
     padding: 30px 20px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,6 +15,7 @@
             font-size: 146px;
             font-weight: 700;
             margin: 0px;
+            color: rgba(0, 0, 0, 0.75);
 
             &>span {
                 display: inline-block;

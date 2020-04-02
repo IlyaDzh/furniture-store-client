@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { Header, ScrollUp, Footer, Error } from "components";
+import { Header, ScrollToTop, ScrollUp, Footer, Error } from "components";
 import {
     Home,
     Catalog,
@@ -17,12 +17,21 @@ const App = () => {
     return (
         <div className="wrapper">
             <Header />
+            <ScrollToTop />
 
             <Switch>
                 <Route exact path={["/", "/home"]} component={Home} />
-                <Route exact path={["/catalog", "/catalog/:catalogId"]} component={Catalog} />
+                <Route
+                    exact
+                    path={["/catalog", "/catalog/:catalogId"]}
+                    component={Catalog}
+                />
                 <Route exact path="/about" component={AboutUs} />
-                <Route exact path="/payment-and-delivery" component={PaymentDelivery} />
+                <Route
+                    exact
+                    path="/payment-and-delivery"
+                    component={PaymentDelivery}
+                />
                 <Route path="/news" component={News} />
                 <Route
                     exact

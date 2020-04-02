@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
 import { commentsActions } from "actions";
-import { Spinner, Pagination, Comment } from "components";
+import { Spinner, Pagination, Comment, Error } from "components";
 
 const CommentsAll = ({
     fetchComments,
@@ -39,13 +39,18 @@ const CommentsAll = ({
                 {isLoading ? (
                     <Spinner />
                 ) : error ? (
-                    <div>Error</div>
+                    <Error />
                 ) : (
-                    items.length > 0 && items.map(item => <Comment key={item._id} {...item} />)
+                    items.length > 0 &&
+                    items.map(item => <Comment key={item._id} {...item} />)
                 )}
             </div>
 
-            <Pagination total={totalPage} current={currentPage} onChange={changePage} />
+            <Pagination
+                total={totalPage}
+                current={currentPage}
+                onChange={changePage}
+            />
         </>
     );
 };

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
 import { newsActions } from "actions";
-import { Spinner, Pagination, CardNews } from "components";
+import { Spinner, Pagination, CardNews, Error } from "components";
 
 const NewsByPage = ({
     fetchNews,
@@ -39,14 +39,18 @@ const NewsByPage = ({
                 {isLoading ? (
                     <Spinner />
                 ) : error ? (
-                    <div>Error</div>
+                    <Error />
                 ) : (
                     items.length > 0 &&
                     items.map(item => <CardNews key={item._id} {...item} />)
                 )}
             </div>
 
-            <Pagination total={totalPage} current={currentPage} onChange={changePage} />
+            <Pagination
+                total={totalPage}
+                current={currentPage}
+                onChange={changePage}
+            />
         </>
     );
 };
