@@ -1,11 +1,13 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import home from './home';
-import comments from './comments';
-import news from './news';
+import home from "./home";
+import info from "./info";
+import news from "./news";
+import comments from "./comments";
 
 export default combineReducers({
     home,
-    news,
-    comments
+    info,
+    comments,
+    news
 });
