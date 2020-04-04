@@ -46,11 +46,13 @@ const NewsByPage = ({
                 )}
             </div>
 
-            <Pagination
-                total={totalPage}
-                current={currentPage}
-                onChange={changePage}
-            />
+            {!error && (
+                <Pagination
+                    total={totalPage}
+                    current={currentPage}
+                    onChange={changePage}
+                />
+            )}
         </>
     );
 };

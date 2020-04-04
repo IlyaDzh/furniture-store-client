@@ -2,7 +2,8 @@ const initialState = {
     about: null,
     service: null,
     contacts: null,
-    error: false
+    error: false,
+    isLoading: false
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -10,22 +11,30 @@ export default (state = initialState, { type, payload }) => {
         case "INFO:SET_ABOUT":
             return {
                 ...state,
-                about: payload
+                about: payload,
+                isLoading: false
             };
         case "INFO:SET_SERVICE":
             return {
                 ...state,
-                service: payload
+                service: payload,
+                isLoading: false
             };
         case "INFO:SET_CONTACTS":
             return {
                 ...state,
-                contacts: payload
+                contacts: payload,
+                isLoading: false
             };
         case "INFO:SET_ERROR":
             return {
                 ...state,
                 error: payload
+            };
+        case "INFO:SET_IS_LOADING":
+            return {
+                ...state,
+                isLoading: payload
             };
         default:
             return state;

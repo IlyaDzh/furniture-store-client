@@ -4,28 +4,26 @@ import PropTypes from "prop-types";
 import { getConvertTime } from "utils/helpers";
 import "./FullNews.scss";
 
-const FullNews = ({ image, title, description, date }) => {
-    return (
-        <div className="full-news">
-            <h4 className="full-news__title">{title}</h4>
-            <div className="full-news__image">
-                <img src={image} alt="" />
-            </div>
-            <div className="full-news__date">{date && getConvertTime(date)}</div>
-            {description &&
-                description.map(item => {
-                    if (item.type === "Image") {
-                        return (
-                            <div className="full-news__image" key={item._id}>
-                                <img src={item.content} alt="" />
-                            </div>
-                        );
-                    }
-                    return <p key={item._id}>{item.content}</p>;
-                })}
+const FullNews = ({ image, title, description, date }) => (
+    <div className="full-news">
+        <h4 className="full-news__title">{title}</h4>
+        <div className="full-news__image">
+            <img src={image} alt="" />
         </div>
-    );
-};
+        <div className="full-news__date">{date && getConvertTime(date)}</div>
+        {description &&
+            description.map(item => {
+                if (item.type === "Image") {
+                    return (
+                        <div className="full-news__image" key={item._id}>
+                            <img src={item.content} alt="" />
+                        </div>
+                    );
+                }
+                return <p key={item._id}>{item.content}</p>;
+            })}
+    </div>
+);
 
 FullNews.propTypes = {
     image: PropTypes.string,
