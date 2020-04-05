@@ -5,6 +5,7 @@ import { Header, ScrollToTop, ScrollUp, Footer, Error } from "components";
 import {
     Home,
     Catalog,
+    Product,
     AboutUs,
     PaymentDelivery,
     News,
@@ -21,11 +22,8 @@ const App = () => {
 
             <Switch>
                 <Route exact path={["/", "/home"]} component={Home} />
-                <Route
-                    exact
-                    path={["/catalog", "/catalog/:catalogId"]}
-                    component={Catalog}
-                />
+                <Route path="/catalog" component={Catalog} />
+                <Route exact path="/product/:productId" component={Product} />
                 <Route exact path="/about" component={AboutUs} />
                 <Route
                     exact

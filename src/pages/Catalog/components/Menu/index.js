@@ -4,7 +4,7 @@ import { Form, Col, Button } from "react-bootstrap";
 import BaseCollapse from "rc-collapse";
 import Slider from "rc-slider";
 
-import "./Collapse.scss";
+import "./Menu.scss";
 
 const checkboxesType = [
     {
@@ -44,7 +44,7 @@ const checkboxesType = [
     }
 ];
 
-const Collapse = () => {
+const Menu = () => {
     const [maxValue, setMaxValue] = useState(75000);
     const [minValue, setMinValue] = useState(0);
     const [rangeValue, setRangeValue] = useState([minValue, maxValue]);
@@ -133,4 +133,4 @@ const Collapse = () => {
     );
 };
 
-export default Collapse;
+export default Menu;

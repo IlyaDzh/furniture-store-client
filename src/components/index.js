@@ -11,6 +11,7 @@ export { default as Footer } from "./Footer";
 export { default as Navbar } from "./Navbar";
 export { default as Section } from "./Section";
 export { default as Slider } from "./Slider";
+export { default as SliderArrow } from "./SliderArrow";
 export { default as Card } from "./Card";
 export { default as CardNews } from "./CardNews";
 export { default as Comment } from "./Comment";

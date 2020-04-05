@@ -9,34 +9,3 @@
         height: 100%;
     }
 }
-
-.btn-arrow {
-    position: absolute;
-    top: 50%;
-    display: block;
-    padding: 0;
-    height: 80px;
-    transform: translate(0, -50%);
-    cursor: pointer;
-    color: transparent;
-    border: none;
-    outline: 0 !important;
-    background: transparent;
-
-    &--prev {
-        left: -35px;
-    }
-
-    &--next {
-        right: -35px;
-    }
-
-    &__icon {
-        font-size: 38px;
-        color: #000;
-
-        &:hover {
-            color: rgba(#000, 0.75);
-        }
-    }
-}

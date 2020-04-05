@@ -1,0 +1,114 @@
+@import "styles/_variables.scss";
+
+.product {
+    &__name {
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .slick-current {
+        .small-slick__image {
+            outline: 1px solid $orange;
+            outline-offset: -1px;
+        }
+    }
+
+    .big-slick {
+        margin-bottom: 10px;
+        padding: 10px 5px;
+        border: 1px solid #dddddd;
+        outline: none;
+    }
+
+    .big-slick__image,
+    .small-slick__image {
+        height: 100%;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+
+    .big-slick__image {
+        img {
+            max-height: 310px;
+        }
+    }
+
+    .small-slick__image {
+        padding: 5px 10px;
+
+        img {
+            max-height: 100px;
+            height: 100%;
+        }
+
+        &:focus {
+            outline: 1px solid $orange;
+            outline-offset: -1px;
+        }
+    }
+
+    .product-price {
+        display: flex;
+        align-items: baseline;
+
+        &>div:first-child {
+            margin-right: 14px;
+        }
+
+        &__old {
+            font-size: 15px;
+            font-weight: 300;
+            text-decoration: line-through;
+        }
+
+        &__current {
+            font-size: 25px;
+            font-weight: bold;
+            opacity: 0.9;
+
+            &-measure {
+                font-size: 17px;
+            }
+        }
+    }
+
+    .product-discount {
+        display: flex;
+        align-items: baseline;
+        margin-top: 15px;
+
+        &>div:first-child {
+            margin-right: 14px;
+        }
+
+        &__percent {
+            display: inline-block;
+            font-size: 15px;
+            font-weight: bold;
+            color: #d50000;
+            border: 2px solid #d50000;
+            border-radius: 4px;
+            padding: 4px 10px;
+        }
+
+        &__value {
+            display: inline-block;
+            font-size: 14px;
+            border: 2px solid #ff9800;
+            border-radius: 4px;
+            padding: 4px 10px;
+
+            &>span {
+                font-size: 15px;
+                font-weight: bold;
+            }
+        }
+    }
+}

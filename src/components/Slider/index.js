@@ -1,26 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import BaseSlider from "react-slick";
-import { IconContext } from "react-icons";
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 
-import { Card } from 'components';
+import { SliderArrow, Card } from 'components';
 import './Slider.scss';
-
-const SliderArrow = ({ onClick, to }) => {
-    return (
-        <button
-            type="button"
-            onClick={onClick}
-            className={classNames('btn-arrow', { 'btn-arrow--prev': to === 'prev', 'btn-arrow--next': to === 'next' })}
-        >
-            <IconContext.Provider value={{ className: "btn-arrow__icon" }} >
-                {to === 'prev' ? <IoIosArrowBack /> : <IoIosArrowForward />}
-            </IconContext.Provider>
-        </button >
-    );
-}
 
 const Slider = ({ items }) => {
     const settings = {
