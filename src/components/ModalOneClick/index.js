@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Modal as BaseModal, Form, Button } from "react-bootstrap";
 
-const ModalMeasurer = props => (
+const ModalOneClick = props => (
     <BaseModal className="my-modal" centered {...props}>
         <BaseModal.Header closeButton>
-            <BaseModal.Title>Вызвать замерщика</BaseModal.Title>
+            <BaseModal.Title>Заказать товар в 1 клик</BaseModal.Title>
         </BaseModal.Header>
         <BaseModal.Body>
             <Form>
@@ -16,13 +16,7 @@ const ModalMeasurer = props => (
                     <Form.Control placeholder="Телефон" />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Control placeholder="Адрес" />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Control placeholder="Желательное время приезда" />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Control type="date" placeholder="Дата" />
+                    <Form.Control placeholder="Комментарий" />
                 </Form.Group>
                 <Button className="btn-orange">Отправить</Button>
             </Form>
@@ -38,4 +32,4 @@ const ModalMeasurer = props => (
     </BaseModal>
 );
 
-export default ModalMeasurer;
+export default ModalOneClick;

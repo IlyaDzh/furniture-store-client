@@ -26,6 +26,10 @@
         }
     }
 
+    &-nav .nav-link:not(.navbar__registry) {
+        color: rgba(0, 0, 0, 0.65) !important;
+    }
+
     .nav-link {
         font-size: 14px;
 
@@ -46,6 +50,13 @@
     &__registry {
         display: flex !important;
         align-items: center;
+    }
+
+    &__registry {
+        color: rgba(0, 0, 0, 0.65) !important;
+        &:hover {
+            color: $orange--hover !important;
+        }
     }
 }
 
@@ -90,7 +101,7 @@
             }
 
             &:hover {
-                color: rgba(0, 0, 0, 0.6) !important;
+                color: rgba(0, 0, 0, 0.65) !important;
             }
         }
     }

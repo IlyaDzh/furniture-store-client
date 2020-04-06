@@ -1,23 +1,66 @@
 @import "styles/_variables.scss";
 
 .product {
+    .price-wrapper {
+        position: sticky;
+        top: 0;
+        height: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .breadcrumbs {
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: black;
+
+        a {
+            color: black;
+        }
+
+        span {
+            opacity: 0.45;
+        }
+    }
+
     &__name {
         margin-bottom: 30px;
-        opacity: 0.9;
     }
 
     .slick-current {
         .small-slick__image {
-            outline: 1px solid $orange;
+            outline: 1px solid #dddddd;
             outline-offset: -1px;
         }
     }
 
     .big-slick {
         margin-bottom: 10px;
-        padding: 10px 5px;
         border: 1px solid #dddddd;
         outline: none;
+
+        &__image {
+            img {
+                max-height: 330px;
+            }
+        }
+    }
+
+    .small-slick {
+        margin-bottom: 30px;
+
+        &__image {
+            img {
+                max-height: 80px;
+                height: 100%;
+            }
+
+            &:focus {
+                outline: 1px solid #dddddd;
+                outline-offset: -1px;
+            }
+        }
     }
 
     .big-slick__image,
@@ -34,29 +77,10 @@
         }
     }
 
-    .big-slick__image {
-        img {
-            max-height: 310px;
-        }
-    }
-
-    .small-slick__image {
-        padding: 5px 10px;
-
-        img {
-            max-height: 100px;
-            height: 100%;
-        }
-
-        &:focus {
-            outline: 1px solid $orange;
-            outline-offset: -1px;
-        }
-    }
-
     .product-price {
         display: flex;
         align-items: baseline;
+        margin-bottom: 20px;
 
         &>div:first-child {
             margin-right: 14px;
@@ -82,7 +106,7 @@
     .product-discount {
         display: flex;
         align-items: baseline;
-        margin-top: 15px;
+        margin-bottom: 20px;
 
         &>div:first-child {
             margin-right: 14px;
@@ -92,8 +116,8 @@
             display: inline-block;
             font-size: 15px;
             font-weight: bold;
-            color: #d50000;
-            border: 2px solid #d50000;
+            color: $red;
+            border: 2px solid $red;
             border-radius: 4px;
             padding: 4px 10px;
         }
@@ -101,7 +125,7 @@
         &__value {
             display: inline-block;
             font-size: 14px;
-            border: 2px solid #ff9800;
+            border: 2px solid $orange;
             border-radius: 4px;
             padding: 4px 10px;
 
@@ -109,6 +133,93 @@
                 font-size: 15px;
                 font-weight: bold;
             }
+        }
+    }
+
+    .product-cart {
+        .btn-orange {
+            font-size: 16px;
+        }
+
+        &__buy {
+            color: black;
+            opacity: 0.85;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .nav-tabs {
+        .nav-link {
+            border: none;
+            border-radius: 0;
+            outline: none;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            width: calc(100% / 3);
+            background-color: $orange;
+            color: white;
+
+            &.active {
+                background-color: $orange--hover;
+                color: white;
+            }
+
+            &:hover {
+                background-color: $orange--hover;
+            }
+        }
+    }
+
+    .tab-content {
+        .tab-pane {
+            padding: 10px 0;
+        }
+    }
+
+    .chars-table {
+        width: 100%;
+
+        tr {
+            border-bottom: 1px dotted #dddddd;
+
+            td:last-child {
+                text-align: right;
+            }
+        }
+    }
+
+    .product__pay-del {
+        margin-bottom: 20px;
+
+        p {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #ea9947;
+            font-weight: 500;
+        }
+
+        svg {
+            font-size: 28px;
+            color: $orange;
+        }
+    }
+
+    .comments__title {
+        text-transform: uppercase;
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    .product-comments {
+        .btn-orange {
+            width: 100%;
         }
     }
 }
