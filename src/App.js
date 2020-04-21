@@ -14,37 +14,31 @@ import {
     PrivacyPolicy
 } from "pages";
 
-const App = () => {
-    return (
-        <div className="wrapper">
-            <Header />
-            <ScrollToTop />
+const App = () => (
+    <div className="wrapper">
+        <Header />
+        <ScrollToTop />
 
-            <Switch>
-                <Route exact path={["/", "/home"]} component={Home} />
-                <Route path="/catalog" component={Catalog} />
-                <Route exact path="/product/:productId" component={Product} />
-                <Route exact path="/about" component={AboutUs} />
-                <Route
-                    exact
-                    path="/payment-and-delivery"
-                    component={PaymentDelivery}
-                />
-                <Route path="/news" component={News} />
-                <Route
-                    exact
-                    path={["/comments", "/comments/page/:pageNumber"]}
-                    component={Comments}
-                />
-                <Route path="/contacts" component={Contacts} />
-                <Route path="/privacy-policy" component={PrivacyPolicy} />
-                <Route component={Error} />
-            </Switch>
+        <Switch>
+            <Route exact path={["/", "/home"]} component={Home} />
+            <Route path="/catalog" component={Catalog} />
+            <Route exact path="/product/:productId" component={Product} />
+            <Route exact path="/about" component={AboutUs} />
+            <Route exact path="/payment-and-delivery" component={PaymentDelivery} />
+            <Route path="/news" component={News} />
+            <Route
+                exact
+                path={["/comments", "/comments/page/:pageNumber"]}
+                component={Comments}
+            />
+            <Route path="/contacts" component={Contacts} />
+            <Route path="/privacy-policy" component={PrivacyPolicy} />
+            <Route component={Error} />
+        </Switch>
 
-            <ScrollUp />
-            <Footer />
-        </div>
-    );
-};
+        <ScrollUp />
+        <Footer />
+    </div>
+);
 
 export default App;

@@ -1,0 +1,13 @@
+.product-comments {
+    &__title {
+        text-transform: uppercase;
+        text-align: center;
+        margin: 15px 0;
+    }
+
+    &__form {
+        .btn-orange {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.chars-table {
+    width: 100%;
+
+    tr {
+        border-bottom: 1px dotted #dddddd;
+
+        td:last-child {
+            text-align: right;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@import "styles/_variables.scss";
+
+.product-pay-del {
+    &__item {
+        margin-bottom: 20px;
+
+        p {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: $orange;
+            font-weight: 500;
+
+            &:hover {
+                color: $orange--hover;
+            }
+        }
+
+        svg {
+            font-size: 28px;
+            color: $orange;
+        }
+    }
+}
