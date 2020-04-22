@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Col, Form, Button } from "react-bootstrap";
@@ -8,18 +8,28 @@ import { MdTouchApp } from "react-icons/md";
 import { ModalOneClick } from "components";
 import "./Cart.scss";
 
-const Cart = ({ _id }) => {
+const Cart = ({ handleClick }) => {
     const [showFastBuy, setShowFastBuy] = useState(false);
+    const countRef = useRef();
 
     return (
         <div className="product-cart">
             <Form>
                 <Form.Row>
                     <Form.Group as={Col} xs="3">
-                        <Form.Control type="number" defaultValue="1" />
+                        <Form.Control
+                            ref={countRef}
+                            type="number"
+                            min={1}
+                            max={9}
+                            defaultValue="1"
+                        />
                     </Form.Group>
                     <Form.Group as={Col} xs="9">
-                        <Button className="btn-orange">
+                        <Button
+                            className="btn-orange"
+                            onClick={() => handleClick(countRef)}
+                        >
                             <FaShoppingCart
                                 style={{
                                     fontSize: "18",
@@ -51,7 +61,7 @@ const Cart = ({ _id }) => {
 };
 
 Cart.propTypes = {
-    _id: PropTypes.string
+    handleClick: PropTypes.func
 };
 
 export default Cart;

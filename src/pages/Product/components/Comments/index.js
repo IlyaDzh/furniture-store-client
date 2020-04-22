@@ -1,41 +1,72 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Col, Form, Button } from "react-bootstrap";
 
 import "./Comments.scss";
 
-const Comments = props => (
+const Comments = ({
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleBlur,
+    handleSubmit
+}) => (
     <div className="product-comments">
         <h5 className="product-comments__title">Нам важно ваше мнение</h5>
-        <Form className="product-comments__form">
+        <Form className="product-comments__form" onSubmit={handleSubmit}>
             <Form.Row>
-                <Form.Group as={Col} md={6}>
-                    <Form.Group>
-                        <Form.Control placeholder="Пожалуйста, представьтесь" />
-                    </Form.Group>
-                    <Form.Group style={{ marginBottom: "0" }}>
+                <Form.Group as={Col} md={6} className="form-col">
+                    <Form.Group className="form-col__group">
                         <Form.Control
-                            type="email"
-                            placeholder="Введите ваш E-mail"
+                            name="fullname"
+                            placeholder="Пожалуйста, представьтесь"
+                            isInvalid={touched.fullname && errors.fullname}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.fullname}
                         />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.fullname}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group className="form-col__group">
+                        <Form.Control
+                            name="email"
+                            placeholder="Введите ваш E-mail"
+                            isInvalid={touched.email && errors.email}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.email}
+                        </Form.Control.Feedback>
                     </Form.Group>
                 </Form.Group>
-                <Form.Group as={Col} md={6}>
+                <Form.Group as={Col} md={6} className="form-col">
                     <Form.Control
-                        placeholder="Ваш отзыв"
                         as="textarea"
+                        className="form__textarea"
+                        name="comment"
+                        placeholder="Ваш отзыв"
                         rows="3"
-                        style={{ height: "100%" }}
+                        isInvalid={touched.comment && errors.comment}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.comment}
                     />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.comment}
+                    </Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group as={Col} sm={12} md={4} style={{ margin: "0 auto" }}>
-                    <Button className="btn-orange">Отправить</Button>
+                <Form.Group as={Col} sm={12} md={4} className="form-col-btn">
+                    <Button className="btn-orange" onClick={handleSubmit}>
+                        Отправить
+                    </Button>
                 </Form.Group>
             </Form.Row>
         </Form>
     </div>
 );
-
-Comments.propTypes = {};
 
 export default Comments;
