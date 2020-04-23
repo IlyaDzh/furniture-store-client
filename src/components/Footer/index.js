@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FaPhone, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
 
-import { ModalCall, ModalMeasurer } from "components";
+import { ModalCall, ModalMeasurer } from "containers";
 import "./Footer.scss";
 
 const Footer = () => {

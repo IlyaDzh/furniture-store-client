@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import { Section, ModalMeasurer } from "components";
+import { Section } from "components";
+import { ModalMeasurer } from "containers";
 import designBg from "assets/home/measurer/bg.png";
 import "./Measurer.scss";
 

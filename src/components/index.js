@@ -2,6 +2,7 @@ export { default as ScrollToTop } from "./ScrollToTop";
 export { default as ScrollUp } from "./ScrollUp";
 export { default as Spinner } from "./Spinner";
 export { default as Pagination } from "./Pagination";
+export { default as ReadyInModal } from "./ReadyInModal";
 export { default as ModalLogin } from "./ModalLogin";
 export { default as ModalRegister } from "./ModalRegister";
 export { default as ModalMeasurer } from "./ModalMeasurer";

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { OrderCall as BaseOrderCall } from "../../components";
+import { ModalCall as BaseModalCall } from "components";
+import { phoneRegExp } from "utils/helpers";
 
-const OrderCall = () => {
-    const [callReady, setCallReady] = useState(false);
-    const phoneRegExp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+const ModalCall = ({ show, onHide }) => {
+    const [ready, setReady] = useState(false);
 
     const formik = useFormik({
         initialValues: {
@@ -21,11 +21,13 @@ const OrderCall = () => {
         }),
         onSubmit: values => {
             console.log(values);
-            setCallReady(true);
+            setReady(true);
         }
     });
 
-    return <BaseOrderCall formik={formik} ready={callReady} />;
+    return (
+        <BaseModalCall show={show} onHide={onHide} formik={formik} ready={ready} />
+    );
 };
 
-export default OrderCall;
+export default ModalCall;

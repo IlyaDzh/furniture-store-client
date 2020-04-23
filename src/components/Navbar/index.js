@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { FaSignInAlt, FaUserEdit, FaBars } from "react-icons/fa";
 import { Navbar as BaseNavbar, Container, Nav } from "react-bootstrap";
 
-import { ModalLogin, ModalRegister } from "components";
+import { ModalLogin, ModalRegister } from "containers";
 import "./Navbar.scss";
 
 const Navbar = props => {
@@ -66,6 +66,7 @@ const Navbar = props => {
 
             <ModalLogin
                 show={showLogin}
+                setShowLogin={setShowLogin}
                 onHide={() => setShowLogin(false)}
                 onToggle={() => {
                     setShowLogin(false);
