@@ -39,8 +39,14 @@ const Navbar = props => {
                             </NavLink>
                         </Nav>
                         <Nav className="mr-auto">
-                            <Link to="#login" className="nav-link navbar__entry" onClick={() => setShowLogin(true)}>
-                                <FaSignInAlt style={{ fontSize: "16", marginRight: "6" }} />
+                            <Link
+                                to="#login"
+                                className="nav-link navbar__entry"
+                                onClick={() => setShowLogin(true)}
+                            >
+                                <FaSignInAlt
+                                    style={{ fontSize: "16", marginRight: "6" }}
+                                />
                                 Вход
                             </Link>
                             <Link
@@ -48,7 +54,9 @@ const Navbar = props => {
                                 to="#register"
                                 onClick={() => setShowRegister(true)}
                             >
-                                <FaUserEdit style={{ fontSize: "16", marginRight: "6" }} />
+                                <FaUserEdit
+                                    style={{ fontSize: "16", marginRight: "6" }}
+                                />
                                 Регистрация
                             </Link>
                         </Nav>
@@ -64,7 +72,10 @@ const Navbar = props => {
                     setShowRegister(true);
                 }}
             />
-            <ModalRegister show={showRegister} onHide={() => setShowRegister(false)} />
+            <ModalRegister
+                show={showRegister}
+                onHide={() => setShowRegister(false)}
+            />
         </>
     );
 };

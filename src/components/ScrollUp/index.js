@@ -7,10 +7,6 @@ import "./ScrollUp.scss";
 const ScrollUp = () => {
     const [height, setHeight] = useState();
 
-    // const handleSetHeight = useCallback(() => {
-    //     setHeight(window.pageYOffset);
-    // });
-
     useEffect(() => {
         const handleSetHeight = () => {
             setHeight(window.pageYOffset);

@@ -13,9 +13,14 @@ const LastNews = ({ fetchLastComments, comments }) => {
     }, [comments]);
 
     return (
-        <Section title="Отзывы наших клиентов" viewAll="Еще отзывы" viewAllUrl="/comments">
+        <Section
+            title="Отзывы наших клиентов"
+            viewAll="Еще отзывы"
+            viewAllUrl="/comments"
+        >
             <div className="row">
-                {comments.length > 0 && comments.map(item => <Comment key={item._id} {...item} />)}
+                {comments.length > 0 &&
+                    comments.map(item => <Comment key={item._id} {...item} />)}
             </div>
         </Section>
     );

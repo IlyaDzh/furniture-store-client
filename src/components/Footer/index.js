@@ -21,7 +21,9 @@ const Footer = () => {
                             <NavLink to="/about">О фабрике</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/payment-and-delivery">Оплата и доставка</NavLink>
+                            <NavLink to="/payment-and-delivery">
+                                Оплата и доставка
+                            </NavLink>
                         </li>
                         <li>
                             <NavLink to="/news">Новости</NavLink>
@@ -110,12 +112,18 @@ const Footer = () => {
                                 <a href="mailto:info@fkm.ru">info@fkm.ru</a>
                             </div>
                             <div className="mb-2">
-                                <button className="btn btn-orange" onClick={() => setShowMeasurer(true)}>
+                                <button
+                                    className="btn btn-orange"
+                                    onClick={() => setShowMeasurer(true)}
+                                >
                                     Вызвать замерщика
                                 </button>
                             </div>
                             <div>
-                                <button className="btn btn-outline-orange" onClick={() => setShowCall(true)}>
+                                <button
+                                    className="btn btn-outline-orange"
+                                    onClick={() => setShowCall(true)}
+                                >
                                     Заказать звонок
                                 </button>
                             </div>
@@ -129,7 +137,9 @@ const Footer = () => {
                         <div className="col-md-7">
                             <p>
                                 2014-2020 ФКМ&nbsp;|&nbsp;
-                                <Link to="privacy-policy">Политика конфиденциальности</Link>
+                                <Link to="privacy-policy">
+                                    Политика конфиденциальности
+                                </Link>
                             </p>
                         </div>
                         <div className="col-md-5">
@@ -139,7 +149,10 @@ const Footer = () => {
                 </div>
             </div>
 
-            <ModalMeasurer show={showMeasurer} onHide={() => setShowMeasurer(false)} />
+            <ModalMeasurer
+                show={showMeasurer}
+                onHide={() => setShowMeasurer(false)}
+            />
             <ModalCall show={showCall} onHide={() => setShowCall(false)} />
         </footer>
     );

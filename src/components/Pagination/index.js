@@ -1,8 +1,8 @@
-import React from 'react';
-import BasePagination from 'rc-pagination';
-import localeInfo from 'rc-pagination/es/locale/ru_RU.js';
+import React from "react";
+import BasePagination from "rc-pagination";
+import localeInfo from "rc-pagination/es/locale/ru_RU.js";
 
-import './Pagination.scss';
+import "./Pagination.scss";
 
 const Pagination = ({ onChange, total, current }) => (
     <BasePagination
@@ -11,6 +11,6 @@ const Pagination = ({ onChange, total, current }) => (
         locale={localeInfo}
         current={+current}
     />
-)
+);
 
 export default Pagination;

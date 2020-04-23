@@ -113,13 +113,26 @@ const Menu = () => {
                 </BaseCollapse.Panel>
                 <BaseCollapse.Panel header="Вид">
                     {checkboxesType.map(item => (
-                        <Form.Check key={item.id} name={item.label} label={item.label} ref={register} />
+                        <Form.Check
+                            key={item.id}
+                            name={item.label}
+                            label={item.label}
+                            ref={register}
+                        />
                     ))}
                 </BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Цвет">this is panel content</BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Стиль">this is panel content</BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Форма">this is panel content</BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Материал">this is panel content</BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Цвет">
+                    this is panel content
+                </BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Стиль">
+                    this is panel content
+                </BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Форма">
+                    this is panel content
+                </BaseCollapse.Panel>
+                <BaseCollapse.Panel header="Материал">
+                    this is panel content
+                </BaseCollapse.Panel>
                 <div className="rc-collapse-footer">
                     <Button variant="link" type="reset">
                         Сбросить

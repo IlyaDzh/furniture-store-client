@@ -9,7 +9,11 @@ const Carousel = () =>
         <BaseCarousel fade>
             {carouselJSON.map(item => (
                 <BaseCarousel.Item key={item.id}>
-                    <img className="d-block w-100" src={require(`assets/${item.image}`)} alt="Slide" />
+                    <img
+                        className="d-block w-100"
+                        src={require(`assets/${item.image}`)}
+                        alt="Slide"
+                    />
                 </BaseCarousel.Item>
             ))}
         </BaseCarousel>

@@ -1,30 +1,28 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { SubsBlock } from "../../components";
 
-const Schema = Yup.object().shape({
-    email: Yup.string().email("Неверный E-mail").required("Укажите свой E-mail")
-});
-
 const NewsSubs = () => {
     const [subsReady, setSubsReady] = useState(false);
-    const subsRef = useRef();
 
-    const handleClick = () => {
-        const value = subsRef.current.value;
-        Schema.isValid({
-            email: value
-        }).then(valid => {
-            if (valid) {
-                setSubsReady(true);
-            } else {
-                console.log("Неверный E-mail");
-            }
-        });
-    };
+    const formik = useFormik({
+        initialValues: {
+            email: ""
+        },
+        validationSchema: Yup.object({
+            email: Yup.string()
+                .email("Неверный E-mail")
+                .required("Укажите свой E-mail")
+        }),
+        onSubmit: values => {
+            console.log(values);
+            setSubsReady(true);
+        }
+    });
 
-    return <SubsBlock subsRef={subsRef} onClick={handleClick} ready={subsReady} />;
+    return <SubsBlock formik={formik} ready={subsReady} />;
 };
 
 export default NewsSubs;

@@ -1,22 +1,38 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Form, Button } from "react-bootstrap";
 
 import "./SubsBlock.scss";
 
-const SubsBlock = ({ subsRef, onClick, ready }) => (
+const SubsBlock = ({
+    formik: { handleSubmit, touched, values, errors, handleChange, handleBlur },
+    ready
+}) => (
     <div className="news-subs">
         <h5>Узнайте первыми о наших новостях и акциях!</h5>
         {!ready ? (
-            <form>
-                <input
-                    ref={subsRef}
-                    className="form-control news-subs__input"
-                    placeholder="Введите ваш E-mail"
-                />
-                <button className="btn btn-orange" type="button" onClick={onClick}>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Control
+                        name="email"
+                        placeholder="Введите ваш E-mail"
+                        isInvalid={touched.email && errors.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.email}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Button
+                    className="btn btn-orange"
+                    type="button"
+                    onClick={handleSubmit}
+                >
                     Подписаться
-                </button>
-            </form>
+                </Button>
+            </Form>
         ) : (
             <div className="news-subs--result">
                 Вы успешно подписались на рассылку!
@@ -26,8 +42,7 @@ const SubsBlock = ({ subsRef, onClick, ready }) => (
 );
 
 SubsBlock.propTypes = {
-    subsRef: PropTypes.object,
-    onClick: PropTypes.func,
+    formik: PropTypes.object,
     ready: PropTypes.bool
 };
 

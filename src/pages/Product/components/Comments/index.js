@@ -16,7 +16,7 @@ const Comments = ({
         <Form className="product-comments__form" onSubmit={handleSubmit}>
             <Form.Row>
                 <Form.Group as={Col} md={6} className="form-col">
-                    <Form.Group className="form-col__group">
+                    <Form.Group>
                         <Form.Control
                             name="fullname"
                             placeholder="Пожалуйста, представьтесь"
@@ -29,7 +29,7 @@ const Comments = ({
                             {errors.fullname}
                         </Form.Control.Feedback>
                     </Form.Group>
-                    <Form.Group className="form-col__group">
+                    <Form.Group>
                         <Form.Control
                             name="email"
                             placeholder="Введите ваш E-mail"

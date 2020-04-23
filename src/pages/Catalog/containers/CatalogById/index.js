@@ -11,8 +11,9 @@ const CatalogById = () => {
             <div className="col-sm-7 col-md-8 col-xl-9">
                 <h4>Мебель для библиотеки</h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae corporis sequi id aliquam officiis
-                    molestiae magnam cupiditate, numquam quam nulla?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
+                    corporis sequi id aliquam officiis molestiae magnam cupiditate,
+                    numquam quam nulla?
                 </p>
             </div>
         </div>

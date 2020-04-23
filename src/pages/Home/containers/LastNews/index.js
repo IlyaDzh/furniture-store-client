@@ -13,9 +13,14 @@ const LastNews = ({ fetchLastNews, news }) => {
     }, [news]);
 
     return (
-        <Section title="Последние новости" viewAll="Больше новостей" viewAllUrl="/news">
+        <Section
+            title="Последние новости"
+            viewAll="Больше новостей"
+            viewAllUrl="/news"
+        >
             <div className="row">
-                {news.length > 0 && news.map(item => <CardNews key={item._id} {...item} />)}
+                {news.length > 0 &&
+                    news.map(item => <CardNews key={item._id} {...item} />)}
             </div>
         </Section>
     );

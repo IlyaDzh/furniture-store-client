@@ -1,7 +1,7 @@
 import React from "react";
-import classNames from 'classnames';
+import classNames from "classnames";
 import { IconContext } from "react-icons";
-import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 import "./SliderArrow.scss";
 

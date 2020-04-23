@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import BaseSlider from "react-slick";
 
-import { SliderArrow, Card } from 'components';
-import './Slider.scss';
+import { SliderArrow, Card } from "components";
+import "./Slider.scss";
 
 const Slider = ({ items }) => {
     const settings = {
@@ -12,8 +12,8 @@ const Slider = ({ items }) => {
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
-        prevArrow: <SliderArrow to='prev' />,
-        nextArrow: <SliderArrow to='next' />,
+        prevArrow: <SliderArrow to="prev" />,
+        nextArrow: <SliderArrow to="next" />,
         responsive: [
             {
                 breakpoint: 992,
@@ -41,13 +41,15 @@ const Slider = ({ items }) => {
 
     return (
         <BaseSlider {...settings}>
-            {items.map(card => <Card key={card.id} {...card} />)}
+            {items.map(card => (
+                <Card key={card.id} {...card} />
+            ))}
         </BaseSlider>
-    )
-}
+    );
+};
 
 Slider.propTypes = {
     items: PropTypes.array
-}
+};
 
 export default Slider;
