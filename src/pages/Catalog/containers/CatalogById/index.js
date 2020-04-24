@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Menu } from "../../components";
+import { Menu } from "../";
 
 const CatalogById = () => {
     return (

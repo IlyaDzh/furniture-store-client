@@ -1,79 +1,36 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import { Form, Col, Button } from "react-bootstrap";
 import BaseCollapse from "rc-collapse";
 import Slider from "rc-slider";
 
 import "./Menu.scss";
 
-const checkboxesType = [
-    {
-        id: 1,
-        name: "isNew",
-        label: "Банкетки"
-    },
-    {
-        id: 2,
-        name: "isHit",
-        label: "Диваны"
-    },
-    {
-        id: 3,
-        name: "is_new",
-        label: "Зеркала"
-    },
-    {
-        id: 4,
-        name: "is_hit",
-        label: "Комоды"
-    },
-    {
-        id: 5,
-        name: "is_hit",
-        label: "Кресла"
-    },
-    {
-        id: 6,
-        name: "is_new",
-        label: "Кровати"
-    },
-    {
-        id: 7,
-        name: "is_hit",
-        label: "Полки"
-    }
-];
-
-const Menu = () => {
-    const [maxValue, setMaxValue] = useState(75000);
-    const [minValue, setMinValue] = useState(0);
+const Menu = ({
+    formik: { values, handleSubmit, setFieldValue, resetForm },
+    minValue,
+    maxValue,
+    checkboxesView
+}) => {
     const [rangeValue, setRangeValue] = useState([minValue, maxValue]);
-    const [lowerBound, setLowerBound] = useState(minValue);
-    const [upperBound, setUpperBound] = useState(maxValue);
-    const { register, handleSubmit } = useForm();
-
-    const onSubmit = data => {
-        console.log(data);
-    };
 
     const onLowerBoundChange = ({ target: { value } }) => {
-        setLowerBound(value);
-        setRangeValue([value, upperBound]);
+        setFieldValue("lowerBound", value);
+        setRangeValue([value, values.upperBound]);
     };
 
     const onUpperBoundChange = ({ target: { value } }) => {
-        setUpperBound(value);
-        setRangeValue([lowerBound, value]);
+        setFieldValue("upperBound", value);
+        setRangeValue([values.lowerBound, value]);
     };
 
     const onSliderChange = value => {
-        setLowerBound(value[0]);
-        setUpperBound(value[1]);
+        setFieldValue("lowerBound", value[0]);
+        setFieldValue("upperBound", value[1]);
         setRangeValue(value);
     };
 
     return (
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form onSubmit={handleSubmit}>
             <BaseCollapse defaultActiveKey="0">
                 <BaseCollapse.Panel header="Цена">
                     <Form.Row>
@@ -83,9 +40,8 @@ const Menu = () => {
                                 size="sm"
                                 type="number"
                                 name="lowerBound"
-                                value={lowerBound}
+                                value={values.lowerBound}
                                 onChange={onLowerBoundChange}
-                                ref={register}
                             />
                         </Form.Group>
                         <Form.Group as={Col}>
@@ -94,9 +50,8 @@ const Menu = () => {
                                 size="sm"
                                 type="number"
                                 name="upperBound"
-                                value={upperBound}
+                                value={values.upperBound}
                                 onChange={onUpperBoundChange}
-                                ref={register}
                             />
                         </Form.Group>
                     </Form.Row>
@@ -108,16 +63,30 @@ const Menu = () => {
                         value={rangeValue}
                         onChange={onSliderChange}
                     />
-                    <Form.Check name="isNew" label="Новинки" ref={register} />
-                    <Form.Check name="isHit" label="Хит продаж" ref={register} />
+                    <Form.Check
+                        name="isNew"
+                        label="Новинки"
+                        onChange={() => setFieldValue("isNew", !values.isNew)}
+                    />
+                    <Form.Check
+                        name="isHit"
+                        label="Хит продаж"
+                        onChange={() => setFieldValue("isHit", !values.isHit)}
+                    />
                 </BaseCollapse.Panel>
                 <BaseCollapse.Panel header="Вид">
-                    {checkboxesType.map(item => (
+                    {checkboxesView.map(item => (
                         <Form.Check
                             key={item.id}
-                            name={item.label}
+                            name={item.name}
                             label={item.label}
-                            ref={register}
+                            checked={values.view[item.name] || false}
+                            onChange={() =>
+                                setFieldValue(
+                                    `view[${item.name}]`,
+                                    !values.view[item.name]
+                                )
+                            }
                         />
                     ))}
                 </BaseCollapse.Panel>
@@ -134,10 +103,14 @@ const Menu = () => {
                     this is panel content
                 </BaseCollapse.Panel>
                 <div className="rc-collapse-footer">
-                    <Button variant="link" type="reset">
+                    <Button variant="link" type="reset" onClick={() => resetForm()}>
                         Сбросить
                     </Button>
-                    <Button className="btn-orange" type="submit">
+                    <Button
+                        className="btn-orange"
+                        type="button"
+                        onClick={handleSubmit}
+                    >
                         Найти
                     </Button>
                 </div>
