@@ -100,6 +100,34 @@ textarea {
     }
 }
 
+.custom-control-input {
+    &:checked {
+        ~.custom-control-label::before {
+            border-color: $orange;
+            background-color: $orange;
+        }
+    }
+
+    &:focus {
+        ~.custom-control-label:before {
+            box-shadow: 0 0 0 0.2rem rgba(#f37a00, .25);
+        }
+    }
+
+    &:not(:disabled):active {
+        ~.custom-control-label::before {
+            background-color: $orange--hover;
+            border-color: $orange--hover;
+        }
+    }
+
+    &:focus:not(:checked) {
+        ~.custom-control-label::before {
+            border-color: $orange--hover;
+        }
+    }
+}
+
 .my-modal {
     .modal {
         &-content {

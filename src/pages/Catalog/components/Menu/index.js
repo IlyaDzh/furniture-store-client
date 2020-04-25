@@ -64,21 +64,25 @@ const Menu = ({
                         onChange={onSliderChange}
                     />
                     <Form.Check
-                        name="isNew"
+                        id="isNew"
                         label="Новинки"
+                        checked={values.isNew || false}
                         onChange={() => setFieldValue("isNew", !values.isNew)}
+                        custom
                     />
                     <Form.Check
-                        name="isHit"
+                        id="isHit"
                         label="Хит продаж"
+                        checked={values.isHit || false}
                         onChange={() => setFieldValue("isHit", !values.isHit)}
+                        custom
                     />
                 </BaseCollapse.Panel>
                 <BaseCollapse.Panel header="Вид">
                     {checkboxesView.map(item => (
                         <Form.Check
                             key={item.id}
-                            name={item.name}
+                            id={item.name}
                             label={item.label}
                             checked={values.view[item.name] || false}
                             onChange={() =>
@@ -87,6 +91,7 @@ const Menu = ({
                                     !values.view[item.name]
                                 )
                             }
+                            custom
                         />
                     ))}
                 </BaseCollapse.Panel>
@@ -103,7 +108,14 @@ const Menu = ({
                     this is panel content
                 </BaseCollapse.Panel>
                 <div className="rc-collapse-footer">
-                    <Button variant="link" type="reset" onClick={() => resetForm()}>
+                    <Button
+                        variant="link"
+                        type="button"
+                        onClick={() => {
+                            resetForm();
+                            setRangeValue([minValue, maxValue]);
+                        }}
+                    >
                         Сбросить
                     </Button>
                     <Button

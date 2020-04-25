@@ -8,6 +8,14 @@
         margin: 0;
     }
 
+    label {
+        user-select: none
+    }
+
+    .form-group {
+        margin-bottom: 8px;
+    }
+
     &-header {
         flex-direction: row-reverse;
         justify-content: space-between;
@@ -47,27 +55,6 @@
             &-dragging {
                 border-color: $orange !important;
                 box-shadow: 0 0 0 5px $orange--hover !important;
-            }
-        }
-    }
-
-    .rc-checkbox {
-        &-checked {
-            .rc-checkbox-inner {
-                border-color: $orange--hover;
-                background-color: $orange--hover;
-            }
-        }
-
-        &-input:focus {
-            &+.rc-checkbox-inner {
-                border-color: $orange--hover;
-            }
-        }
-
-        &:hover {
-            .rc-checkbox-inner {
-                border-color: $orange--hover;
             }
         }
     }
