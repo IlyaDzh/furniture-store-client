@@ -1,0 +1,110 @@
+[
+    {
+        "_id": "5ea5990eeaafe5288c6c2c15",
+        "path": "living-rooms",
+        "image": "item1.jpg",
+        "title": "Гостиные"
+    },
+    {
+        "_id": "5ea59916355fc1a79e2ccf53",
+        "path": "soft-furniture",
+        "image": "item4.jpg",
+        "title": "Мягкая мебель"
+    },
+    {
+        "_id": "5ea5991a067b18a717e0ca52",
+        "path": "hallways",
+        "image": "item7.jpg",
+        "title": "Прихожие"
+    },
+    {
+        "_id": "5ea5991eadac1cd9797aeda4",
+        "path": "beds",
+        "image": "item10.jpg",
+        "title": "Кровати"
+    },
+    {
+        "_id": "5ea59922f0ab1c8602781f87",
+        "path": "wall-shelves",
+        "image": "item13.jpg",
+        "title": "Полки"
+    },
+    {
+        "_id": "5ea5992cb4d0300a84e6d6ec",
+        "path": "chest-of-drawers",
+        "image": "item16.jpg",
+        "title": "Комоды"
+    },
+    {
+        "_id": "5ea59930b3dc35e6887a4256",
+        "path": "bedrooms",
+        "image": "item2.jpg",
+        "title": "Спальни"
+    },
+    {
+        "_id": "5ea599346a12b8bbc0cd63fe",
+        "path": "libraries",
+        "image": "item5.jpg",
+        "title": "Библиотеки"
+    },
+    {
+        "_id": "5ea599378c7a4d22e547ba17",
+        "path": "tables",
+        "image": "item8.jpg",
+        "title": "Столы"
+    },
+    {
+        "_id": "5ea5993c20b157f85fd55d75",
+        "path": "sofas",
+        "image": "item11.jpg",
+        "title": "Диваны"
+    },
+    {
+        "_id": "5ea59940500129f9678985c1",
+        "path": "hangers",
+        "image": "item14.jpg",
+        "title": "Вешалки"
+    },
+    {
+        "_id": "5ea59946e3cd07320f0ab71b",
+        "path": "cupboards",
+        "image": "item17.jpg",
+        "title": "Тумбы"
+    },
+    {
+        "_id": "5ea5994cc1d0d36aa5a521bc",
+        "path": "kids-bedrooms",
+        "image": "item3.jpg",
+        "title": "Детские"
+    },
+    {
+        "_id": "5ea59950477bd90a994a0671",
+        "path": "kitchens",
+        "image": "item6.jpg",
+        "title": "Кухни"
+    },
+    {
+        "_id": "5ea599544abb62eff6364b32",
+        "path": "chairs",
+        "image": "item9.jpg",
+        "title": "Стулья"
+    },
+    {
+        "_id": "5ea59957c2c11c2180b23429",
+        "path": "armchairs",
+        "image": "item12.jpg",
+        "title": "Кресла"
+    },
+    {
+        "_id": "5ea5995ba057f12bf409a8ea",
+        "path": "mirrors",
+        "image": "item15.jpg",
+        "title": "Зеркала"
+    },
+    {
+        "_id": "5ea5995ee9d21c764d13ae17",
+        "path": "wardrobes",
+        "image": "item18.jpg",
+        "title": "Шкафы"
+    }
+]

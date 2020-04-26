@@ -5,15 +5,15 @@ import classNames from "classnames";
 
 import "./CatalogItem.scss";
 
-const CatalogItem = ({ _id, image, title, size }) => (
+const CatalogItem = ({ path, image, title, size }) => (
     <Link
-        to={`catalog/${_id}`}
+        to={`catalog/${path}`}
         className={classNames("catalog-item", {
             "catalog-item--lg": size === "large",
             "catalog-item--sm": size === "small"
         })}
         style={{
-            background: `url(${image}) center center / cover no-repeat rgb(231, 236, 237)`
+            background: `url(${require(`assets/catalog/${image}`)}) center center / cover no-repeat rgb(231, 236, 237)`
         }}
     >
         <div className="background__overlay"></div>
@@ -25,7 +25,7 @@ const CatalogItem = ({ _id, image, title, size }) => (
 );
 
 CatalogItem.propTypes = {
-    _id: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     size: PropTypes.string

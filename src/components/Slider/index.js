@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import BaseSlider from "react-slick";
 
-import { SliderArrow, Card } from "components";
+import { SliderArrow, CardProduct } from "components";
 import "./Slider.scss";
 
 const Slider = ({ items }) => {
@@ -42,7 +42,7 @@ const Slider = ({ items }) => {
     return (
         <BaseSlider {...settings}>
             {items.map(card => (
-                <Card key={card.id} {...card} />
+                <CardProduct key={card.id} {...card} />
             ))}
         </BaseSlider>
     );

@@ -4,15 +4,15 @@ import PropTypes from "prop-types";
 import { FaShoppingCart } from "react-icons/fa";
 import { Card as BaseCard, Button } from "react-bootstrap";
 
-import "./Card.scss";
+import "./CardProduct.scss";
 
-const Card = ({ id, image, title, price, oldPrice }) => (
-    <BaseCard className="card-item">
-        <Link to={`catalog/${id}`}>
+const CardProduct = ({ id, image, title, price, oldPrice }) => (
+    <BaseCard className="card-product">
+        <Link to={`/product/${id}`}>
             <BaseCard.Img variant="top" src={require(`assets/${image}`)} />
         </Link>
         <BaseCard.Body>
-            <Link to={`catalog/${id}`}>
+            <Link to={`/product/${id}`}>
                 <BaseCard.Title>{title}</BaseCard.Title>
             </Link>
             <BaseCard.Text>
@@ -27,7 +27,7 @@ const Card = ({ id, image, title, price, oldPrice }) => (
     </BaseCard>
 );
 
-Card.propTypes = {
+CardProduct.propTypes = {
     id: PropTypes.number,
     image: PropTypes.string,
     title: PropTypes.string,
@@ -35,4 +35,4 @@ Card.propTypes = {
     oldPrice: PropTypes.string
 };
 
-export default Card;
+export default CardProduct;

@@ -73,3 +73,12 @@
         }
     }
 }
+
+@media (max-width: 576px) {
+    .catalog-item {
+        &--sm,
+        &--lg {
+            height: 150px;
+        } 
+    }
+}

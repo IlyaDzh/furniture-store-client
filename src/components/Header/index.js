@@ -72,7 +72,7 @@ const Header = () => (
                     {catalogJSON.top &&
                         catalogJSON.top.map(item => (
                             <li className="top-item" key={item.id}>
-                                <Link to={`/catalog/${item.id}`}>
+                                <Link to={`/catalog/${item.path}`}>
                                     <div className="top-item__image">
                                         <img
                                             className="img-fluid"
@@ -100,10 +100,12 @@ const Header = () => (
                                                     {category.title}
                                                 </li>
                                                 {category.content.map(
-                                                    (item, index) => (
+                                                    (text, index) => (
                                                         <li key={index}>
-                                                            <Link to="#1">
-                                                                {item}
+                                                            <Link
+                                                                to={`/catalog/${item.path}?test=2`}
+                                                            >
+                                                                {text}
                                                             </Link>
                                                         </li>
                                                     )
@@ -121,7 +123,7 @@ const Header = () => (
                         {catalogJSON.bottom &&
                             catalogJSON.bottom.map(item => (
                                 <li className="bottom-item" key={item.id}>
-                                    <Link to={`/catalog/${item.id}`}>
+                                    <Link to={`/catalog/${item.path}`}>
                                         {item.title}
                                     </Link>
                                     <div
@@ -140,10 +142,12 @@ const Header = () => (
                                                         {category.title}
                                                     </li>
                                                     {category.content.map(
-                                                        (item, index) => (
+                                                        (text, index) => (
                                                             <li key={index}>
-                                                                <Link to="#1">
-                                                                    {item}
+                                                                <Link
+                                                                    to={`/catalog/${item.path}?test=2`}
+                                                                >
+                                                                    {text}
                                                                 </Link>
                                                             </li>
                                                         )
@@ -172,7 +176,7 @@ const Header = () => (
                                         <Link
                                             key={item.id}
                                             className="nav-link"
-                                            to={`/catalog/${item.id}`}
+                                            to={`/catalog/${item.path}`}
                                         >
                                             {item.title}
                                         </Link>
@@ -182,7 +186,7 @@ const Header = () => (
                                         <Link
                                             key={item.id}
                                             className="nav-link"
-                                            to={`/catalog/${item.id}`}
+                                            to={`/catalog/${item.path}`}
                                         >
                                             {item.title}
                                         </Link>
