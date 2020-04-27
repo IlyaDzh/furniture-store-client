@@ -6,6 +6,7 @@ import {
     Home,
     Catalog,
     Product,
+    Cart,
     AboutUs,
     PaymentDelivery,
     News,
@@ -23,6 +24,7 @@ const App = () => (
             <Route exact path={["/", "/home"]} component={Home} />
             <Route path="/catalog" component={Catalog} />
             <Route exact path="/product/:productId" component={Product} />
+            <Route exact path="/cart" component={Cart} />
             <Route exact path="/about" component={AboutUs} />
             <Route exact path="/payment-and-delivery" component={PaymentDelivery} />
             <Route path="/news" component={News} />

@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { ModalRegister as BaseModalRegister } from "components";
-import { phoneRegExp } from "utils/helpers";
+import { phoneRegExp } from "utils/constants";
 
 const ModalRegister = ({ show, onHide }) => {
     const [ready, setReady] = useState(false);

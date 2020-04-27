@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { ModalMeasurer as BaseModalMeasurer } from "components";
-import { phoneRegExp } from "utils/helpers";
+import { phoneRegExp } from "utils/constants";
 
 const ModalMeasurer = ({ show, onHide }) => {
     const [ready, setReady] = useState(false);

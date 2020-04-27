@@ -56,10 +56,10 @@ Product.defaultProps = {
         collection: "Аделаида"
     },
     price: {
-        current: "65 688",
-        old: "77 280",
-        discount: "11 592",
-        percent: "15%"
+        current: "65688",
+        old: "77280",
+        discount: "11592",
+        percent: "15"
     },
     components: []
 };

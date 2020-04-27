@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import { ModalOneClick as BaseModalOneClick } from "components";
-import { phoneRegExp } from "utils/helpers";
+import { phoneRegExp } from "utils/constants";
 
 const ModalOneClick = ({ show, onHide }) => {
     const [ready, setReady] = useState(false);

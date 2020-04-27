@@ -1,0 +1,42 @@
+@import "styles/_variables.scss";
+
+.cart-table {
+    margin-bottom: 20px;
+
+    .table {
+        border: 1px solid #efefef;
+        margin-bottom: 0;
+
+        thead {
+            background: #faf9f9;
+            border-bottom: 1px solid #efefef;
+
+            th {
+                font-weight: 400;
+                color: #5a5a5a;
+            }
+        }
+
+        tbody {
+            td {
+                vertical-align: middle;
+            }
+        }
+
+        .btn-red {
+            line-height: 0;
+            font-size: 22px;
+            color: $red;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        &__result {
+            text-align: right;
+            padding: 14px;
+            font-weight: 500;
+        }
+    }
+}
