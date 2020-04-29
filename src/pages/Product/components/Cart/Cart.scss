@@ -5,9 +5,10 @@
 
     &__buy {
         color: black;
-        opacity: 0.85;
-
+        
         &:hover {
+            color: black;
+            opacity: 0.85;
             text-decoration: underline;
         }
     }

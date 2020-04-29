@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, Tab } from "react-bootstrap";
 
-import { ScrollToTop, Section } from "components";
+import { ScrollToTop, Section, Slider } from "components";
 import { Breadcrumbs, Gallery, Price, Chars, PayDel } from "./components";
 import { Cart, Comments } from "./containers";
 import "./Product.scss";
@@ -34,9 +34,9 @@ const Product = ({ _id, type, name, images, chars, price, components }) => {
                     </div>
                 </div>
             </div>
-            <div>
-                Тут вроде должен быть слайдер из входящих в продукт компонентов
-                (стулья, столы и т.д.)
+            <div className="product-components">
+                <div className="product-components__title">В комплект входит</div>
+                <Slider items={components} />
             </div>
         </Section>
     );
@@ -61,7 +61,50 @@ Product.defaultProps = {
         discount: "11592",
         percent: "15"
     },
-    components: []
+    components: [
+        {
+            id: 1,
+            image: "home/popular/2.jpg",
+            title: "Гостиная Джоконда (крем)",
+            price: "18 000",
+            oldPrice: "72 440"
+        },
+        {
+            id: 2,
+            image: "home/popular/8.jpg",
+            title: "Малая гостиная Матильда",
+            price: "186 700",
+            oldPrice: "226 400"
+        },
+        {
+            id: 3,
+            image: "home/popular/3.jpg",
+            title: "Спальня Элиза Люкс c 5дверным шкафом (крем)",
+            price: "59 800",
+            oldPrice: "139 500"
+        },
+        {
+            id: 4,
+            image: "home/popular/12.jpg",
+            title: "Модульная система для спальни Тиффани (штрих /золото)",
+            price: "95 500",
+            oldPrice: "173 000"
+        },
+        {
+            id: 5,
+            image: "home/popular/1.jpg",
+            title: "Гостиная Джоконда (крем)",
+            price: "18 000",
+            oldPrice: "72 440"
+        },
+        {
+            id: 6,
+            image: "home/popular/7.jpg",
+            title: "Малая гостиная Матильда",
+            price: "186 700",
+            oldPrice: "226 400"
+        }
+    ]
 };
 
 export default Product;

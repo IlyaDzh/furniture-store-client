@@ -10,11 +10,18 @@ const Slider = ({ items }) => {
         infinite: true,
         swipe: false,
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         prevArrow: <SliderArrow to="prev" />,
         nextArrow: <SliderArrow to="next" />,
         responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
+                }
+            },
             {
                 breakpoint: 992,
                 settings: {

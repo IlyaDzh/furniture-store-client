@@ -6,30 +6,9 @@ import { MdClose } from "react-icons/md";
 import { getConvertPrice } from "utils/helpers";
 import "./Table.scss";
 
-const cart = [
-    {
-        _id: "h2fdsf312a",
-        title: "Малая гостиная Матильда",
-        price: 216740,
-        count: 1
-    },
-    {
-        _id: "94gf8ads32",
-        title: "Стул металлический Zero (изумруд)",
-        price: 4040,
-        count: 3
-    },
-    {
-        _id: "6qldf932n1",
-        title: "Спальня Натали с 6-дверным шкафом (белый глянец)",
-        price: 108723,
-        count: 1
-    }
-];
-
-const Table = () => {
-    return (
-        <div className="cart-table">
+const Table = ({ cart, removeItem, changeCount }) => (
+    <div className="cart-table">
+        <div className="table-container">
             <BaseTable borderless>
                 <thead>
                     <tr>
@@ -41,30 +20,54 @@ const Table = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {cart.map(item => (
-                        <tr key={item._id}>
-                            <td>
-                                <Link to={`/product/${item._id}`}>{item.title}</Link>
-                            </td>
-                            <td>{getConvertPrice(item.price)} руб.</td>
-                            <td>
-                                <Form.Control
-                                    type="number"
-                                    min={1}
-                                    max={9}
-                                    defaultValue={item.count}
-                                />
-                            </td>
-                            <td>{getConvertPrice(item.price * item.count)} руб.</td>
-                            <td>
-                                <Button variant="red">
-                                    <MdClose />
-                                </Button>
-                            </td>
+                    {cart.length ? (
+                        cart.map(item => (
+                            <tr key={item._id}>
+                                <td>
+                                    <Link
+                                        to={`/product/${item._id}`}
+                                        className="product-link"
+                                    >
+                                        {item.title}
+                                    </Link>
+                                </td>
+                                <td>{getConvertPrice(item.price)} руб.</td>
+                                <td>
+                                    <Form.Control
+                                        type="number"
+                                        min={1}
+                                        max={9}
+                                        defaultValue={item.count}
+                                        onChange={e =>
+                                            changeCount(
+                                                item._id,
+                                                e.currentTarget.value
+                                            )
+                                        }
+                                    />
+                                </td>
+                                <td>
+                                    {getConvertPrice(item.price * item.count)} руб.
+                                </td>
+                                <td>
+                                    <Button
+                                        variant="red"
+                                        onClick={() => removeItem(item._id)}
+                                    >
+                                        <MdClose />
+                                    </Button>
+                                </td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr className="table__empty">
+                            <td colSpan="5">Ваша корзина пуста</td>
                         </tr>
-                    ))}
+                    )}
                 </tbody>
             </BaseTable>
+        </div>
+        {cart.length ? (
             <div className="table__result">
                 Общая сумма:{" "}
                 {getConvertPrice(
@@ -72,8 +75,8 @@ const Table = () => {
                 )}{" "}
                 руб.
             </div>
-        </div>
-    );
-};
+        ) : null}
+    </div>
+);
 
 export default Table;

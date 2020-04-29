@@ -53,7 +53,7 @@ const OrderCall = ({
                         </Form.Group>
                         <Form.Group as={Col} md={4}>
                             <Button
-                                className="btn-orange"
+                                variant="orange"
                                 type="button"
                                 onClick={handleSubmit}
                             >

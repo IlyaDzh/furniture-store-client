@@ -60,7 +60,7 @@ const Comments = ({
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group as={Col} sm={12} md={4} className="form-col-btn">
-                    <Button className="btn-orange" onClick={handleSubmit}>
+                    <Button variant="orange" onClick={handleSubmit}>
                         Отправить
                     </Button>
                 </Form.Group>

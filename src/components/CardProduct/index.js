@@ -19,7 +19,7 @@ const CardProduct = ({ id, image, title, price, oldPrice }) => (
                 {price} руб.
                 <span>{oldPrice} руб.</span>
             </BaseCard.Text>
-            <Button className="card-btn btn-orange">
+            <Button className="card-btn" variant="orange">
                 <FaShoppingCart style={{ fontSize: "18", marginRight: "5" }} />В
                 корзину
             </Button>

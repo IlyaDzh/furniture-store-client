@@ -25,11 +25,7 @@ const SubsBlock = ({
                         {errors.email}
                     </Form.Control.Feedback>
                 </Form.Group>
-                <Button
-                    className="btn btn-orange"
-                    type="button"
-                    onClick={handleSubmit}
-                >
+                <Button variant="orange" type="button" onClick={handleSubmit}>
                     Подписаться
                 </Button>
             </Form>

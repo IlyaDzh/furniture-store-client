@@ -1,11 +1,16 @@
 @import "styles/_variables.scss";
 
 .cart-table {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
     .table {
         border: 1px solid #efefef;
         margin-bottom: 0;
+        min-width: 510px;
+
+        &-container {
+            overflow-x: auto;
+        }
 
         thead {
             background: #faf9f9;
@@ -14,29 +19,69 @@
             th {
                 font-weight: 400;
                 color: #5a5a5a;
+                padding: 10px;
             }
         }
 
         tbody {
             td {
+                padding: 10px;
                 vertical-align: middle;
+
+                .product-link {
+                    color: #000;
+
+                    &:hover {
+                        text-decoration: underline;
+                        opacity: 0.85;
+                    }
+                }
             }
         }
 
         .btn-red {
             line-height: 0;
+            padding: 5px;
             font-size: 22px;
             color: $red;
 
             &:focus {
                 box-shadow: none;
             }
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+
+        &__empty {
+            text-align: center;
+            font-size: 18px;
         }
 
         &__result {
             text-align: right;
             padding: 14px;
             font-weight: 500;
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    .cart-table .table {
+        font-size: 14px;
+
+        tbody td {
+            padding: 6px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    tbody {
+        td:not(:first-child) {
+            text-align: center;
         }
     }
 }

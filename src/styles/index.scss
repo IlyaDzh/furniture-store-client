@@ -68,6 +68,12 @@ textarea {
         border-color: #f78a1e;
         box-shadow: 0 0 0 0.2rem #ffbd7a;
     }
+
+    &:disabled {
+        cursor: default;
+        background-color: #f78a1e;
+        border-color: #f78a1e;
+    }
 }
 
 .btn-outline-orange {

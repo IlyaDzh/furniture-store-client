@@ -84,11 +84,7 @@ const ModalRegister = ({
                             {errors.password_2}
                         </Form.Control.Feedback>
                     </Form.Group>
-                    <Button
-                        className="btn-orange"
-                        type="button"
-                        onClick={handleSubmit}
-                    >
+                    <Button variant="orange" type="button" onClick={handleSubmit}>
                         Зарегистрироваться
                     </Button>
                 </Form>

@@ -43,11 +43,7 @@ const ModalCall = ({
                             {errors.number}
                         </Form.Control.Feedback>
                     </Form.Group>
-                    <Button
-                        className="btn-orange"
-                        type="button"
-                        onClick={handleSubmit}
-                    >
+                    <Button variant="orange" type="button" onClick={handleSubmit}>
                         Отправить
                     </Button>
                 </Form>

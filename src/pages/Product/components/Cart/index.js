@@ -27,7 +27,7 @@ const Cart = ({ handleClick }) => {
                     </Form.Group>
                     <Form.Group as={Col} xs="9">
                         <Button
-                            className="btn-orange"
+                            variant="orange"
                             onClick={() => handleClick(countRef)}
                         >
                             <FaShoppingCart

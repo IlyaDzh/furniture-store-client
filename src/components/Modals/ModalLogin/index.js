@@ -41,7 +41,7 @@ const ModalLogin = ({
                         {errors.password}
                     </Form.Control.Feedback>
                 </Form.Group>
-                <Button className="btn-orange" type="button" onClick={handleSubmit}>
+                <Button variant="orange" type="button" onClick={handleSubmit}>
                     Войти
                 </Button>
             </Form>
