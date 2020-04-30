@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 import { Navbar as BaseNavbar, Container, Nav } from "react-bootstrap";
 
-import { Navbar } from "components";
+import { Navbar } from "containers";
 import logo from "assets/logo.png";
 import bell from "assets/header/bell.png";
 import phone from "assets/header/phone.png";

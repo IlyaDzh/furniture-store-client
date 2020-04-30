@@ -20,8 +20,7 @@ const initialState = {
             count: 1
         }
     ],
-    error: false,
-    isLoading: false
+    isAuth: window.localStorage.token ? true : false
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -29,13 +28,19 @@ export default (state = initialState, { type, payload }) => {
         case "USER:SET_DATA":
             return {
                 ...state,
-                data: payload
+                data: payload,
+                isAuth: true
             };
-        case "USER:SET_CART":
+        case "USER:USER:SET_IS_AUTH":
             return {
                 ...state,
-                cart: payload
+                isAuth: payload
             };
+        // case "USER:SET_CART":
+        //     return {
+        //         ...state,
+        //         cart: payload
+        //     };
         case "USER:CHANGE_CART_COUNT":
             const tempCart = [...state.cart];
             const selectedProduct = tempCart.find(item => item._id === payload.id);
@@ -52,16 +57,6 @@ export default (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 cart: state.cart.filter(item => item._id !== payload)
-            };
-        case "USER:SET_ERROR":
-            return {
-                ...state,
-                error: payload
-            };
-        case "USER:SET_IS_LOADING":
-            return {
-                ...state,
-                isLoading: payload
             };
         default:
             return state;

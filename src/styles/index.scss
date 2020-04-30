@@ -3,6 +3,7 @@
 @import "~slick-carousel/slick/slick-theme.css";
 @import "~rc-collapse/assets/index.css";
 @import "~rc-slider/assets/index.css";
+@import "~react-toastify/dist/ReactToastify.css";
 @import "./variables.scss";
 
 ul {
@@ -135,6 +136,8 @@ textarea {
 }
 
 .my-modal {
+    padding-right: 0 !important;
+
     .modal {
         &-content {
             border-radius: 0;
@@ -177,6 +180,41 @@ textarea {
             p {
                 font-size: 15px;
             }
+        }
+    }
+}
+
+.my-toast {
+    padding: 12px;
+
+    &.Toastify__toast--success {
+        background-color: $toast-success;
+    }
+
+    &.Toastify__toast--error {
+        background-color: $toast-error;
+    }
+
+    &__container {
+        width: auto;
+    }
+
+    &>div {
+        margin: auto 8px;
+    }
+
+    svg {
+        font-size: 28px;
+        margin-right: 8px;
+    }
+
+    span {
+        font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+        &__container {
+            width: 100vw;
         }
     }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import { Header, ScrollToTop, ScrollUp, Footer, Error } from "components";
 import {
@@ -19,6 +20,15 @@ const App = () => (
     <div className="wrapper">
         <Header />
         <ScrollToTop />
+        <ToastContainer
+            className="my-toast__container"
+            toastClassName="my-toast"
+            position="top-right"
+            autoClose={3000}
+            closeOnClick
+            pauseOnFocusLoss
+            pauseOnHover
+        />
 
         <Switch>
             <Route exact path={["/", "/home"]} component={Home} />

@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
+import { BsFillInfoCircleFill, BsExclamationCircleFill } from "react-icons/bs";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import get from "lodash/get";
+import { toast } from "react-toastify";
 
 import { ModalRegister as BaseModalRegister } from "components";
 import { phoneRegExp } from "utils/constants";
+import { userActions } from "actions";
+import store from "store";
 
-const ModalRegister = ({ show, onHide }) => {
-    const [ready, setReady] = useState(false);
-
+const ModalRegister = ({ show, successReg, onHide }) => {
     const formik = useFormik({
         initialValues: {
             fullname: "",
-            number: "",
+            phone: "",
             email: "",
             password: "",
             password_2: ""
         },
         validationSchema: Yup.object({
             fullname: Yup.string().required("Заполните своё ФИО"),
-            number: Yup.string().matches(phoneRegExp, "Не правильно набран номер"),
+            phone: Yup.string()
+                .matches(phoneRegExp, "Не правильно набран номер")
+                .required("Заполните свой номер телефона"),
             email: Yup.string()
                 .email("Неверный E-mail!")
                 .required("Заполните поле E-mail"),
@@ -31,19 +36,43 @@ const ModalRegister = ({ show, onHide }) => {
                 .required("Обязательное поле")
         }),
         onSubmit: values => {
-            console.log(values);
-            setReady(true);
+            store
+                .dispatch(userActions.fetchUserSignUp(values))
+                .then(() => {
+                    toast.success(
+                        <>
+                            <BsFillInfoCircleFill />
+                            <span>Вы успешно зарегистрированы!</span>
+                        </>
+                    );
+                    successReg();
+                })
+                .catch(err => {
+                    if (
+                        get(err, "response.data.message", "").indexOf("duplicate") >=
+                        0
+                    ) {
+                        toast.error(
+                            <>
+                                <BsExclamationCircleFill />
+                                <span>Аккаунт с такой почтой уже существует!</span>
+                            </>
+                        );
+                    } else {
+                        toast.error(
+                            <>
+                                <BsExclamationCircleFill />
+                                <span>
+                                    Возникла серверная ошибка при регистрации!
+                                </span>
+                            </>
+                        );
+                    }
+                });
         }
     });
 
-    return (
-        <BaseModalRegister
-            show={show}
-            onHide={onHide}
-            formik={formik}
-            ready={ready}
-        />
-    );
+    return <BaseModalRegister show={show} onHide={onHide} formik={formik} />;
 };
 
 export default ModalRegister;

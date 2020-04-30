@@ -1,8 +1,12 @@
 import React from "react";
+import { BsFillInfoCircleFill, BsExclamationCircleFill } from "react-icons/bs";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 import { ModalLogin as BaseModalLogin } from "components";
+import { userActions } from "actions";
+import store from "store";
 
 const ModalLogin = ({ show, setShowLogin, onHide, onToggle }) => {
     const formik = useFormik({
@@ -15,8 +19,27 @@ const ModalLogin = ({ show, setShowLogin, onHide, onToggle }) => {
             password: Yup.string().required("Заполните поле Пароль")
         }),
         onSubmit: values => {
-            console.log(values);
-            setShowLogin(false);
+            store
+                .dispatch(userActions.fetchUserSignIn(values))
+                .then(({ status }) => {
+                    if (status === "Success") {
+                        toast.success(
+                            <>
+                                <BsFillInfoCircleFill />
+                                <span>Вы вошли в свой аккаунт</span>
+                            </>
+                        );
+                        setShowLogin(false);
+                    }
+                })
+                .catch(() => {
+                    toast.error(
+                        <>
+                            <BsExclamationCircleFill />
+                            <span>Неверный логин или пароль!</span>
+                        </>
+                    );
+                });
         }
     });
 
