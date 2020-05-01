@@ -1,12 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { NavLink, Link } from "react-router-dom";
-import { FaSignInAlt, FaUserEdit, FaBars } from "react-icons/fa";
+import {
+    FaSignInAlt,
+    FaSignOutAlt,
+    FaUserEdit,
+    FaUser,
+    FaBars
+} from "react-icons/fa";
 import { Navbar as BaseNavbar, Container, Nav } from "react-bootstrap";
 
 import "./Navbar.scss";
 
-const Navbar = ({ isAuth, handleClickLogin, handleClickReg }) => (
+const Navbar = ({ isAuth, handleSignIn, handleSignUp, handleSignOut }) => (
     <BaseNavbar className="navbar-top" expand="md">
         <Container>
             <BaseNavbar.Toggle aria-controls="basic-navbar-nav">
@@ -35,39 +41,29 @@ const Navbar = ({ isAuth, handleClickLogin, handleClickReg }) => (
                 </Nav>
                 {!isAuth ? (
                     <Nav className="mr-auto">
-                        <Link
-                            to="#login"
-                            className="nav-link navbar__entry"
-                            onClick={handleClickLogin}
-                        >
-                            <FaSignInAlt
-                                style={{ fontSize: "16", marginRight: "6" }}
-                            />
+                        <button className="navbar-btn__first" onClick={handleSignIn}>
+                            <FaSignInAlt />
                             Вход
-                        </Link>
-                        <Link
-                            to="#register"
-                            className="nav-link navbar__registry"
-                            onClick={handleClickReg}
+                        </button>
+                        <button
+                            className="navbar-btn__second"
+                            onClick={handleSignUp}
                         >
-                            <FaUserEdit
-                                style={{ fontSize: "16", marginRight: "6" }}
-                            />
+                            <FaUserEdit />
                             Регистрация
-                        </Link>
+                        </button>
                     </Nav>
                 ) : (
                     <Nav className="mr-auto">
-                        <Link to="#exit" className="nav-link navbar__entry">
-                            <FaSignInAlt
-                                style={{ fontSize: "16", marginRight: "6" }}
-                            />
+                        <button
+                            className="navbar-btn__first"
+                            onClick={handleSignOut}
+                        >
+                            <FaSignOutAlt />
                             Выход
-                        </Link>
-                        <Link to="/profile" className="nav-link navbar__registry">
-                            <FaUserEdit
-                                style={{ fontSize: "16", marginRight: "6" }}
-                            />
+                        </button>
+                        <Link to="/profile" className="navbar-btn__second">
+                            <FaUser />
                             Профиль
                         </Link>
                     </Nav>
@@ -78,9 +74,10 @@ const Navbar = ({ isAuth, handleClickLogin, handleClickReg }) => (
 );
 
 Navbar.propTypes = {
-    isAuth: PropTypes.bool,
-    handleClickLogin: PropTypes.func,
-    handleClickReg: PropTypes.func
+    isAuth: PropTypes.bool.isRequired,
+    handleSignIn: PropTypes.func.isRequired,
+    handleSignUp: PropTypes.func.isRequired,
+    handleSignOut: PropTypes.func.isRequired
 };
 
 export default Navbar;

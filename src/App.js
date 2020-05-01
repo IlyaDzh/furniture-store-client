@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 
 import { Header, ScrollToTop, ScrollUp, Footer, Error } from "components";
 import {
+    Profile,
     Home,
     Catalog,
     Product,
@@ -31,6 +32,7 @@ const App = () => (
         />
 
         <Switch>
+            <Route exact path="/profile" component={Profile} />
             <Route exact path={["/", "/home"]} component={Home} />
             <Route path="/catalog" component={Catalog} />
             <Route exact path="/product/:productId" component={Product} />

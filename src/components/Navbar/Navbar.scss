@@ -1,81 +1,70 @@
 @import 'styles/_variables.scss';
 
-.navbar {
+.navbar-top.navbar {
     background-color: $navbar;
-    font-size: 14px;
     font-weight: 500;
-    padding: 0px 16px !important;
+    font-size: 14px;
+    padding: 0px 16px;
     overflow: hidden;
 
-    &-toggler {
-        border-color: rgba(0, 0, 0, 0.2) !important;
-        outline: none !important;
-        transition: border 0.2s ease;
-
-        &__icon {
-            height: 25px;
-            transition: color 0.2s ease;
-        }
-
-        &:hover {
-            border: 1px solid $orange !important;
-        }
-
-        &:hover &__icon {
-            color: $orange;
-        }
+    button {
+        border: none;
+        font-weight: 500;
+        background: none;
     }
 
-    &-nav .nav-link:not(.navbar__registry) {
-        color: rgba(0, 0, 0, 0.65) !important;
-    }
-
-    .nav-link {
-        font-size: 14px;
-
-        &.active {
-            color: $orange !important;
-        }
-
-        &:hover:not(.navbar__registry) {
-            color: $orange--hover !important;
-        }
-    }
-
-    &-toggler {
-        margin: 5px 0;
-    }
-
-    &__entry,
-    &__registry {
-        display: flex !important;
-        align-items: center;
-    }
-
-    &__registry {
-        color: rgba(0, 0, 0, 0.65) !important;
-        &:hover {
-            color: $orange--hover !important;
-        }
-    }
-}
-
-@media (min-width: 768px) {
     .navbar {
-        .nav-link {
-            font-size: 13px;
+        &-toggler {
+            margin: 5px 0;
+            border-color: rgba(0, 0, 0, 0.2) !important;
+            transition: border 0.2s ease;
+
+            &__icon {
+                height: 25px;
+                transition: color 0.2s ease;
+            }
+
+            &:hover {
+                color: $orange;
+            }
         }
 
-        &__entry {
+        &-nav {
+            svg {
+                font-size: 16px;
+                margin-right: 6px;
+            }
+
+            .nav-link {
+                &.active {
+                    color: $orange;
+                }
+
+                &:hover:not(.active) {
+                    color: rgba(#000, 0.85);
+                }
+            }
+        }
+
+        &-btn__first,
+        &-btn__second {
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
 
-        &__registry {
-            justify-content: center;
+        &-btn__first {
+            &:hover {
+                color: $orange;
+            }
+        }
+
+        &-btn__second {
             position: relative;
             background: $orange;
-            color: #fff !important;
-            margin-left: 13px;
+            color: #fff;
+            margin: 0 13px;
+            padding: 8px;
 
             &:after,
             &:before {
@@ -101,16 +90,35 @@
             }
 
             &:hover {
-                color: rgba(0, 0, 0, 0.65) !important;
+                color: rgba(0, 0, 0, 0.85);
             }
         }
     }
 }
 
-@media (min-width: 992px) {
-    .navbar {
-        .nav-link {
-            font-size: 14px;
+@media (max-width: 992px) {
+    .navbar-nav {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-top {
+        .navbar-collapse {
+            display: flex;
+            flex-direction: column-reverse;
+            text-align: center;
+
+            .navbar-nav {
+                width: 80%;
+                margin: 0 0 10px 0 !important;
+                font-size: 14px;
+
+                .navbar-btn__first {
+                    padding-bottom: 8px;
+                }
+            }
         }
+
     }
 }

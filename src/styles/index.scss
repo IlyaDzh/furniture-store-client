@@ -24,6 +24,12 @@ textarea {
     resize: none;
 }
 
+button {
+    &:focus {
+        outline: none;
+    }
+}
+
 .card {
     height: 100%;
 
@@ -177,8 +183,10 @@ textarea {
             text-align: center;
             border: 0;
 
-            p {
-                font-size: 15px;
+            .btn-link {
+                &:hover {
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -226,5 +234,43 @@ textarea {
     .invalid-feedback {
         margin-top: 0;
         position: absolute;
+    }
+}
+
+.table {
+    border: 1px solid #efefef;
+    margin-bottom: 0;
+    min-width: 510px;
+
+    &-container {
+        overflow-x: auto;
+    }
+
+    thead {
+        background: #faf9f9;
+        border-bottom: 1px solid #efefef;
+
+        th {
+            font-weight: 400;
+            color: #5a5a5a;
+            padding: 10px;
+        }
+    }
+
+    tbody {
+        td {
+            padding: 10px;
+            vertical-align: middle;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .table {
+        font-size: 14px;
+
+        tbody td {
+            padding: 6px;
+        }
     }
 }

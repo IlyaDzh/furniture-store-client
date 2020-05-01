@@ -50,6 +50,10 @@ const actions = {
             return data;
         });
     },
+    fetchUserSignOut: () => dispatch => {
+        dispatch(actions.setIsAuth(false));
+        delete window.localStorage.token;
+    },
     fetchRemoveCart: id => dispatch => {
         dispatch(actions.removeCart(id));
     },

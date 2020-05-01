@@ -20,6 +20,14 @@ const initialState = {
             count: 1
         }
     ],
+    orders: [
+        {
+            _id: "7dfgh345ksd1",
+            date: "Сегодня",
+            total: 216740,
+            status: "В обработке"
+        }
+    ],
     isAuth: window.localStorage.token ? true : false
 };
 
@@ -31,7 +39,7 @@ export default (state = initialState, { type, payload }) => {
                 data: payload,
                 isAuth: true
             };
-        case "USER:USER:SET_IS_AUTH":
+        case "USER:SET_IS_AUTH":
             return {
                 ...state,
                 isAuth: payload

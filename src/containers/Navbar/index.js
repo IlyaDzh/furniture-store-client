@@ -5,24 +5,29 @@ import { Navbar as BaseNavbar } from "components";
 import { ModalLogin, ModalRegister } from "containers";
 import { userActions } from "actions";
 
-const Navbar = ({ isAuth }) => {
+const Navbar = ({ isAuth, fetchUserSignOut }) => {
     const [showRegister, setShowRegister] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
 
-    const handleClickLogin = () => {
+    const handleSignIn = () => {
         setShowLogin(true);
     };
 
-    const handleClickReg = () => {
+    const handleSignUp = () => {
         setShowRegister(true);
+    };
+
+    const handleSignOut = () => {
+        fetchUserSignOut();
     };
 
     return (
         <>
             <BaseNavbar
                 isAuth={isAuth}
-                handleClickLogin={handleClickLogin}
-                handleClickReg={handleClickReg}
+                handleSignIn={handleSignIn}
+                handleSignUp={handleSignUp}
+                handleSignOut={handleSignOut}
             />
             <ModalLogin
                 show={showLogin}

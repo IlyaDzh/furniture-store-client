@@ -4,7 +4,12 @@ import { Col, Form, Button } from "react-bootstrap";
 import "./Order.scss";
 
 const Order = ({
-    formik: { handleSubmit, touched, values, errors, handleChange, handleBlur },
+    handleSubmit,
+    touched,
+    values,
+    errors,
+    handleChange,
+    handleBlur,
     cart
 }) => {
     const isEmpty = !cart.length;
@@ -21,7 +26,7 @@ const Order = ({
                             isInvalid={touched.fullname && errors.fullname}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            value={values.fullname}
+                            value={values.fullname || ""}
                             disabled={isEmpty}
                         />
                         <Form.Control.Feedback type="invalid">
@@ -30,16 +35,16 @@ const Order = ({
                     </Form.Group>
                     <Form.Group as={Col} md={4}>
                         <Form.Control
-                            name="number"
+                            name="phone"
                             placeholder="Телефон"
-                            isInvalid={touched.number && errors.number}
+                            isInvalid={touched.phone && errors.phone}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            value={values.number}
+                            value={values.phone || ""}
                             disabled={isEmpty}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.number}
+                            {errors.phone}
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group as={Col} md={4}>
@@ -49,7 +54,7 @@ const Order = ({
                             isInvalid={touched.email && errors.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            value={values.email}
+                            value={values.email || ""}
                             disabled={isEmpty}
                         />
                         <Form.Control.Feedback type="invalid">
@@ -65,7 +70,7 @@ const Order = ({
                             isInvalid={touched.address && errors.address}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            value={values.address}
+                            value={values.address || ""}
                             disabled={isEmpty}
                         />
                         <Form.Control.Feedback type="invalid">

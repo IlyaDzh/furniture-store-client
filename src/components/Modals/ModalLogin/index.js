@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Modal as BaseModal, Form, Button } from "react-bootstrap";
 
 const ModalLogin = ({
@@ -47,13 +46,9 @@ const ModalLogin = ({
             </Form>
         </BaseModal.Body>
         <BaseModal.Footer>
-            <p>
-                Еще не{" "}
-                <Link to="#register" onClick={onToggle}>
-                    зарегистрировались
-                </Link>
-                ?
-            </p>
+            <Button variant="link" onClick={onToggle}>
+                Еще не зарегистрировались?
+            </Button>
         </BaseModal.Footer>
     </BaseModal>
 );
