@@ -41,9 +41,9 @@ const Cart = ({ handleClick }) => {
                     </Form.Group>
                 </Form.Row>
             </Form>
-            <Link
-                to="#buy"
+            <Button
                 className="product-cart__buy"
+                variant="link"
                 onClick={() => setShowFastBuy(true)}
             >
                 <MdTouchApp
@@ -54,7 +54,7 @@ const Cart = ({ handleClick }) => {
                     }}
                 />
                 Купить в 1 клик
-            </Link>
+            </Button>
             <ModalOneClick show={showFastBuy} onHide={() => setShowFastBuy(false)} />
         </div>
     );

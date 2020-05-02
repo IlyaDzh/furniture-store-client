@@ -4,10 +4,10 @@
     }
 
     &__buy {
-        color: black;
-        
+        color: black !important;
+        padding: 0 !important;
+
         &:hover {
-            color: black;
             opacity: 0.85;
             text-decoration: underline;
         }
