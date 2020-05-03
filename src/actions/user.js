@@ -37,6 +37,11 @@ const actions = {
                 delete window.localStorage.token;
             });
     },
+    updateUserData: postData => dispatch => {
+        return userApi.updateMe(postData).then(({ data }) => {
+            dispatch(actions.setData(data));
+        });
+    },
     fetchUserSignUp: postData => () => {
         return userApi.signUp(postData);
     },

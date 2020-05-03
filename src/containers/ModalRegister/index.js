@@ -6,7 +6,6 @@ import get from "lodash/get";
 import { toast } from "react-toastify";
 
 import { ModalRegister as BaseModalRegister } from "components";
-import { phoneRegExp } from "utils/constants";
 import { userActions } from "actions";
 import store from "store";
 
@@ -14,16 +13,12 @@ const ModalRegister = ({ show, successReg, onHide }) => {
     const formik = useFormik({
         initialValues: {
             fullname: "",
-            phone: "",
             email: "",
             password: "",
             password_2: ""
         },
         validationSchema: Yup.object({
             fullname: Yup.string().required("Заполните своё ФИО"),
-            phone: Yup.string()
-                .matches(phoneRegExp, "Не правильно набран номер")
-                .required("Заполните свой номер телефона"),
             email: Yup.string()
                 .email("Неверный E-mail!")
                 .required("Заполните поле E-mail"),

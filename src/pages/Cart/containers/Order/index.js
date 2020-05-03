@@ -1,23 +1,10 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
 import { withFormik } from "formik";
 import * as Yup from "yup";
 
 import { Order as BaseOrder } from "../../components";
 import { phoneRegExp } from "utils/constants";
-import { userActions } from "actions";
 
-const Order = ({ fetchUserData, data, cart }) => {
-    useEffect(() => {
-        if (!data) {
-            fetchUserData();
-        }
-    }, [data]);
-
-    return <OrderEnhancer data={data} cart={cart} />;
-};
-
-const OrderEnhancer = withFormik({
+const Order = withFormik({
     enableReinitialize: true,
     mapPropsToValues: ({ data }) => ({
         fullname: data ? data.fullname : "",
@@ -44,10 +31,4 @@ const OrderEnhancer = withFormik({
     }
 })(BaseOrder);
 
-export default connect(
-    ({ user }) => ({
-        data: user.data,
-        cart: user.cart
-    }),
-    userActions
-)(Order);
+export default Order;

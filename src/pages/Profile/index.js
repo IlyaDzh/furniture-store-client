@@ -10,7 +10,7 @@ const Profile = ({ isAuth, data, orders, fetchUserData }) => {
         if (!data) {
             fetchUserData();
         }
-    }, [data]);
+    }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <Section className="profile" title="Профиль">

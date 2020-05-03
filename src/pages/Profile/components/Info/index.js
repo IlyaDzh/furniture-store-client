@@ -16,7 +16,7 @@ const Info = ({ data: { fullname, email, phone, address } }) => {
                     <tbody>
                         <tr>
                             <td>ФИО:</td>
-                            <td>{fullname}</td>
+                            <td>{fullname || "---"}</td>
                         </tr>
                         <tr>
                             <td>E-mail:</td>
@@ -24,7 +24,7 @@ const Info = ({ data: { fullname, email, phone, address } }) => {
                         </tr>
                         <tr>
                             <td>Телефон:</td>
-                            <td>{phone}</td>
+                            <td>{phone || "---"}</td>
                         </tr>
                         <tr>
                             <td>Адрес доставки:</td>
@@ -40,7 +40,7 @@ const Info = ({ data: { fullname, email, phone, address } }) => {
             </div>
             <ModalEdit
                 show={showEdit}
-                setShowLogin={setShowEdit}
+                setShowEdit={setShowEdit}
                 onHide={() => setShowEdit(false)}
             />
         </div>

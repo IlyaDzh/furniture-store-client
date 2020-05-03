@@ -2,21 +2,38 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { withFormik } from "formik";
 import * as Yup from "yup";
-import { BsExclamationCircleFill } from "react-icons/bs";
+import { BsFillInfoCircleFill, BsExclamationCircleFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 
 import { ModalEdit as BaseModalEdit } from "components";
 import { phoneRegExp } from "utils/constants";
 import { userActions } from "actions";
 
-const ModalEdit = ({ fetchUserData, data, show, onHide }) => {
+const ModalEdit = ({
+    fetchUserData,
+    updateUserData,
+    data,
+    show,
+    setShowEdit,
+    onHide
+}) => {
     useEffect(() => {
         if (!data) {
             fetchUserData();
         }
-    }, [data]);
+    }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    return data && <ModalEditEnhancer data={data} show={show} onHide={onHide} />;
+    return (
+        data && (
+            <ModalEditEnhancer
+                updateUserData={updateUserData}
+                data={data}
+                show={show}
+                setShowEdit={setShowEdit}
+                onHide={onHide}
+            />
+        )
+    );
 };
 
 const ModalEditEnhancer = withFormik({
@@ -29,32 +46,30 @@ const ModalEditEnhancer = withFormik({
         password: ""
     }),
     validationSchema: Yup.object({
-        fullname: Yup.string().required("Заполните своё ФИО"),
-        phone: Yup.string()
-            .matches(phoneRegExp, "Не правильно набран номер")
-            .required("Заполните свой номер телефона"),
-        email: Yup.string()
-            .email("Неверный E-mail!")
-            .required("Заполните поле E-mail"),
+        phone: Yup.string().matches(phoneRegExp, "Не правильно набран номер"),
         password: Yup.string()
             .min(8, "Пароль слишком маленький")
             .max(15, "Пароль слишком большой")
     }),
-    handleSubmit: values => {
-        console.log(values);
-        // store
-        //     .dispatch(userActions.fetchEditData(values))
-        //     .then(() => {})
-        //     .catch(() => {
-        //         toast.error(
-        //             <>
-        //                 <BsExclamationCircleFill />
-        //                 <span>
-        //                     Возникла серверная ошибка при редактировании!
-        //                 </span>
-        //             </>
-        //         );
-        //     });
+    handleSubmit: (values, { props: { updateUserData, setShowEdit } }) => {
+        updateUserData(values)
+            .then(() => {
+                setShowEdit(false);
+                toast.success(
+                    <>
+                        <BsFillInfoCircleFill />
+                        <span>Ваши данные были обновлены!</span>
+                    </>
+                );
+            })
+            .catch(() => {
+                toast.error(
+                    <>
+                        <BsExclamationCircleFill />
+                        <span>Возникла серверная ошибка при редактировании!</span>
+                    </>
+                );
+            });
     }
 })(BaseModalEdit);
 

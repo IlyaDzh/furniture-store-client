@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
 import { ScrollToTop, Section } from "components";
-import { Table, Order } from "./containers";
+import { Table } from "./components";
+import { Order } from "./containers";
+import { userActions } from "actions";
 
-const Cart = () => (
-    <Section className="cart" title="Корзина">
-        <ScrollToTop />
-        <Table />
-        <Order />
-    </Section>
-);
+const Cart = ({ fetchUserData, fetchChangeCount, fetchRemoveCart, data, cart }) => {
+    useEffect(() => {
+        if (!data) {
+            fetchUserData();
+        }
+    }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
-export default Cart;
+    return (
+        <Section className="cart" title="Корзина">
+            <ScrollToTop />
+            <Table
+                cart={cart}
+                changeCount={fetchChangeCount}
+                removeItem={fetchRemoveCart}
+            />
+            <Order data={data} cart={cart} />
+        </Section>
+    );
+};
+
+export default connect(
+    ({ user }) => ({
+        data: user.data,
+        cart: user.cart
+    }),
+    userActions
+)(Cart);

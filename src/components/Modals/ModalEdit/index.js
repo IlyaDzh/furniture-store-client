@@ -24,7 +24,7 @@ const ModalEdit = ({
                         isInvalid={touched.fullname && errors.fullname}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.fullname}
+                        value={values.fullname || ""}
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.fullname}
@@ -40,7 +40,7 @@ const ModalEdit = ({
                         isInvalid={touched.phone && errors.phone}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.phone}
+                        value={values.phone || ""}
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.phone}

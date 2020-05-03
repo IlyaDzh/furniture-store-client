@@ -28,19 +28,6 @@ const ModalRegister = ({
                 </Form.Group>
                 <Form.Group>
                     <Form.Control
-                        name="phone"
-                        placeholder="Номер телефона"
-                        isInvalid={touched.phone && errors.phone}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.phone}
-                    />
-                    <Form.Control.Feedback type="invalid">
-                        {errors.phone}
-                    </Form.Control.Feedback>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Control
                         name="email"
                         placeholder="E-mail"
                         isInvalid={touched.email && errors.email}

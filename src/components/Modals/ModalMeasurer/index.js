@@ -5,7 +5,12 @@ import { Modal as BaseModal, Form, Button } from "react-bootstrap";
 import { ReadyInModal } from "components";
 
 const ModalMeasurer = ({
-    formik: { handleSubmit, touched, values, errors, handleChange, handleBlur },
+    handleSubmit,
+    touched,
+    values,
+    errors,
+    handleChange,
+    handleBlur,
     ready,
     show,
     onHide
@@ -32,15 +37,15 @@ const ModalMeasurer = ({
                     </Form.Group>
                     <Form.Group>
                         <Form.Control
-                            name="number"
+                            name="phone"
                             placeholder="Телефон"
-                            isInvalid={touched.number && errors.number}
+                            isInvalid={touched.phone && errors.phone}
                             onChange={handleChange}
                             onBlur={handleBlur}
-                            value={values.number}
+                            value={values.phone}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.number}
+                            {errors.phone}
                         </Form.Control.Feedback>
                     </Form.Group>
                     <Form.Group>

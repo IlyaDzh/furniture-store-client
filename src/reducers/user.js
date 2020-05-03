@@ -28,7 +28,7 @@ const initialState = {
             status: "В обработке"
         }
     ],
-    isAuth: window.localStorage.token ? true : false
+    isAuth: !!window.localStorage.token
 };
 
 export default (state = initialState, { type, payload }) => {
