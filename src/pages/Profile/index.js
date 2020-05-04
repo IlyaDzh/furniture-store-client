@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { userActions } from "actions";
-import { ScrollToTop, Section } from "components";
+import { ScrollToTop, Section, Error } from "components";
 import { Info, Orders } from "./components";
 
 const Profile = ({ isAuth, data, orders, fetchUserData }) => {
@@ -23,7 +23,7 @@ const Profile = ({ isAuth, data, orders, fetchUserData }) => {
                     </>
                 )
             ) : (
-                <div>Вы не авторизованы!</div>
+                <Error />
             )}
         </Section>
     );

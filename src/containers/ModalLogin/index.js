@@ -18,7 +18,7 @@ const ModalLogin = ({ show, setShowLogin, onHide, onToggle }) => {
             email: Yup.string().required("Заполните поле E-mail"),
             password: Yup.string().required("Заполните поле Пароль")
         }),
-        onSubmit: values => {
+        onSubmit: (values, { resetForm }) => {
             store
                 .dispatch(userActions.fetchUserSignIn(values))
                 .then(({ status }) => {
@@ -29,6 +29,7 @@ const ModalLogin = ({ show, setShowLogin, onHide, onToggle }) => {
                                 <span>Вы вошли в свой аккаунт</span>
                             </>
                         );
+                        resetForm();
                         setShowLogin(false);
                     }
                 })

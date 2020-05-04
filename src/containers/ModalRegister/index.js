@@ -30,7 +30,7 @@ const ModalRegister = ({ show, successReg, onHide }) => {
                 .oneOf([Yup.ref("password"), null], "Пароли не совпадают")
                 .required("Обязательное поле")
         }),
-        onSubmit: values => {
+        onSubmit: (values, { resetForm }) => {
             store
                 .dispatch(userActions.fetchUserSignUp(values))
                 .then(() => {
@@ -40,6 +40,7 @@ const ModalRegister = ({ show, successReg, onHide }) => {
                             <span>Вы успешно зарегистрированы!</span>
                         </>
                     );
+                    resetForm();
                     successReg();
                 })
                 .catch(err => {

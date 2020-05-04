@@ -51,10 +51,14 @@ const ModalEditEnhancer = withFormik({
             .min(8, "Пароль слишком маленький")
             .max(15, "Пароль слишком большой")
     }),
-    handleSubmit: (values, { props: { updateUserData, setShowEdit } }) => {
+    handleSubmit: (
+        values,
+        { resetForm, props: { updateUserData, setShowEdit } }
+    ) => {
         updateUserData(values)
             .then(() => {
                 setShowEdit(false);
+                resetForm();
                 toast.success(
                     <>
                         <BsFillInfoCircleFill />

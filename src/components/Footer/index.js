@@ -45,54 +45,60 @@ const Footer = () => {
                             <div className="footer-middle__catalog">
                                 <ul className="footer-middle__catalog-items">
                                     <li>
-                                        <Link to="#1">Гостиные</Link>
+                                        <Link to="/catalog/living-rooms">Гостиные</Link>
                                     </li>
                                     <li>
-                                        <Link to="#1">Спальни</Link>
+                                        <Link to="/catalog/bedrooms">Спальни</Link>
                                     </li>
                                     <li>
-                                        <Link to="#1">Детские</Link>
+                                        <Link to="/catalog/kids-bedrooms">Детские</Link>
                                     </li>
                                     <li>
-                                        <Link to="#1">Прихожие</Link>
+                                        <Link to="/catalog/hallways">Прихожие</Link>
                                     </li>
                                     <li>
-                                        <Link to="#1">Мягкая мебель</Link>
+                                        <Link to="/catalog/soft-furniture">Мягкая мебель</Link>
                                     </li>
                                     <li>
-                                        <Link to="#1">Библиотеки</Link>
+                                        <Link to="/catalog/libraries">Библиотеки</Link>
                                     </li>
                                     <li>
-                                        <Link to="#1">Кухни</Link>
+                                        <Link to="/catalog/kitchens">Кухни</Link>
                                     </li>
                                     <li>
-                                        <Link to="#1">Диваны</Link>
+                                        <Link to="/catalog/sofas">Диваны</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalog/hangers">Вешалки</Link>
                                     </li>
                                 </ul>
                                 <ul className="footer-middle__catalog-items">
                                     <li>
-                                        <Link to="#2">Комоды</Link>
+                                        <Link to="/catalog/chest-of-drawers">Комоды</Link>
                                     </li>
                                     <li>
-                                        <Link to="#2">Кресла</Link>
+                                        <Link to="/catalog/armchairs">Кресла</Link>
                                     </li>
                                     <li>
-                                        <Link to="#2">Кровати</Link>
+                                        <Link to="/catalog/beds">Кровати</Link>
                                     </li>
                                     <li>
-                                        <Link to="#2">Полки</Link>
+                                        <Link to="/catalog/wall-shelves">Полки</Link>
                                     </li>
                                     <li>
-                                        <Link to="#2">Столы</Link>
+                                        <Link to="/catalog/tables">Столы</Link>
                                     </li>
                                     <li>
-                                        <Link to="#2">Стулья</Link>
+                                        <Link to="/catalog/chairs">Стулья</Link>
                                     </li>
                                     <li>
-                                        <Link to="#2">Тумбы</Link>
+                                        <Link to="/catalog/cupboards">Тумбы</Link>
                                     </li>
                                     <li>
-                                        <Link to="#2">Шкафы</Link>
+                                        <Link to="/catalog/wardrobes">Шкафы</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/catalog/mirrors">Зеркала</Link>
                                     </li>
                                 </ul>
                             </div>
