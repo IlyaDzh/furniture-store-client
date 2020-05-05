@@ -6,9 +6,16 @@ import { Table } from "./components";
 import { Order } from "./containers";
 import { userActions } from "actions";
 
-const Cart = ({ fetchUserData, fetchChangeCount, fetchRemoveCart, data, cart }) => {
+const Cart = ({
+    fetchUserData,
+    fetchChangeCount,
+    fetchRemoveCart,
+    isAuth,
+    data,
+    cart
+}) => {
     useEffect(() => {
-        if (!data) {
+        if (isAuth && !data) {
             fetchUserData();
         }
     }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -28,6 +35,7 @@ const Cart = ({ fetchUserData, fetchChangeCount, fetchRemoveCart, data, cart }) 
 
 export default connect(
     ({ user }) => ({
+        isAuth: user.isAuth,
         data: user.data,
         cart: user.cart
     }),

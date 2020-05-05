@@ -7,7 +7,7 @@ import { Info, Orders } from "./components";
 
 const Profile = ({ isAuth, data, orders, fetchUserData }) => {
     useEffect(() => {
-        if (!data) {
+        if (isAuth && !data) {
             fetchUserData();
         }
     }, [data]); // eslint-disable-line react-hooks/exhaustive-deps

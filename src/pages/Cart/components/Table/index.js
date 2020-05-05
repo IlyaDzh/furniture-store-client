@@ -21,38 +21,38 @@ const Table = ({ cart, removeItem, changeCount }) => (
                 </thead>
                 <tbody>
                     {cart.length ? (
-                        cart.map(item => (
-                            <tr key={item._id}>
+                        cart.map(({ count, product }) => (
+                            <tr key={product._id}>
                                 <td>
                                     <Link
-                                        to={`/product/${item._id}`}
+                                        to={`/product/${product._id}`}
                                         className="product-link"
                                     >
-                                        {item.title}
+                                        {product.title}
                                     </Link>
                                 </td>
-                                <td>{getConvertPrice(item.price)} руб.</td>
+                                <td>{getConvertPrice(product.price)} руб.</td>
                                 <td>
                                     <Form.Control
                                         type="number"
                                         min={1}
                                         max={9}
-                                        defaultValue={item.count}
+                                        defaultValue={count}
                                         onChange={e =>
                                             changeCount(
-                                                item._id,
+                                                product._id,
                                                 e.currentTarget.value
                                             )
                                         }
                                     />
                                 </td>
                                 <td>
-                                    {getConvertPrice(item.price * item.count)} руб.
+                                    {getConvertPrice(product.price * count)} руб.
                                 </td>
                                 <td>
                                     <Button
                                         variant="red"
-                                        onClick={() => removeItem(item._id)}
+                                        onClick={() => removeItem(product._id)}
                                     >
                                         <MdClose />
                                     </Button>

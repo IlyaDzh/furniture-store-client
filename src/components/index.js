@@ -8,7 +8,6 @@ export { default as ScrollToTop } from "./ScrollToTop";
 export { default as ScrollUp } from "./ScrollUp";
 export { default as Spinner } from "./Spinner";
 export { default as Pagination } from "./Pagination";
-export { default as ReadyInModal } from "./ReadyInModal";
 export { default as Header } from "./Header";
 export { default as Footer } from "./Footer";
 export { default as Navbar } from "./Navbar";

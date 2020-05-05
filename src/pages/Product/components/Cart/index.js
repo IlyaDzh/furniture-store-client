@@ -54,7 +54,7 @@ const Cart = ({ handleClick }) => {
                 />
                 Купить в 1 клик
             </Button>
-            <ModalOneClick show={showFastBuy} onHide={() => setShowFastBuy(false)} />
+            <ModalOneClick show={showFastBuy} setShowFastBuy={setShowFastBuy} />
         </div>
     );
 };

@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { BsFillInfoCircleFill, BsExclamationCircleFill } from "react-icons/bs";
 import { withFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 import { ModalOneClick as BaseModalOneClick } from "components";
 import { phoneRegExp } from "utils/constants";
 import { userActions } from "actions";
+import { ordersApi } from "utils/api";
 
-const ModalOneClick = ({ fetchUserData, data, show, onHide }) => {
-    const [ready, setReady] = useState(false);
-
+const ModalOneClick = ({ fetchUserData, isAuth, data, show, setShowFastBuy }) => {
     useEffect(() => {
-        if (!data) {
+        if (isAuth && !data) {
             fetchUserData();
         }
     }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -20,9 +21,7 @@ const ModalOneClick = ({ fetchUserData, data, show, onHide }) => {
         <ModalOneClickEnhancer
             data={data}
             show={show}
-            onHide={onHide}
-            setReady={setReady}
-            ready={ready}
+            setShowFastBuy={setShowFastBuy}
         />
     );
 };
@@ -41,14 +40,34 @@ const ModalOneClickEnhancer = withFormik({
             .required("Укажите свой Номер телефона"),
         comment: Yup.string().max(250, "Слишком много символов")
     }),
-    handleSubmit: (values, { props: { setReady } }) => {
-        console.log(values);
-        setReady(true);
+    handleSubmit: (values, { resetForm, props: { setShowFastBuy } }) => {
+        values.type = "Заказ звонка";
+        ordersApi
+            .createOrder(values)
+            .then(() => {
+                toast.success(
+                    <>
+                        <BsFillInfoCircleFill />
+                        <span>Ваша заявка отправлена!</span>
+                    </>
+                );
+                resetForm();
+                setShowFastBuy(false);
+            })
+            .catch(() => {
+                toast.error(
+                    <>
+                        <BsExclamationCircleFill />
+                        <span>Упс. Произошла ошибка!</span>
+                    </>
+                );
+            });
     }
 })(BaseModalOneClick);
 
 export default connect(
     ({ user }) => ({
+        isAuth: user.isAuth,
         data: user.data
     }),
     userActions

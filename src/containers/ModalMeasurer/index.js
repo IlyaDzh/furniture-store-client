@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { BsFillInfoCircleFill, BsExclamationCircleFill } from "react-icons/bs";
 import { withFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 import { ModalMeasurer as BaseModalMeasurer } from "components";
 import { phoneRegExp } from "utils/constants";
 import { userActions } from "actions";
+import { ordersApi } from "utils/api";
 
-const ModalMeasurer = ({ fetchUserData, data, show, onHide }) => {
-    const [ready, setReady] = useState(false);
-
+const ModalMeasurer = ({ fetchUserData, isAuth, data, show, setShowMeasurer }) => {
     useEffect(() => {
-        if (!data) {
+        if (isAuth && !data) {
             fetchUserData();
         }
     }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -20,9 +21,7 @@ const ModalMeasurer = ({ fetchUserData, data, show, onHide }) => {
         <ModalMeasurerEnhancer
             data={data}
             show={show}
-            onHide={onHide}
-            setReady={setReady}
-            ready={ready}
+            setShowMeasurer={setShowMeasurer}
         />
     );
 };
@@ -45,14 +44,34 @@ const ModalMeasurerEnhancer = withFormik({
         time: Yup.string().required("Укажите желательное время приезда"),
         date: Yup.string().required("Укажите дату приезда")
     }),
-    handleSubmit: (values, { props: { setReady } }) => {
-        console.log(values);
-        setReady(true);
+    handleSubmit: (values, { resetForm, props: { setShowMeasurer } }) => {
+        values.type = "Вызов замерщика";
+        ordersApi
+            .createOrder(values)
+            .then(() => {
+                toast.success(
+                    <>
+                        <BsFillInfoCircleFill />
+                        <span>Ваша заявка отправлена!</span>
+                    </>
+                );
+                resetForm();
+                setShowMeasurer(false);
+            })
+            .catch(() => {
+                toast.error(
+                    <>
+                        <BsExclamationCircleFill />
+                        <span>Упс. Произошла ошибка!</span>
+                    </>
+                );
+            });
     }
 })(BaseModalMeasurer);
 
 export default connect(
     ({ user }) => ({
+        isAuth: user.isAuth,
         data: user.data
     }),
     userActions

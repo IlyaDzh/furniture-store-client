@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Modal as BaseModal, Form, Button } from "react-bootstrap";
 
-import { ReadyInModal } from "components";
-
 const ModalMeasurer = ({
     handleSubmit,
     touched,
@@ -11,95 +9,95 @@ const ModalMeasurer = ({
     errors,
     handleChange,
     handleBlur,
-    ready,
     show,
-    onHide
+    setShowMeasurer
 }) => (
-    <BaseModal className="my-modal" show={show} onHide={onHide} centered>
+    <BaseModal
+        className="my-modal"
+        show={show}
+        onHide={() => setShowMeasurer(false)}
+        centered
+    >
         <BaseModal.Header closeButton>
             <BaseModal.Title>Вызвать замерщика</BaseModal.Title>
         </BaseModal.Header>
         <BaseModal.Body>
-            {!ready ? (
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group>
-                        <Form.Control
-                            name="fullname"
-                            placeholder="Ваше имя"
-                            isInvalid={touched.fullname && errors.fullname}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.fullname}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.fullname}
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Control
-                            name="phone"
-                            placeholder="Телефон"
-                            isInvalid={touched.phone && errors.phone}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.phone}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.phone}
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Control
-                            name="address"
-                            placeholder="Адрес"
-                            isInvalid={touched.address && errors.address}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.address}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.address}
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Control
-                            name="time"
-                            placeholder="Желательное время приезда"
-                            isInvalid={touched.time && errors.time}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.time}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.time}
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                    <Form.Group>
-                        <Form.Control
-                            name="date"
-                            type="date"
-                            placeholder="Дата"
-                            isInvalid={touched.date && errors.date}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                            value={values.date}
-                        />
-                        <Form.Control.Feedback type="invalid">
-                            {errors.date}
-                        </Form.Control.Feedback>
-                    </Form.Group>
-                    <Button variant="orange" type="button" onClick={handleSubmit}>
-                        Отправить
-                    </Button>
-                </Form>
-            ) : (
-                <ReadyInModal />
-            )}
+            <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Control
+                        name="fullname"
+                        placeholder="Ваше имя"
+                        isInvalid={touched.fullname && errors.fullname}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.fullname}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.fullname}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control
+                        name="phone"
+                        placeholder="Телефон"
+                        isInvalid={touched.phone && errors.phone}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.phone}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.phone}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control
+                        name="address"
+                        placeholder="Адрес"
+                        isInvalid={touched.address && errors.address}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.address}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.address}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control
+                        name="time"
+                        placeholder="Желательное время приезда"
+                        isInvalid={touched.time && errors.time}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.time}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.time}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control
+                        name="date"
+                        type="date"
+                        placeholder="Дата"
+                        isInvalid={touched.date && errors.date}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.date}
+                    />
+                    <Form.Control.Feedback type="invalid">
+                        {errors.date}
+                    </Form.Control.Feedback>
+                </Form.Group>
+                <Button variant="orange" type="button" onClick={handleSubmit}>
+                    Отправить
+                </Button>
+            </Form>
         </BaseModal.Body>
         <BaseModal.Footer>
             <p>
                 Нажимая на кнопку, Вы соглашаетесь с{" "}
-                <Link to="/privacy-policy" onClick={onHide}>
+                <Link to="/privacy-policy" onClick={() => setShowMeasurer(false)}>
                     политикой конфиденциальности
                 </Link>
             </p>

@@ -45,22 +45,30 @@ const Footer = () => {
                             <div className="footer-middle__catalog">
                                 <ul className="footer-middle__catalog-items">
                                     <li>
-                                        <Link to="/catalog/living-rooms">Гостиные</Link>
+                                        <Link to="/catalog/living-rooms">
+                                            Гостиные
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link to="/catalog/bedrooms">Спальни</Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalog/kids-bedrooms">Детские</Link>
+                                        <Link to="/catalog/kids-bedrooms">
+                                            Детские
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link to="/catalog/hallways">Прихожие</Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalog/soft-furniture">Мягкая мебель</Link>
+                                        <Link to="/catalog/soft-furniture">
+                                            Мягкая мебель
+                                        </Link>
                                     </li>
                                     <li>
-                                        <Link to="/catalog/libraries">Библиотеки</Link>
+                                        <Link to="/catalog/libraries">
+                                            Библиотеки
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link to="/catalog/kitchens">Кухни</Link>
@@ -74,7 +82,9 @@ const Footer = () => {
                                 </ul>
                                 <ul className="footer-middle__catalog-items">
                                     <li>
-                                        <Link to="/catalog/chest-of-drawers">Комоды</Link>
+                                        <Link to="/catalog/chest-of-drawers">
+                                            Комоды
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link to="/catalog/armchairs">Кресла</Link>
@@ -155,11 +165,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            <ModalMeasurer
-                show={showMeasurer}
-                onHide={() => setShowMeasurer(false)}
-            />
-            <ModalCall show={showCall} onHide={() => setShowCall(false)} />
+            <ModalMeasurer show={showMeasurer} setShowMeasurer={setShowMeasurer} />
+            <ModalCall show={showCall} setShowCall={setShowCall} />
         </footer>
     );
 };
