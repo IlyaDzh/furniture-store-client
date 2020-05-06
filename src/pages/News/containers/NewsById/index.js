@@ -6,13 +6,12 @@ import { Spinner, Error } from "components";
 import { FullNews } from "../../components";
 import { newsActions } from "actions";
 
-const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
-    let { newsId } = useParams();
+const NewsById = ({ fetchCurrentNews, currentItem, setError, error, isLoading }) => {
+    const { newsId } = useParams();
 
     useEffect(() => {
-        if (item) {
-            fetchCurrentNews(newsId);
-        }
+        if (currentItem && currentItem._id === newsId) return;
+        fetchCurrentNews(newsId);
         return () => setError(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newsId]);
@@ -24,7 +23,7 @@ const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
             ) : error ? (
                 <Error />
             ) : (
-                item && <FullNews {...item} />
+                currentItem && <FullNews {...currentItem} />
             )}
         </>
     );
@@ -32,7 +31,7 @@ const NewsById = ({ fetchCurrentNews, item, setError, error, isLoading }) => {
 
 export default connect(
     ({ news }) => ({
-        item: news.currentItem,
+        currentItem: news.currentItem,
         error: news.error,
         isLoading: news.isLoading
     }),

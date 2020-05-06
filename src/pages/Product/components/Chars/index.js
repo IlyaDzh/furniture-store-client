@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "./Chars.scss";
 
-const Chars = ({ chars: { shape, material, type, style, color, collection } }) => (
+const Chars = ({ type, chars: { shape, material, style, color, collection } }) => (
     <table className="chars-table">
         <tbody>
             <tr>

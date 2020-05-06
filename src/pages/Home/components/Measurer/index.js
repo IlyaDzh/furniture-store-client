@@ -31,10 +31,7 @@ const Measurer = () => {
                 </button>
             </Section>
 
-            <ModalMeasurer
-                show={showMeasurer}
-                onHide={() => setShowMeasurer(false)}
-            />
+            <ModalMeasurer show={showMeasurer} setShowMeasurer={setShowMeasurer} />
         </>
     );
 };

@@ -15,18 +15,22 @@ const NewsByPage = ({
     error,
     isLoading
 }) => {
-    let history = useHistory();
-    let { pageNumber } = useParams();
+    const history = useHistory();
+    const { pageNumber } = useParams();
 
     useEffect(() => {
+        if (!pageNumber && items.length && currentPage === 1) {
+            return;
+        }
+
         if (pageNumber) {
             fetchNews(pageNumber);
         } else {
             fetchNews(1);
         }
+
         return () => setError(false);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pageNumber]);
+    }, [pageNumber]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const changePage = page => {
         setCurrentPage(page);

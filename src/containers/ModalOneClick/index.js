@@ -10,7 +10,14 @@ import { phoneRegExp } from "utils/constants";
 import { userActions } from "actions";
 import { ordersApi } from "utils/api";
 
-const ModalOneClick = ({ fetchUserData, isAuth, data, show, setShowFastBuy }) => {
+const ModalOneClick = ({
+    fetchUserData,
+    isAuth,
+    data,
+    show,
+    setShowFastBuy,
+    productName
+}) => {
     useEffect(() => {
         if (isAuth && !data) {
             fetchUserData();
@@ -22,16 +29,17 @@ const ModalOneClick = ({ fetchUserData, isAuth, data, show, setShowFastBuy }) =>
             data={data}
             show={show}
             setShowFastBuy={setShowFastBuy}
+            productName={productName}
         />
     );
 };
 
 const ModalOneClickEnhancer = withFormik({
     enableReinitialize: true,
-    mapPropsToValues: ({ data }) => ({
+    mapPropsToValues: ({ data, productName }) => ({
         fullname: data ? data.fullname : "",
         phone: data ? data.phone : "",
-        comment: ""
+        comment: `Хочу приобрести товар '${productName}'`
     }),
     validationSchema: Yup.object({
         fullname: Yup.string().required("Укажите своё Имя и Фамилию"),
@@ -66,9 +74,10 @@ const ModalOneClickEnhancer = withFormik({
 })(BaseModalOneClick);
 
 export default connect(
-    ({ user }) => ({
+    ({ user, products }) => ({
         isAuth: user.isAuth,
-        data: user.data
+        data: user.data,
+        productName: products.currentItem.name
     }),
     userActions
 )(ModalOneClick);
