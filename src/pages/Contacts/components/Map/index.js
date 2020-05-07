@@ -10,22 +10,20 @@ import {
     FullscreenControl
 } from "react-yandex-maps";
 
-const Map = () => {
-    return (
-        <YMaps>
-            <BaseMap
-                style={{ minHeight: "330px", height: "100%", width: "100%" }}
-                defaultState={{ center: [55.643266, 37.502004], zoom: 16 }}
-            >
-                <Placemark defaultGeometry={[55.643266, 37.502004]} />
-                <ZoomControl options={{ float: "left" }} />
-                <GeolocationControl options={{ float: "left" }} />
-                <TrafficControl options={{ float: "right" }} />
-                <TypeSelector options={{ float: "right" }} />
-                <FullscreenControl options={{ float: "right" }} />
-            </BaseMap>
-        </YMaps>
-    );
-};
+const Map = () => (
+    <YMaps>
+        <BaseMap
+            style={{ minHeight: "330px", height: "100%", width: "100%" }}
+            defaultState={{ center: [55.643266, 37.502004], zoom: 16 }}
+        >
+            <Placemark defaultGeometry={[55.643266, 37.502004]} />
+            <ZoomControl options={{ float: "left" }} />
+            <GeolocationControl options={{ float: "left" }} />
+            <TrafficControl options={{ float: "right" }} />
+            <TypeSelector options={{ float: "right" }} />
+            <FullscreenControl options={{ float: "right" }} />
+        </BaseMap>
+    </YMaps>
+);
 
 export default Map;

@@ -9,13 +9,13 @@ const actions = {
         type: "PRODUCTS:SET_CURRENT_ITEM",
         payload: item
     }),
-    setNewProducts: item => ({
-        type: "PRODUCTS:SET_NEW_ITEM",
-        payload: item
+    setNewProducts: items => ({
+        type: "PRODUCTS:SET_NEW_ITEMS",
+        payload: items
     }),
-    setHitProducts: item => ({
-        type: "PRODUCTS:SET_HIT_ITEM",
-        payload: item
+    setPopularProducts: items => ({
+        type: "PRODUCTS:SET_POPULAR_ITEMS",
+        payload: items
     }),
     setError: bool => ({
         type: "PRODUCTS:SET_ERROR",
@@ -56,9 +56,9 @@ const actions = {
             dispatch(actions.setNewProducts(data));
         });
     },
-    fetchHitProducts: () => dispatch => {
-        productsApi.getHitProducts().then(({ data }) => {
-            dispatch(actions.setHitProducts(data));
+    fetchPopularProducts: () => dispatch => {
+        productsApi.getPopularProducts().then(({ data }) => {
+            dispatch(actions.setPopularProducts(data));
         });
     }
 };

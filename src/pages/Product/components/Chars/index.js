@@ -12,7 +12,7 @@ const Chars = ({ type, chars: { shape, material, style, color, collection } }) =
             </tr>
             <tr>
                 <td>Материал:</td>
-                <td>{material}</td>
+                <td>{material.map((item, index) => (index ? ", " : "") + item)}</td>
             </tr>
             <tr>
                 <td>Назначение:</td>
@@ -24,7 +24,7 @@ const Chars = ({ type, chars: { shape, material, style, color, collection } }) =
             </tr>
             <tr>
                 <td>Цвет:</td>
-                <td>{color}</td>
+                <td>{color.map((item, index) => (index ? ", " : "") + item)}</td>
             </tr>
             <tr>
                 <td>Коллекция:</td>

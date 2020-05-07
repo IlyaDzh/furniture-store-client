@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 
 import { Menu } from "../";
 
 const CatalogById = () => {
+    useEffect(() => {}, []);
+    
     return (
         <div className="row">
             <div className="col-sm-5 col-md-4 col-xl-3">

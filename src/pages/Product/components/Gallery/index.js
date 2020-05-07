@@ -5,12 +5,12 @@ import Slider from "react-slick";
 import { SliderArrow } from "components";
 import "./Gallery.scss";
 
-import image1 from "assets/product/1.jpg";
-import image2 from "assets/product/2.jpg";
-import image3 from "assets/product/3.jpg";
-import image4 from "assets/product/4.jpg";
-import image5 from "assets/product/5.jpg";
-import image6 from "assets/product/6.jpg";
+// import image1 from "assets/product/1.jpg";
+// import image2 from "assets/product/2.jpg";
+// import image3 from "assets/product/3.jpg";
+// import image4 from "assets/product/4.jpg";
+// import image5 from "assets/product/5.jpg";
+// import image6 from "assets/product/6.jpg";
 
 const settings1 = {
     className: "big-slick",
@@ -63,48 +63,24 @@ const Gallery = ({ images }) => {
                 ref={slider => (slider1.current = slider)}
                 {...settings1}
             >
-                <div className="big-slick__image">
-                    <img src={image1} alt="" />
-                </div>
-                <div className="big-slick__image">
-                    <img src={image2} alt="" />
-                </div>
-                <div className="big-slick__image">
-                    <img src={image3} alt="" />
-                </div>
-                <div className="big-slick__image">
-                    <img src={image4} alt="" />
-                </div>
-                <div className="big-slick__image">
-                    <img src={image5} alt="" />
-                </div>
-                <div className="big-slick__image">
-                    <img src={image6} alt="" />
-                </div>
+                {images &&
+                    images.map((item, index) => (
+                        <div key={index} className="big-slick__image">
+                            <img src={item} alt="" />
+                        </div>
+                    ))}
             </Slider>
             <Slider
                 asNavFor={nav.nav1}
                 ref={slider => (slider2.current = slider)}
                 {...settings2}
             >
-                <div className="small-slick__image">
-                    <img src={image1} alt="" />
-                </div>
-                <div className="small-slick__image">
-                    <img src={image2} alt="" />
-                </div>
-                <div className="small-slick__image">
-                    <img src={image3} alt="" />
-                </div>
-                <div className="small-slick__image">
-                    <img src={image4} alt="" />
-                </div>
-                <div className="small-slick__image">
-                    <img src={image5} alt="" />
-                </div>
-                <div className="small-slick__image">
-                    <img src={image6} alt="" />
-                </div>
+                {images &&
+                    images.map((item, index) => (
+                        <div key={index} className="small-slick__image">
+                            <img src={item} alt="" />
+                        </div>
+                    ))}
             </Slider>
         </div>
     );

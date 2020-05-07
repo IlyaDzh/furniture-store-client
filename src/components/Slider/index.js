@@ -49,7 +49,7 @@ const Slider = ({ items }) => {
     return (
         <BaseSlider {...settings}>
             {items.map(card => (
-                <CardProduct key={card.id} {...card} />
+                <CardProduct key={card._id} {...card} />
             ))}
         </BaseSlider>
     );

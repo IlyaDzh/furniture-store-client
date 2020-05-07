@@ -1,6 +1,8 @@
 const initialState = {
     items: [],
     currentItem: null,
+    newItems: [],
+    popularItems: [],
     error: false,
     isLoading: false
 };
@@ -18,6 +20,16 @@ export default (state = initialState, { type, payload }) => {
                 ...state,
                 currentItem: payload,
                 isLoading: false
+            };
+        case "PRODUCTS:SET_NEW_ITEMS":
+            return {
+                ...state,
+                newItems: payload
+            };
+        case "PRODUCTS:SET_POPULAR_ITEMS":
+            return {
+                ...state,
+                popularItems: payload
             };
         case "PRODUCTS:SET_ERROR":
             return {

@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import { ScrollToTop, Section } from "components";
-// import { CatalogAll } from "./components";
 import { CatalogAll, CatalogById } from "./containers";
 
 const Catalog = () => (

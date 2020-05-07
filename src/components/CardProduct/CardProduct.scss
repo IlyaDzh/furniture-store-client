@@ -1,18 +1,24 @@
 .card {
     $self:&;
-
     margin: 0 15px;
 
     &-product {
+        #{$self}-img-top {
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+        }
+
         #{$self}-body {
             text-align: center;
-            justify-content: space-between;
             display: flex;
+            justify-content: space-between;
             flex-direction: column;
+            padding: 12px;
         }
     
         #{$self}-title {
-            font-size: 16px !important;
+            font-size: 17px !important;
         }
     
         #{$self}-text {
@@ -20,7 +26,8 @@
     
             &>span {
                 display: block;
-                font-size: 14px !important;
+                font-size: 15px !important;
+                font-weight: 500;
                 text-decoration: line-through;
             }
         }
