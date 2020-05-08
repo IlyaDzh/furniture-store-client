@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { newsActions } from "actions";
-import { Section, CardNews } from "components";
+import { Section, Spinner, CardNews } from "components";
 
 const LastNews = ({ fetchLastNews, news }) => {
     useEffect(() => {
@@ -19,8 +19,11 @@ const LastNews = ({ fetchLastNews, news }) => {
             viewAllUrl="/news"
         >
             <div className="row">
-                {news.length > 0 &&
-                    news.map(item => <CardNews key={item._id} {...item} />)}
+                {!news.length ? (
+                    <Spinner />
+                ) : (
+                    news.map(item => <CardNews key={item._id} {...item} />)
+                )}
             </div>
         </Section>
     );

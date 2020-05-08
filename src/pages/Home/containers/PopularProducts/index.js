@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { Section, Slider } from "components";
+import { Section, Slider, Spinner } from "components";
 import { productsActions } from "actions";
 
 const PopularProducts = ({ fetchPopularProducts, popularItems }) => {
@@ -13,7 +13,7 @@ const PopularProducts = ({ fetchPopularProducts, popularItems }) => {
 
     return (
         <Section title="Популярные модели сезона">
-            <Slider items={popularItems} />
+            {!popularItems.length ? <Spinner /> : <Slider items={popularItems} />}
         </Section>
     );
 };

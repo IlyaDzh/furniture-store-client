@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { Section, Slider } from "components";
+import { Section, Slider, Spinner } from "components";
 import { productsActions } from "actions";
 
 const NewProducts = ({ fetchNewProducts, newItems }) => {
@@ -13,7 +13,7 @@ const NewProducts = ({ fetchNewProducts, newItems }) => {
 
     return (
         <Section title="Новые модели в каталоге">
-            <Slider items={newItems} />
+            {!newItems.length ? <Spinner /> : <Slider items={newItems} />}
         </Section>
     );
 };

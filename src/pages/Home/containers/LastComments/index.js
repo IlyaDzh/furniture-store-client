@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { commentsActions } from "actions";
-import { Section, Comment } from "components";
+import { Section, Spinner, Comment } from "components";
 
 const LastNews = ({ fetchLastComments, comments }) => {
     useEffect(() => {
@@ -19,8 +19,11 @@ const LastNews = ({ fetchLastComments, comments }) => {
             viewAllUrl="/comments"
         >
             <div className="row">
-                {comments.length > 0 &&
-                    comments.map(item => <Comment key={item._id} {...item} />)}
+                {!comments.length ? (
+                    <Spinner />
+                ) : (
+                    comments.map(item => <Comment key={item._id} {...item} />)
+                )}
             </div>
         </Section>
     );

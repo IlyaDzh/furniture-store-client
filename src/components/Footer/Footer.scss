@@ -8,7 +8,7 @@
                 padding: 10px 0;
 
                 a {
-                    color: rgba(#000, 0.75);
+                    color: rgba(#000, 0.7);
                     padding: 10px 0;
                     font-weight: 500;
                     margin-right: 15px;
@@ -17,8 +17,8 @@
                         color: $orange !important;
                     }
 
-                    &:hover {
-                        color: $orange--hover;
+                    &:hover:not(.active) {
+                        color: #000;
                     }
                 }
             }
@@ -94,7 +94,8 @@
                 color: #000;
 
                 &:hover {
-                    color: $orange;
+                    color: rgba(#000, 0.85);
+                    text-decoration: underline;
                 }
             }
         }
@@ -112,7 +113,8 @@
                 color: #000;
 
                 &:hover {
-                    color: $orange;
+                    color: rgba(#000, 0.85);
+                    text-decoration: underline;
                 }
             }
 
