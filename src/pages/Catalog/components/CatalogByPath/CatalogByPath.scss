@@ -1,0 +1,20 @@
+.catalog-content {
+    &__title {
+        margin-bottom: 20px;
+        font-size: 26px;
+    }
+
+    .card-wrapper {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 575px) {
+    .catalog-content {
+        &__title {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 28px;
+        }
+    }
+}

@@ -31,7 +31,6 @@ const actions = {
             .getAll(page)
             .then(({ data }) => {
                 dispatch(actions.setProducts(data.results));
-                dispatch(actions.setIsLoading(false));
             })
             .catch(() => {
                 dispatch(actions.setIsLoading(false));
@@ -44,7 +43,6 @@ const actions = {
             .getById(id)
             .then(({ data }) => {
                 dispatch(actions.setCurrentProduct(data));
-                dispatch(actions.setIsLoading(false));
             })
             .catch(() => {
                 dispatch(actions.setIsLoading(false));

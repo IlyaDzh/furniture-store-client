@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 
 import user from "./user";
+import catalog from "./catalog";
 import products from "./products";
 import home from "./home";
 import info from "./info";
@@ -9,6 +10,7 @@ import comments from "./comments";
 
 export default combineReducers({
     user,
+    catalog,
     products,
     home,
     info,

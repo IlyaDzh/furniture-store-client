@@ -7,10 +7,10 @@ import "./Menu.scss";
 
 const Menu = ({
     formik: { values, handleSubmit, setFieldValue, resetForm },
-    minValue,
-    maxValue,
-    checkboxesView
+    categories
 }) => {
+    const minValue = 0;
+    const maxValue = 400000;
     const [rangeValue, setRangeValue] = useState([minValue, maxValue]);
 
     const onLowerBoundChange = ({ target: { value } }) => {
@@ -64,49 +64,39 @@ const Menu = ({
                         onChange={onSliderChange}
                     />
                     <Form.Check
-                        id="isNew"
+                        id="new"
                         label="Новинки"
-                        checked={values.isNew || false}
-                        onChange={() => setFieldValue("isNew", !values.isNew)}
+                        checked={values.new || false}
+                        onChange={() => setFieldValue("new", !values.isNew)}
                         custom
                     />
                     <Form.Check
-                        id="isHit"
+                        id="hit"
                         label="Хит продаж"
-                        checked={values.isHit || false}
-                        onChange={() => setFieldValue("isHit", !values.isHit)}
+                        checked={values.hit || false}
+                        onChange={() => setFieldValue("hit", !values.isHit)}
                         custom
                     />
                 </BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Вид">
-                    {checkboxesView.map(item => (
-                        <Form.Check
-                            key={item.id}
-                            id={item.name}
-                            label={item.label}
-                            checked={values.view[item.name] || false}
-                            onChange={() =>
-                                setFieldValue(
-                                    `view[${item.name}]`,
-                                    !values.view[item.name]
-                                )
-                            }
-                            custom
-                        />
-                    ))}
-                </BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Цвет">
-                    this is panel content
-                </BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Стиль">
-                    this is panel content
-                </BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Форма">
-                    this is panel content
-                </BaseCollapse.Panel>
-                <BaseCollapse.Panel header="Материал">
-                    this is panel content
-                </BaseCollapse.Panel>
+                {categories.map(item => (
+                    <BaseCollapse.Panel key={item._id} header={item.title}>
+                        {item.content.map((checkbox, index) => (
+                            <Form.Check
+                                key={index}
+                                id={checkbox}
+                                label={checkbox}
+                                checked={values.search[checkbox] || false}
+                                onChange={() =>
+                                    setFieldValue(
+                                        `search[${checkbox}]`,
+                                        !values.search[checkbox]
+                                    )
+                                }
+                                custom
+                            />
+                        ))}
+                    </BaseCollapse.Panel>
+                ))}
                 <div className="rc-collapse-footer">
                     <Button
                         variant="link"

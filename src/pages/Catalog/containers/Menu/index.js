@@ -1,61 +1,18 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { useFormik } from "formik";
 
 import { Menu as BaseMenu } from "../../components";
+import { catalogActions } from "actions";
 
-const checkboxesView = [
-    {
-        id: 1,
-        name: "is1",
-        label: "Банкетки"
-    },
-    {
-        id: 2,
-        name: "is2",
-        label: "Диваны"
-    },
-    {
-        id: 3,
-        name: "is3",
-        label: "Зеркала"
-    },
-    {
-        id: 4,
-        name: "is4",
-        label: "Комоды"
-    },
-    {
-        id: 5,
-        name: "is5",
-        label: "Кресла"
-    },
-    {
-        id: 6,
-        name: "is6",
-        label: "Кровати"
-    },
-    {
-        id: 7,
-        name: "is7",
-        label: "Полки"
-    }
-];
-
-const Menu = () => {
-    const [maxValue, setMaxValue] = useState(75000);
-    const [minValue, setMinValue] = useState(0);
-
+const Menu = ({ currentItem }) => {
     const formik = useFormik({
         initialValues: {
-            lowerBound: minValue,
-            upperBound: maxValue,
-            isNew: false,
-            isHit: false,
-            view: {},
-            color: {},
-            style: {},
-            shape: {},
-            material: {}
+            lowerBound: 0,
+            upperBound: 400000,
+            new: false,
+            hit: false,
+            search: {}
         },
         onSubmit: values => {
             console.log(values);
@@ -63,13 +20,17 @@ const Menu = () => {
     });
 
     return (
-        <BaseMenu
-            formik={formik}
-            minValue={minValue}
-            maxValue={maxValue}
-            checkboxesView={checkboxesView}
-        />
+        currentItem && (
+            <BaseMenu formik={formik} categories={currentItem.categories} />
+        )
     );
 };
 
-export default Menu;
+export default connect(
+    ({ catalog }) => ({
+        currentItem: catalog.currentItem,
+        isLoading: catalog.isLoading,
+        error: catalog.error
+    }),
+    catalogActions
+)(Menu);

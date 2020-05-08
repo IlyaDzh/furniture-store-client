@@ -1,6 +1,5 @@
 .card {
     $self:&;
-    margin: 0 15px;
 
     &-product {
         #{$self}-img-top {

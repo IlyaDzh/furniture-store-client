@@ -13,8 +13,7 @@ const NewsById = ({ fetchCurrentNews, currentItem, setError, error, isLoading })
         if (currentItem && currentItem._id === newsId) return;
         fetchCurrentNews(newsId);
         return () => setError(false);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [newsId]);
+    }, [newsId]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
