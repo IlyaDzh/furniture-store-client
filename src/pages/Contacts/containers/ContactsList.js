@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { infoActions } from "actions";
 import { Spinner } from "components";
-import { List } from "../../components";
+import { List } from "../components";
 
 const ContactsList = ({ fetchContacts, contacts, error, isLoading }) => {
     useEffect(() => {

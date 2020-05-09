@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { useFormik } from "formik";
 
-import { Menu as BaseMenu } from "../../components";
+import { Menu as BaseMenu } from "../components";
 import { catalogActions } from "actions";
 
 const Menu = ({ currentItem }) => {

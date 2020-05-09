@@ -5,7 +5,7 @@ import { userActions } from "actions";
 import { ScrollToTop, Section, Error } from "components";
 import { Info, Orders } from "./components";
 
-const Profile = ({ isAuth, data, orders, fetchUserData }) => {
+const Profile = ({ isAuth, data, fetchUserData }) => {
     useEffect(() => {
         if (isAuth && !data) {
             fetchUserData();
@@ -19,7 +19,7 @@ const Profile = ({ isAuth, data, orders, fetchUserData }) => {
                 data && (
                     <>
                         <Info data={data} />
-                        <Orders orders={orders} />
+                        <Orders orders={data.orders} />
                     </>
                 )
             ) : (
@@ -32,8 +32,7 @@ const Profile = ({ isAuth, data, orders, fetchUserData }) => {
 export default connect(
     ({ user }) => ({
         isAuth: user.isAuth,
-        data: user.data,
-        orders: user.orders
+        data: user.data
     }),
     userActions
 )(Profile);

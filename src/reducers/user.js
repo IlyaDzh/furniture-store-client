@@ -3,35 +3,27 @@ const initialState = {
     cart: [
         {
             product: {
-                _id: "h2fdsf312a",
-                title: "Малая гостиная Матильда",
-                price: 216740
+                _id: "5eb3f77b461fe11a6cd7cf12",
+                title: "Гостиная Октавия",
+                price: 482000
             },
             count: 1
         },
         {
             product: {
-                _id: "94gf8ads32",
-                title: "Стул металлический Zero (изумруд)",
-                price: 4040
+                _id: "5eb4242ad903d42e0c8920f0",
+                title: "Стол раскладной Роза",
+                price: 18850
             },
-            count: 3
+            count: 2
         },
         {
             product: {
-                _id: "6qldf932n1",
-                title: "Спальня Натали с 6-дверным шкафом (белый глянец)",
-                price: 108723
+                _id: "5eb42647d903d42e0c8920f5",
+                title: "Стул металлический Zero",
+                price: 2450
             },
-            count: 1
-        }
-    ],
-    orders: [
-        {
-            _id: "7dfgh345ksd1",
-            date: "Сегодня",
-            total: 216740,
-            status: "В обработке"
+            count: 8
         }
     ],
     isAuth: !!window.localStorage.token
@@ -57,7 +49,9 @@ export default (state = initialState, { type, payload }) => {
         //     };
         case "USER:CHANGE_CART_COUNT":
             const tempCart = [...state.cart];
-            const selectedProduct = tempCart.find(item => item._id === payload.id);
+            const selectedProduct = tempCart.find(
+                item => item.product._id === payload.id
+            );
             const index = tempCart.indexOf(selectedProduct);
             const product = tempCart[index];
             product.count =
@@ -70,7 +64,7 @@ export default (state = initialState, { type, payload }) => {
         case "USER:REMOVE_CART":
             return {
                 ...state,
-                cart: state.cart.filter(item => item._id !== payload)
+                cart: state.cart.filter(item => item.product._id !== payload)
             };
         default:
             return state;

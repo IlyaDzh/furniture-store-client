@@ -71,7 +71,10 @@ const Table = ({ cart, removeItem, changeCount }) => (
             <div className="table__result">
                 Общая сумма:{" "}
                 {getConvertPrice(
-                    cart.reduce((acc, { price, count }) => acc + price * count, 0)
+                    cart.reduce(
+                        (acc, { product, count }) => acc + product.price * count,
+                        0
+                    )
                 )}{" "}
                 руб.
             </div>

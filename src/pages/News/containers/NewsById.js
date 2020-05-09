@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { Spinner, Error } from "components";
-import { FullNews } from "../../components";
+import { FullNews } from "../components";
 import { newsActions } from "actions";
 
 const NewsById = ({ fetchCurrentNews, currentItem, setError, error, isLoading }) => {

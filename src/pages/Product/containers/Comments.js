@@ -1,7 +1,7 @@
 import { withFormik } from "formik";
 import * as Yup from "yup";
 
-import { Comments as BaseComments } from "../../components";
+import { Comments as BaseComments } from "../components";
 
 const Comments = withFormik({
     enableReinitialize: true,

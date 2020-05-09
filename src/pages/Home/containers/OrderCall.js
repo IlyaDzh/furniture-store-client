@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-import { OrderCall as BaseOrderCall } from "../../components";
+import { OrderCall as BaseOrderCall } from "../components";
 
 const OrderCall = () => {
     const [callReady, setCallReady] = useState(false);

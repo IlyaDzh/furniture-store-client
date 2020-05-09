@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { Cart as BaseCart } from "../../components";
+import { Cart as BaseCart } from "../components";
 
 const Cart = () => {
     useEffect(() => {});

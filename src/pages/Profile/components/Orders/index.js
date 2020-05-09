@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 
-import { getConvertPrice } from "utils/helpers";
+import { getConvertTime, getConvertPrice } from "utils/helpers";
 import "./Orders.scss";
 
 const Orders = ({ orders }) => (
@@ -19,12 +20,23 @@ const Orders = ({ orders }) => (
                     </tr>
                 </thead>
                 <tbody>
-                    {orders.map(item => (
-                        <tr key={item._id}>
-                            <td>{item._id}</td>
-                            <td>{item.date}</td>
-                            <td>{getConvertPrice(item.total)} руб.</td>
-                            <td>{item.status}</td>
+                    {orders.map(({ _id, createdAt, cart, status }) => (
+                        <tr key={_id}>
+                            <td>
+                                <Link to={`/order/${_id}`}>{_id}</Link>
+                            </td>
+                            <td>{getConvertTime(createdAt)}</td>
+                            <td>
+                                {getConvertPrice(
+                                    cart.reduce(
+                                        (acc, { product, count }) =>
+                                            acc + product.price.current * count,
+                                        0
+                                    )
+                                )}{" "}
+                                руб.
+                            </td>
+                            <td>{status}</td>
                         </tr>
                     ))}
                 </tbody>

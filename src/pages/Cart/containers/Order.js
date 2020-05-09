@@ -1,7 +1,7 @@
 import { withFormik } from "formik";
 import * as Yup from "yup";
 
-import { Order as BaseOrder } from "../../components";
+import { Order as BaseOrder } from "../components";
 import { phoneRegExp } from "utils/constants";
 
 const Order = withFormik({
@@ -26,7 +26,10 @@ const Order = withFormik({
         address: Yup.string().required("Заполните адрес доставки")
     }),
     handleSubmit: (values, { props: { cart } }) => {
-        values.cart = cart;
+        values.cart = cart.map(({ product, count }) => ({
+            product: product._id,
+            count: Number(count)
+        }));
         console.log(values);
     }
 })(BaseOrder);

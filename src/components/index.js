@@ -5,6 +5,7 @@ export { default as ModalCall } from "./Modals/ModalCall";
 export { default as ModalOneClick } from "./Modals/ModalOneClick";
 export { default as ModalEdit } from "./Modals/ModalEdit";
 export { default as ScrollToTop } from "./ScrollToTop";
+export { default as MiniCart } from "./MiniCart";
 export { default as ScrollUp } from "./ScrollUp";
 export { default as Spinner } from "./Spinner";
 export { default as Pagination } from "./Pagination";

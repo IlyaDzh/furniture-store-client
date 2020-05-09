@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 import { Navbar as BaseNavbar, Container, Nav } from "react-bootstrap";
 
-import { Navbar } from "containers";
 import logo from "assets/logo.png";
 import bell from "assets/header/bell.png";
 import phone from "assets/header/phone.png";
@@ -14,8 +13,6 @@ import catalogJSON from "utils/catalog.json";
 
 const Header = () => (
     <header className="header">
-        <Navbar />
-
         <div className="header-top">
             <div className="container">
                 <div className="row align-items-center">

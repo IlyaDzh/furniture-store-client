@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
 import { Spinner, Error } from "components";
-import { CatalogByPath as BaseCatalogByPath } from "../../components";
+import { CatalogByPath as BaseCatalogByPath } from "../components";
 import { catalogActions } from "actions";
 
 const CatalogByPath = ({ fetchCurrentCatalog, currentItem, isLoading, error }) => {

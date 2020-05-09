@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import { Header, ScrollToTop, ScrollUp, Footer, Error } from "components";
+import { Navbar, MiniCart } from "containers";
 import {
     Profile,
     Home,
@@ -19,6 +20,7 @@ import {
 
 const App = () => (
     <div className="wrapper">
+        <Navbar />
         <Header />
         <ScrollToTop />
         <ToastContainer
@@ -30,6 +32,7 @@ const App = () => (
             pauseOnFocusLoss
             pauseOnHover
         />
+        <MiniCart />
 
         <Switch>
             <Route exact path="/profile" component={Profile} />

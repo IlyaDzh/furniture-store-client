@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
-import { SubsBlock } from "../../components";
+import { SubsBlock } from "../components";
 import { ordersApi } from "utils/api";
 
 const NewsSubs = () => {

@@ -3,22 +3,28 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { newsActions } from "actions";
-import { AsideCard } from "../../components";
-import "./NewsAside.scss";
+import { AsideCard } from "../components";
 
 const NewsAside = ({ fetchLastNews, news }) => {
-    let { newsId } = useParams();
+    const { newsId } = useParams();
 
     useEffect(() => {
         if (!news.length) {
             fetchLastNews();
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [news]);
+    }, [news]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className="news-aside">
-            <h5>Вам может быть интересно:</h5>
+            <h5
+                style={{
+                    marginBottom: "15",
+                    paddingBottom: "14",
+                    borderBottom: "1px solid #d6d6d6"
+                }}
+            >
+                Вам может быть интересно:
+            </h5>
             {news.length > 0 &&
                 news.map(
                     item =>
