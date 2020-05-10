@@ -1,9 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import { MiniCart as BaseMiniCart } from "components";
 
-const MiniCart = () => {
-    return <BaseMiniCart count={4} total={137000} />;
+const MiniCart = ({ cart }) => {
+    const totalPrice = cart.reduce(
+        (acc, { product, count }) => acc + product.price * count,
+        0
+    );
+
+    return <BaseMiniCart count={cart.length} total={totalPrice} />;
 };
 
-export default MiniCart;
+export default connect(({ cart }) => ({ cart: cart.items }))(MiniCart);

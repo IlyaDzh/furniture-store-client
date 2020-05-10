@@ -1,5 +1,5 @@
 const actions = {
-    addToCart: (id, name, price) => ({
+    addToCart: (id, name, price, count = 1) => ({
         type: "CART:ADD_ITEM",
         payload: {
             product: {
@@ -7,7 +7,7 @@ const actions = {
                 name: name,
                 price: price.current
             },
-            count: 1
+            count: count
         }
     }),
     changeCount: (id, count) => ({

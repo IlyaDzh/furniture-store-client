@@ -23,36 +23,23 @@
         justify-content: space-between;
 
         &__inner {
-            max-width: 67%;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
         }
     }
 
     &__name {
         font-size: 18px;
-        margin-bottom: 4px;
+        margin-bottom: 0;
     }
 
     &__date {
+        align-self: flex-end;
         font-size: 14px;
         font-weight: 500;
         color: $orange;
         margin: 0;
-    }
-
-    &__avatar {
-        position: relative;
-
-        img {
-            width: 90px;
-            height: 90px;
-            position: absolute;
-            left: -90px;
-            bottom: -47px;
-            border-radius: 100%;
-            box-shadow: 0 0 0px 1px #cacaca;
-            border: 6px solid #fff;
-            object-fit: cover;
-        }
     }
 }
 
