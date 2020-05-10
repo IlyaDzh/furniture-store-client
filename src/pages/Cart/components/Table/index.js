@@ -28,7 +28,7 @@ const Table = ({ cart, removeItem, changeCount }) => (
                                         to={`/product/${product._id}`}
                                         className="product-link"
                                     >
-                                        {product.title}
+                                        {product.name}
                                     </Link>
                                 </td>
                                 <td>{getConvertPrice(product.price)} руб.</td>

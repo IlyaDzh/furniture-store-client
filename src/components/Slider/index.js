@@ -5,7 +5,7 @@ import BaseSlider from "react-slick";
 import { SliderArrow, CardProduct } from "components";
 import "./Slider.scss";
 
-const Slider = ({ items }) => {
+const Slider = ({ items, fetchAddToCart }) => {
     const settings = {
         infinite: true,
         swipe: false,
@@ -49,7 +49,7 @@ const Slider = ({ items }) => {
     return (
         <BaseSlider {...settings}>
             {items.map(card => (
-                <CardProduct key={card._id} {...card} />
+                <CardProduct key={card._id} addToCart={fetchAddToCart} {...card} />
             ))}
         </BaseSlider>
     );

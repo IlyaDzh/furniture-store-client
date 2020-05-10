@@ -1,4 +1,5 @@
 export { default as userActions } from "./user";
+export { default as cartActions } from "./cart";
 export { default as catalogActions } from "./catalog";
 export { default as productsActions } from "./products";
 export { default as homeActions } from "./home";

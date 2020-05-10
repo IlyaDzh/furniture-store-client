@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { ScrollToTop, Section } from "components";
 import { Table } from "./components";
 import { Order } from "./containers";
-import { userActions } from "actions";
+import { userActions, cartActions } from "actions";
 
 const Cart = ({
     fetchUserData,
@@ -34,10 +34,14 @@ const Cart = ({
 };
 
 export default connect(
-    ({ user }) => ({
+    ({ user, cart }) => ({
         isAuth: user.isAuth,
         data: user.data,
-        cart: user.cart
+        cart: cart.items
     }),
-    userActions
+    {
+        fetchUserData: userActions.fetchUserData,
+        fetchChangeCount: cartActions.fetchChangeCount,
+        fetchRemoveCart: cartActions.fetchRemoveCart
+    }
 )(Cart);

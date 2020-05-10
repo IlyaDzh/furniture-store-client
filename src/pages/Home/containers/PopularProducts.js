@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { Section, Slider, Spinner } from "components";
-import { productsActions } from "actions";
+import { productsActions, cartActions } from "actions";
 
-const PopularProducts = ({ fetchPopularProducts, popularItems }) => {
+const PopularProducts = ({ fetchPopularProducts, fetchAddToCart, popularItems }) => {
     useEffect(() => {
         if (!popularItems.length) {
             fetchPopularProducts();
@@ -13,7 +13,11 @@ const PopularProducts = ({ fetchPopularProducts, popularItems }) => {
 
     return (
         <Section title="Популярные модели сезона">
-            {!popularItems.length ? <Spinner /> : <Slider items={popularItems} />}
+            {!popularItems.length ? (
+                <Spinner />
+            ) : (
+                <Slider items={popularItems} fetchAddToCart={fetchAddToCart} />
+            )}
         </Section>
     );
 };
@@ -22,5 +26,8 @@ export default connect(
     ({ products }) => ({
         popularItems: products.popularItems
     }),
-    productsActions
+    {
+        fetchPopularProducts: productsActions.fetchPopularProducts,
+        fetchAddToCart: cartActions.fetchAddToCart
+    }
 )(PopularProducts);

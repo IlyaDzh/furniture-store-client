@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import { Section, Slider, Spinner } from "components";
-import { productsActions } from "actions";
+import { productsActions, cartActions } from "actions";
 
-const NewProducts = ({ fetchNewProducts, newItems }) => {
+const NewProducts = ({ fetchNewProducts, fetchAddToCart, newItems }) => {
     useEffect(() => {
         if (!newItems.length) {
             fetchNewProducts();
@@ -13,7 +13,11 @@ const NewProducts = ({ fetchNewProducts, newItems }) => {
 
     return (
         <Section title="Новые модели в каталоге">
-            {!newItems.length ? <Spinner /> : <Slider items={newItems} />}
+            {!newItems.length ? (
+                <Spinner />
+            ) : (
+                <Slider items={newItems} fetchAddToCart={fetchAddToCart} />
+            )}
         </Section>
     );
 };
@@ -22,5 +26,8 @@ export default connect(
     ({ products }) => ({
         newItems: products.newItems
     }),
-    productsActions
+    {
+        fetchNewProducts: productsActions.fetchNewProducts,
+        fetchAddToCart: cartActions.fetchAddToCart
+    }
 )(NewProducts);

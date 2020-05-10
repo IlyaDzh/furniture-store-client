@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { CardProduct } from "components";
 import "./CatalogByPath.scss";
 
-const CatalogByPath = ({ currentItem: { title, products } }) => (
+const CatalogByPath = ({ fetchAddToCart, currentItem: { title, products } }) => (
     <div className="catalog-content">
         <h4 className="catalog-content__title">{title}</h4>
         <div className="row">
@@ -13,7 +13,7 @@ const CatalogByPath = ({ currentItem: { title, products } }) => (
                     key={item._id}
                     className="card-wrapper col-sm-12 col-md-6 col-lg-4 col-xl-3"
                 >
-                    <CardProduct {...item} />
+                    <CardProduct addToCart={fetchAddToCart} {...item} />
                 </div>
             ))}
         </div>

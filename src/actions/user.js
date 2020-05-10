@@ -5,27 +5,10 @@ const actions = {
         type: "USER:SET_DATA",
         payload: data
     }),
-    // setCart: items => ({
-    //     type: "USER:SET_CART",
-    //     payload: items
-    // }),
     setIsAuth: bool => ({
         type: "USER:SET_IS_AUTH",
         payload: bool
     }),
-    changeCartCount: (id, count) => ({
-        type: "USER:CHANGE_CART_COUNT",
-        payload: { id, count }
-    }),
-    removeCart: id => ({
-        type: "USER:REMOVE_CART",
-        payload: id
-    }),
-    // fetchCart: () => dispatch => {
-    //     userApi.getCart().then(({ data }) => {
-    //         dispatch(actions.setCart(data));
-    //     });
-    // }
     fetchUserData: () => dispatch => {
         userApi
             .getMe()
@@ -58,12 +41,6 @@ const actions = {
     fetchUserSignOut: () => dispatch => {
         dispatch(actions.setIsAuth(false));
         delete window.localStorage.token;
-    },
-    fetchRemoveCart: id => dispatch => {
-        dispatch(actions.removeCart(id));
-    },
-    fetchChangeCount: (id, count) => dispatch => {
-        dispatch(actions.changeCartCount(id, count));
     }
 };
 
