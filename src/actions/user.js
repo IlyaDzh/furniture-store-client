@@ -5,6 +5,10 @@ const actions = {
         type: "USER:SET_DATA",
         payload: data
     }),
+    addOrder: postData => ({
+        type: "USER:ADD_ORDER",
+        payload: postData
+    }),
     setIsAuth: bool => ({
         type: "USER:SET_IS_AUTH",
         payload: bool
@@ -32,7 +36,7 @@ const actions = {
         return userApi.signIn(postData).then(({ data }) => {
             const { token } = data;
             window.axios.defaults.headers.common["token"] = token;
-            window.localStorage["token"] = token;
+            window.localStorage.setItem("token", token);
             dispatch(actions.fetchUserData());
             dispatch(actions.setIsAuth(true));
             return data;
@@ -40,7 +44,8 @@ const actions = {
     },
     fetchUserSignOut: () => dispatch => {
         dispatch(actions.setIsAuth(false));
-        delete window.localStorage.token;
+        window.axios.defaults.headers.common["token"] = null;
+        window.localStorage.removeItem("token");
     }
 };
 

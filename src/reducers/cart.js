@@ -37,6 +37,13 @@ export default (state = initialState, { type, payload }) => {
                 ...state,
                 items: resultRemove
             };
+        case "CART:CLEAR_ITEMS":
+            window.localStorage.removeItem("cart");
+
+            return {
+                ...state,
+                items: []
+            };
         default:
             return state;
     }

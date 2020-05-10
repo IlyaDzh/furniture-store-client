@@ -1,10 +1,34 @@
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { BsFillInfoCircleFill, BsExclamationCircleFill } from "react-icons/bs";
 import { withFormik } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
 
 import { Order as BaseOrder } from "../components";
+import { userActions, cartActions } from "actions";
 import { phoneRegExp } from "utils/constants";
+import { ordersApi } from "utils/api";
 
-const Order = withFormik({
+const Order = ({ fetchUserData, clearCart, addOrder, isAuth, data, cart }) => {
+    useEffect(() => {
+        if (isAuth && !data) {
+            fetchUserData();
+        }
+    }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    return (
+        <OrderEnhancer
+            isAuth={isAuth}
+            data={data}
+            cart={cart}
+            clearCart={clearCart}
+            addOrder={addOrder}
+        />
+    );
+};
+
+const OrderEnhancer = withFormik({
     enableReinitialize: true,
     mapPropsToValues: ({ data }) => ({
         fullname: data ? data.fullname : "",
@@ -25,13 +49,46 @@ const Order = withFormik({
             .required("Заполните поле E-mail"),
         address: Yup.string().required("Заполните адрес доставки")
     }),
-    handleSubmit: (values, { props: { cart } }) => {
+    handleSubmit: (values, { props: { isAuth, cart, clearCart, addOrder } }) => {
+        values.type = "Оформление заказа";
         values.cart = cart.map(({ product, count }) => ({
             product: product._id,
             count: Number(count)
         }));
-        console.log(values);
+        ordersApi
+            .createOrder(values)
+            .then(({ data }) => {
+                clearCart();
+                if (isAuth) {
+                    addOrder(data);
+                }
+                toast.success(
+                    <>
+                        <BsFillInfoCircleFill />
+                        <span>Ваш заказ успешно оформлен!</span>
+                    </>
+                );
+            })
+            .catch(() => {
+                toast.error(
+                    <>
+                        <BsExclamationCircleFill />
+                        <span>Упс. Произошла ошибка!</span>
+                    </>
+                );
+            });
     }
 })(BaseOrder);
 
-export default Order;
+export default connect(
+    ({ user, cart }) => ({
+        isAuth: user.isAuth,
+        data: user.data,
+        cart: cart.items
+    }),
+    {
+        fetchUserData: userActions.fetchUserData,
+        addOrder: userActions.addOrder,
+        clearCart: cartActions.clearCart
+    }
+)(Order);

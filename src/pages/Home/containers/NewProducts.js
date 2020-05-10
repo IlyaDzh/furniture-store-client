@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Section, Slider, Spinner } from "components";
 import { productsActions, cartActions } from "actions";
 
-const NewProducts = ({ fetchNewProducts, fetchAddToCart, newItems }) => {
+const NewProducts = ({ fetchNewProducts, addToCart, newItems }) => {
     useEffect(() => {
         if (!newItems.length) {
             fetchNewProducts();
@@ -16,7 +16,7 @@ const NewProducts = ({ fetchNewProducts, fetchAddToCart, newItems }) => {
             {!newItems.length ? (
                 <Spinner />
             ) : (
-                <Slider items={newItems} fetchAddToCart={fetchAddToCart} />
+                <Slider items={newItems} addToCart={addToCart} />
             )}
         </Section>
     );
@@ -28,6 +28,6 @@ export default connect(
     }),
     {
         fetchNewProducts: productsActions.fetchNewProducts,
-        fetchAddToCart: cartActions.fetchAddToCart
+        addToCart: cartActions.addToCart
     }
 )(NewProducts);

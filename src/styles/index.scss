@@ -246,6 +246,11 @@ button {
         overflow-x: auto;
     }
 
+    &__empty {
+        text-align: center;
+        font-size: 18px;
+    }
+
     thead {
         background: #faf9f9;
         border-bottom: 1px solid #efefef;

@@ -8,7 +8,7 @@ import { catalogActions, cartActions } from "actions";
 
 const CatalogByPath = ({
     fetchCurrentCatalog,
-    fetchAddToCart,
+    addToCart,
     currentItem,
     isLoading,
     error
@@ -28,7 +28,7 @@ const CatalogByPath = ({
         currentItem && (
             <BaseCatalogByPath
                 currentItem={currentItem}
-                fetchAddToCart={fetchAddToCart}
+                addToCart={addToCart}
             />
         )
     );
@@ -42,6 +42,6 @@ export default connect(
     }),
     {
         fetchCurrentCatalog: catalogActions.fetchCurrentCatalog,
-        fetchAddToCart: cartActions.fetchAddToCart
+        addToCart: cartActions.addToCart
     }
 )(CatalogByPath);

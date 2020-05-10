@@ -11,6 +11,14 @@ export default (state = initialState, { type, payload }) => {
                 data: payload,
                 isAuth: true
             };
+        case "USER:ADD_ORDER":
+            const tempData = state.data;
+            tempData.orders.push(payload);
+
+            return {
+                ...state,
+                data: tempData
+            };
         case "USER:SET_IS_AUTH":
             return {
                 ...state,

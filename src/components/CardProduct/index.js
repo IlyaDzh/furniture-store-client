@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { FaShoppingCart } from "react-icons/fa";
 import { Card as BaseCard, Button } from "react-bootstrap";
+import { BsFillInfoCircleFill } from "react-icons/bs";
+import { toast } from "react-toastify";
 
 import getConvertPrice from "utils/helpers/getConvertPrice";
 import "./CardProduct.scss";
@@ -23,7 +25,15 @@ const CardProduct = ({ _id, images, name, price, addToCart }) => (
             <Button
                 className="card-btn"
                 variant="orange"
-                onClick={() => addToCart(_id, name, price)}
+                onClick={() => {
+                    addToCart(_id, name, price);
+                    toast.success(
+                        <>
+                            <BsFillInfoCircleFill />
+                            <span>Товар добавлен в корзину</span>
+                        </>
+                    );
+                }}
             >
                 <FaShoppingCart style={{ fontSize: "18", marginRight: "5" }} />В
                 корзину
