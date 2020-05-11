@@ -1,6 +1,7 @@
 const initialState = {
     data: null,
-    isAuth: !!window.localStorage.token
+    isAuth: !!window.localStorage.token,
+    isLoading: false
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -9,7 +10,8 @@ export default (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 data: payload,
-                isAuth: true
+                isAuth: true,
+                isLoading: false
             };
         case "USER:ADD_ORDER":
             const tempData = state.data;
@@ -23,6 +25,11 @@ export default (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 isAuth: payload
+            };
+        case "USER:SET_IS_LOADING":
+            return {
+                ...state,
+                isLoading: payload
             };
         default:
             return state;

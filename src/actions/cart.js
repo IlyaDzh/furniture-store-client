@@ -7,7 +7,7 @@ const actions = {
                 name: name,
                 price: price.current
             },
-            count: count
+            count: Number(count)
         }
     }),
     changeCount: (id, count) => ({

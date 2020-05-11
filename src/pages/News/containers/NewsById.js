@@ -15,16 +15,12 @@ const NewsById = ({ fetchCurrentNews, currentItem, setError, error, isLoading })
         return () => setError(false);
     }, [newsId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    return (
-        <>
-            {isLoading ? (
-                <Spinner />
-            ) : error ? (
-                <Error />
-            ) : (
-                currentItem && <FullNews {...currentItem} />
-            )}
-        </>
+    return isLoading ? (
+        <Spinner />
+    ) : error ? (
+        <Error />
+    ) : (
+        currentItem && <FullNews {...currentItem} />
     );
 };
 

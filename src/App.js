@@ -10,6 +10,7 @@ import {
     Catalog,
     Product,
     Cart,
+    Order,
     AboutUs,
     PaymentDelivery,
     News,
@@ -38,6 +39,7 @@ const App = () => (
             <Route exact path="/profile" component={Profile} />
             <Route exact path={["/", "/home"]} component={Home} />
             <Route path="/catalog" component={Catalog} />
+            <Route exact path="/order/:orderId" component={Order} />
             <Route exact path="/product/:productId" component={Product} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/about" component={AboutUs} />

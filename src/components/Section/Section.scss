@@ -11,6 +11,8 @@
         text-transform: uppercase;
         color: rgba(0, 0, 0, 0.75);
         position: relative;
+        word-break: break-word;
+        overflow: hidden;
 
         &::before,
         &::after {

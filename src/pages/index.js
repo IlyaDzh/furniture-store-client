@@ -1,8 +1,9 @@
 export { default as Profile } from "./Profile";
+export { default as Order } from "./Order";
+export { default as Cart } from "./Cart";
 export { default as Home } from "./Home";
 export { default as Catalog } from "./Catalog";
 export { default as Product } from "./Product";
-export { default as Cart } from "./Cart";
 export { default as AboutUs } from "./AboutUs";
 export { default as PaymentDelivery } from "./PaymentDelivery";
 export { default as News } from "./News";

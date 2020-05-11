@@ -5,21 +5,27 @@ const actions = {
         type: "USER:SET_DATA",
         payload: data
     }),
-    addOrder: postData => ({
+    addOrder: data => ({
         type: "USER:ADD_ORDER",
-        payload: postData
+        payload: data
     }),
     setIsAuth: bool => ({
         type: "USER:SET_IS_AUTH",
         payload: bool
     }),
+    setIsLoading: bool => ({
+        type: "USER:SET_IS_LOADING",
+        payload: bool
+    }),
     fetchUserData: () => dispatch => {
+        dispatch(actions.setIsLoading(true));
         userApi
             .getMe()
             .then(({ data }) => {
                 dispatch(actions.setData(data));
             })
             .catch(() => {
+                dispatch(actions.setIsLoading(false));
                 dispatch(actions.setIsAuth(false));
                 delete window.localStorage.token;
             });

@@ -36,7 +36,7 @@ const Table = ({ cart, removeItem, changeCount }) => (
                                     <Form.Control
                                         type="number"
                                         min={1}
-                                        max={9}
+                                        max={20}
                                         defaultValue={count}
                                         onChange={e =>
                                             changeCount(
