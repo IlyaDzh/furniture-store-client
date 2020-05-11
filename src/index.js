@@ -8,7 +8,7 @@ import AppAdmin from "./admin";
 ReactDOM.render(
     <Router>
         <Switch>
-            <Route exact path="/admin" component={AppAdmin} />
+            <Route path="/admin" component={AppAdmin} />
             <Route path="/" component={AppClient} />
         </Switch>
     </Router>,
