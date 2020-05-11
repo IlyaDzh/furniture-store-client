@@ -1,19 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import App from "./App";
-import "styles/index.scss";
-
-import store from "store";
+import AppClient from "./client";
+import AppAdmin from "./admin";
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <App />
-        </Router>
-    </Provider>,
+    <Router>
+        <Switch>
+            <Route exact path="/admin" component={AppAdmin} />
+            <Route path="/" component={AppClient} />
+        </Switch>
+    </Router>,
     document.getElementById("root")
 );
 
