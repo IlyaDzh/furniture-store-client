@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tabs, Tab } from "react-bootstrap";
 
-import { ScrollToTop, Section, Spinner, Slider, Error } from "components";
+import { ScrollToTop, Section, Spinner, Error } from "components";
 import { Breadcrumbs, Gallery, Price, Chars, PayDel } from "./components";
 import { Cart, Comments } from "./containers";
 import { productsActions } from "actions";

@@ -20,7 +20,7 @@ import {
 } from "pages";
 
 const App = () => (
-    <div className="wrapper">
+    <div className="client-wrapper">
         <Navbar />
         <Header />
         <ScrollToTop />

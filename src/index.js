@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AppClient from "./client";
 import AppAdmin from "./admin";
 
+import "./styles/index.scss";
+
 ReactDOM.render(
     <Router>
         <Switch>

@@ -1,14 +1,12 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+import { LoginForm } from "modules";
+
 const App = ({ isAuth }) => (
-    <div className="wrapper">
+    <div className="admin-wrapper">
         <Switch>
-            <Route
-                exact
-                path="/admin/signin"
-                render={() => <div>Вход в админку</div>}
-            />
+            <Route exact path="/admin/signin" render={() => <LoginForm />} />
             <Route
                 exact
                 path={[
