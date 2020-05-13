@@ -1,0 +1,47 @@
+@import "~styles/variables.scss";
+
+.content-wrapper {
+    margin-left: $sidebar-width;
+    padding-top: 60px;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay {
+    transition: all 0.3s 
+}
+
+.home.toggled {
+    .content-wrapper {
+        margin-left: 0;
+    }
+
+    .overlay {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content-wrapper {
+        margin-left: 0px;
+    }
+
+    .home.toggled {
+        .content-wrapper {
+            margin-left: 0;
+        }
+    }
+
+    .home.toggled {
+        .overlay {
+            display: block;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(#000, 0.4);
+            z-index: 999;
+        }
+    }
+}

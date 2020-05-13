@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import { Comments as BaseComments } from "../components";
-import { commentsApi } from "utils/api";
+import { commentsApi } from "client/utils/api";
 
 const Comments = withFormik({
     enableReinitialize: true,

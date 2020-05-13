@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { commentsActions } from "actions";
-import { Section, Spinner, Comment } from "components";
+import { commentsActions } from "client/actions";
+import { Section, Spinner, Comment } from "client/components";
 
 const LastNews = ({ fetchLastComments, comments }) => {
     useEffect(() => {

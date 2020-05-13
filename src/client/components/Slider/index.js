@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import BaseSlider from "react-slick";
 
-import { SliderArrow, CardProduct } from "components";
+import { SliderArrow, CardProduct } from "client/components";
 import "./Slider.scss";
 
 const Slider = ({ items, addToCart }) => {

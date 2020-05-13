@@ -5,10 +5,10 @@ import { withFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
-import { ModalCall as BaseModalCall } from "components";
-import { phoneRegExp } from "utils/constants";
-import { userActions } from "actions";
-import { ordersApi } from "utils/api";
+import { ModalCall as BaseModalCall } from "client/components";
+import { phoneRegExp } from "client/utils/constants";
+import { userActions } from "client/actions";
+import { ordersApi } from "client/utils/api";
 
 const ModalCall = ({ fetchUserData, isAuth, data, show, setShowCall }) => {
     useEffect(() => {

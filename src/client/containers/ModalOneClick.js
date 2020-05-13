@@ -5,10 +5,10 @@ import { withFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
-import { ModalOneClick as BaseModalOneClick } from "components";
-import { phoneRegExp } from "utils/constants";
-import { userActions } from "actions";
-import { ordersApi } from "utils/api";
+import { ModalOneClick as BaseModalOneClick } from "client/components";
+import { phoneRegExp } from "client/utils/constants";
+import { ordersApi } from "client/utils/api";
+import { userActions } from "client/actions";
 
 const ModalOneClick = ({
     fetchUserData,

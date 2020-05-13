@@ -1,4 +1,4 @@
-import { newsApi } from "utils/api";
+import { newsApi } from "client/utils/api";
 
 const actions = {
     setNews: items => ({

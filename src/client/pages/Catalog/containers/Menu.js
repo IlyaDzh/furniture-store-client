@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { useFormik } from "formik";
 
 import { Menu as BaseMenu } from "../components";
-import { catalogActions } from "actions";
+import { catalogActions } from "client/actions";
 
 const Menu = ({ currentItem }) => {
     const formik = useFormik({

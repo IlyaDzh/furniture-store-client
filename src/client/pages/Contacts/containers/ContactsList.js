@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { infoActions } from "actions";
-import { Spinner } from "components";
+import { infoActions } from "client/actions";
+import { Spinner } from "client/components";
 import { List } from "../components";
 
 const ContactsList = ({ fetchContacts, contacts, error, isLoading }) => {

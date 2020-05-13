@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { Section, ScrollToTop, Spinner, Error } from "components";
+import { Section, Spinner, Error } from "client/components";
 import { Tables } from "./components";
-import { ordersActions } from "actions";
+import { ordersActions } from "client/actions";
 
 const Order = ({ fetchCurrentOrder, currentItem, setError, error, isLoading }) => {
     const { orderId } = useParams();
@@ -17,13 +17,12 @@ const Order = ({ fetchCurrentOrder, currentItem, setError, error, isLoading }) =
 
     return (
         <Section className="order" title={`Заказ №${orderId}`}>
-            <ScrollToTop />
             {isLoading ? (
                 <Spinner />
             ) : error ? (
                 <Error />
             ) : (
-                currentItem && <Tables {...currentItem} /> 
+                currentItem && <Tables {...currentItem} />
             )}
         </Section>
     );

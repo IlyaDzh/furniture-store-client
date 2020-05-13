@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { Navbar as BaseNavbar } from "components";
-import { ModalLogin, ModalRegister } from "containers";
-import { userActions } from "actions";
+import { Navbar as BaseNavbar } from "client/components";
+import { ModalLogin, ModalRegister } from "client/containers";
+import { userActions } from "client/actions";
 
 const Navbar = ({ isAuth, fetchUserSignOut }) => {
     const [showRegister, setShowRegister] = useState(false);

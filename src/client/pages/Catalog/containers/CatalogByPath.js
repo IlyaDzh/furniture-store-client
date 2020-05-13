@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { Spinner, Error } from "components";
+import { Spinner, Error } from "client/components";
 import { CatalogByPath as BaseCatalogByPath } from "../components";
-import { catalogActions, cartActions } from "actions";
+import { catalogActions, cartActions } from "client/actions";
 
 const CatalogByPath = ({
     fetchCurrentCatalog,

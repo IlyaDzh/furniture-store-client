@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { Spinner, Error } from "components";
+import { Spinner, Error } from "client/components";
 import { FullNews } from "../components";
-import { newsActions } from "actions";
+import { newsActions } from "client/actions";
 
 const NewsById = ({ fetchCurrentNews, currentItem, setError, error, isLoading }) => {
     const { newsId } = useParams();

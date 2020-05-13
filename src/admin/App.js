@@ -1,24 +1,27 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import { LoginForm } from "modules";
+import { Auth, Home } from "./pages";
 
 const App = ({ isAuth }) => (
     <div className="admin-wrapper">
         <Switch>
-            <Route exact path="/admin/signin" render={() => <LoginForm />} />
+            <Route
+                exact
+                path="/admin/signin"
+                render={() => (isAuth ? <Redirect to="/admin" /> : <Auth />)}
+            />
             <Route
                 exact
                 path={[
                     "/admin",
+                    "/admin/statistics",
                     "/admin/about",
                     "/admin/news",
                     "/admin/comments",
                     "/admin/contacts"
                 ]}
-                render={() =>
-                    isAuth ? <div>Home</div> : <Redirect to="/admin/signin" />
-                }
+                render={() => (isAuth ? <Home /> : <Redirect to="/admin/signin" />)}
             />
             <Route
                 render={() =>
@@ -30,7 +33,7 @@ const App = ({ isAuth }) => (
 );
 
 App.defaultProps = {
-    isAuth: false
+    isAuth: true
 };
 
 export default App;

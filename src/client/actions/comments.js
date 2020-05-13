@@ -1,4 +1,4 @@
-import { commentsApi } from "utils/api";
+import { commentsApi } from "client/utils/api";
 
 const actions = {
     setComments: items => ({

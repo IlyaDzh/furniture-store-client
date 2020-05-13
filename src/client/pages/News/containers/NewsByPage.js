@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-import { newsActions } from "actions";
-import { Spinner, Pagination, CardNews, Error } from "components";
+import { newsActions } from "client/actions";
+import { Spinner, Pagination, CardNews, Error } from "client/components";
 
 const NewsByPage = ({
     fetchNews,

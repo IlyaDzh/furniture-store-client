@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { userActions } from "actions";
-import { ScrollToTop, Section, Spinner, Error } from "components";
+import { userActions } from "client/actions";
+import { Section, Spinner, Error } from "client/components";
 import { Info, Orders } from "./components";
 
 const Profile = ({ fetchUserData, isAuth, data, isLoading }) => {
@@ -14,7 +14,6 @@ const Profile = ({ fetchUserData, isAuth, data, isLoading }) => {
 
     return (
         <Section className="profile" title="Профиль">
-            <ScrollToTop />
             {isAuth ? (
                 !isLoading ? (
                     data && (

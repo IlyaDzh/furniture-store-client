@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { newsActions } from "actions";
-import { Section, Spinner, CardNews } from "components";
+import { newsActions } from "client/actions";
+import { Section, Spinner, CardNews } from "client/components";
 
 const LastNews = ({ fetchLastNews, news }) => {
     useEffect(() => {

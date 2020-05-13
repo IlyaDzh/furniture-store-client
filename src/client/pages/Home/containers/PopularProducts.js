@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { Section, Slider, Spinner } from "components";
-import { productsActions, cartActions } from "actions";
+import { Section, Slider, Spinner } from "client/components";
+import { productsActions, cartActions } from "client/actions";
 
 const PopularProducts = ({ fetchPopularProducts, addToCart, popularItems }) => {
     useEffect(() => {

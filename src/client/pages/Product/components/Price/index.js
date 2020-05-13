@@ -1,6 +1,6 @@
 import React from "react";
 
-import getConvertPrice from "utils/helpers/getConvertPrice";
+import getConvertPrice from "client/utils/helpers/getConvertPrice";
 import "./Price.scss";
 
 const Price = ({ price: { current, old } }) => (

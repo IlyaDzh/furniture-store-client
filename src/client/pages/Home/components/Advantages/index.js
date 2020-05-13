@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Section } from "components";
+import { Section } from "client/components";
 import { AdvantagesItem } from "../";
 import "./Advantages.scss";
 

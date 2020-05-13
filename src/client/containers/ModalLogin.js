@@ -4,9 +4,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
 
-import { ModalLogin as BaseModalLogin } from "components";
-import { userActions } from "actions";
-import store from "store";
+import { ModalLogin as BaseModalLogin } from "client/components";
+import { userActions } from "client/actions";
+import store from "client/store";
 
 const ModalLogin = ({ show, setShowLogin, onHide, onToggle }) => {
     const formik = useFormik({

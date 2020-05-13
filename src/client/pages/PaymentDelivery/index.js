@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { infoActions } from "actions";
-import { ScrollToTop, Section, Spinner, Error } from "components";
+import { infoActions } from "client/actions";
+import { Section, Spinner, Error } from "client/components";
 import { Info } from "./components";
 
 const PaymentDelivery = ({ fetchService, service, error, isLoading }) => {
@@ -15,7 +15,6 @@ const PaymentDelivery = ({ fetchService, service, error, isLoading }) => {
 
     return (
         <Section className="pay-del" title="Оплата и доставка">
-            <ScrollToTop />
             {isLoading ? (
                 <Spinner />
             ) : error && !service ? (

@@ -4,7 +4,7 @@ import { BsFillInfoCircleFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 
 import { Cart as BaseCart } from "../components";
-import { cartActions } from "actions";
+import { cartActions } from "client/actions";
 
 const Cart = ({ addToCart, currentProduct: { _id, name, price } }) => {
     const handleClick = countRef => {

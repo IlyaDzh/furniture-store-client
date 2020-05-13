@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { CardProduct } from "components";
+import { CardProduct } from "client/components";
 import "./CatalogByPath.scss";
 
 const CatalogByPath = ({ addToCart, currentItem: { title, products } }) => (

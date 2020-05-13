@@ -1,0 +1,101 @@
+@import "~styles/variables.scss";
+
+.sidebar {
+    &-wrapper {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1000;
+        overflow: hidden;
+        width: $sidebar-width;
+        height: 100%;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: $sidebar-color;
+        color: rgba(#fff, 0.5);
+    }
+
+    &-overlay {
+        display: none;
+    }
+
+    &-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55px;
+
+        &__link {
+            position: relative;
+            font-size: 34px;
+            font-weight: 500;
+            color: #fff;
+            padding: 0 15px;
+
+            &:before {
+                position: absolute;
+                content: '';
+                height: 12px;
+                width: 12px;
+                background: $orange;
+                top: 11px;
+                left: 0;
+            }
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    &-content {
+        padding: 40px 0;
+
+        &__list {
+            li {
+                a {
+                    display: flex;
+                    align-items: center;
+                    padding: 10px 15px;
+                    color: rgba(#fff, 0.5);
+
+                    &.active {
+                        color: #fff;
+                    }
+
+                    svg {
+                        font-size: 22px;
+                        margin-right: 6px;
+                    }
+
+                    &:hover {
+                        color: rgba(#fff, 0.75);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.home.toggled .sidebar-wrapper {
+    position: fixed;
+    left: -$sidebar-width;
+}
+
+@media (max-width: 1024px) {
+    .sidebar-wrapper {
+        position: fixed;
+        top: 0px;
+        left: -$sidebar-width;
+        width: $sidebar-width;
+        height: 100%;
+        box-shadow: none;
+    }
+
+    .home.toggled .sidebar-wrapper {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+}

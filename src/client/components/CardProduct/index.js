@@ -6,7 +6,7 @@ import { Card as BaseCard, Button } from "react-bootstrap";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 
-import getConvertPrice from "utils/helpers/getConvertPrice";
+import getConvertPrice from "client/utils/helpers/getConvertPrice";
 import "./CardProduct.scss";
 
 const CardProduct = ({ _id, images, name, price, addToCart }) => (

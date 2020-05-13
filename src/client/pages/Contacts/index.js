@@ -1,12 +1,11 @@
 import React from "react";
 
-import { ScrollToTop, Section } from "components";
+import { Section } from "client/components";
 import { Map } from "./components";
 import { ContactsList } from "./containers";
 
 const Contacts = () => (
     <Section className="contacts" title="Контакты">
-        <ScrollToTop />
         <div className="row">
             <div className="col-md-6">
                 <ContactsList />

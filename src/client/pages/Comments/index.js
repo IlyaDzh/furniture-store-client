@@ -2,15 +2,8 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-import { commentsActions } from "actions";
-import {
-    ScrollToTop,
-    Section,
-    Spinner,
-    Pagination,
-    Comment,
-    Error
-} from "components";
+import { commentsActions } from "client/actions";
+import { Section, Spinner, Pagination, Comment, Error } from "client/components";
 
 const Comments = ({
     fetchComments,
@@ -46,7 +39,6 @@ const Comments = ({
 
     return (
         <Section className="comments" title="Отзывы наших клиентов">
-            <ScrollToTop />
             <div className="row">
                 {isLoading ? (
                     <Spinner />

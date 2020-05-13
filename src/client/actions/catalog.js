@@ -1,4 +1,4 @@
-import { catalogApi } from "utils/api";
+import { catalogApi } from "client/utils/api";
 
 const actions = {
     setCurrentCatalog: item => ({

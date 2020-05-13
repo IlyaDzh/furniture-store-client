@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
 
-import { ModalEdit } from "containers";
+import { ModalEdit } from "client/containers";
 import "./Info.scss";
 
 const Info = ({ data: { fullname, email, phone, address } }) => {

@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import { SubsBlock } from "../components";
-import { ordersApi } from "utils/api";
+import { ordersApi } from "client/utils/api";
 
 const NewsSubs = () => {
     const [subsReady, setSubsReady] = useState(false);

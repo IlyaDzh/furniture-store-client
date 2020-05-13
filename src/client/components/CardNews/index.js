@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Card as BaseCard } from "react-bootstrap";
 
-import { getConvertTime } from "utils/helpers";
+import { getConvertTime } from "client/utils/helpers";
 import "./CardNews.scss";
 
 const CardNews = ({ _id, image, title, short_description, date }) => (

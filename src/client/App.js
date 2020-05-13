@@ -2,8 +2,8 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
-import { Header, ScrollToTop, ScrollUp, Footer, Error } from "components";
-import { Navbar, MiniCart } from "containers";
+import { Header, ScrollToTop, ScrollUp, Footer, Error } from "./components";
+import { Navbar, MiniCart } from "./containers";
 import {
     Profile,
     Home,
@@ -17,7 +17,7 @@ import {
     Comments,
     Contacts,
     PrivacyPolicy
-} from "pages";
+} from "./pages";
 
 const App = () => (
     <div className="client-wrapper">

@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col, Form, Button } from "react-bootstrap";
 
-import { Section } from "components";
-import orderCallBg from "assets/home/order/bg.jpg";
+import { Section } from "client/components";
+import orderBg from "assets/home/order-bg.jpg";
 import "./OrderCall.scss";
 
 const OrderCall = ({
@@ -12,7 +12,7 @@ const OrderCall = ({
     <Section
         className="order-call"
         style={{
-            background: `#e7eced url(${orderCallBg}) no-repeat center center`,
+            background: `#e7eced url(${orderBg}) no-repeat center center`,
             backgroundSize: "cover"
         }}
     >

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { newsActions } from "actions";
+import { newsActions } from "client/actions";
 import { AsideCard } from "../components";
 
 const NewsAside = ({ fetchLastNews, news }) => {

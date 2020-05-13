@@ -1,0 +1,55 @@
+@import "~styles/variables.scss";
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 0px 15px;
+    z-index: 999;
+    height: 55px;
+    background: $header-color;
+    box-shadow: 0 5px 15px rgba(57, 98, 254, 0.02), 0 3px 6px rgba(117, 108, 254, 0.12);
+    transition: all 0.3s;
+    margin-left: $sidebar-width;
+
+    .btn-toggle {
+        font-size: 30px;
+        padding: 0;
+        line-height: 0;
+        color: #fff;
+
+        &:hover {
+            color: #fff;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .btn-logout {
+        border-radius: 0;
+    }
+}
+
+.home.toggled {
+    .admin-header {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .admin-header {
+        margin-left: 0px;
+    }
+
+    .home.toggled {
+        .admin-header {
+            margin-left: 0;
+        }
+    }
+}

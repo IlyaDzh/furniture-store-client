@@ -4,7 +4,7 @@ import { Col, Form, Button } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdTouchApp } from "react-icons/md";
 
-import { ModalOneClick } from "containers";
+import { ModalOneClick } from "client/containers";
 import "./Cart.scss";
 
 const Cart = ({ handleClick }) => {

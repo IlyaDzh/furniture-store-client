@@ -1,4 +1,4 @@
-import { productsApi } from "utils/api";
+import { productsApi } from "client/utils/api";
 
 const actions = {
     setProducts: items => ({

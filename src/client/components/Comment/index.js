@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { getConvertTime } from "utils/helpers";
+import { getConvertTime } from "client/utils/helpers";
 import "./Comment.scss";
 
 const Comment = ({ fullname, comment, date }) => (

@@ -9,7 +9,7 @@ import image3 from "assets/about/2.jpg";
 import image4 from "assets/about/4.jpg";
 import image5 from "assets/about/5.jpg";
 
-const Info = ({ text, gallery_types, gallery, stages }) => (
+const Info = ({ text, gallery_types, stages }) => (
     <>
         <div className="about__header">
             {text && text.map((item, i) => <p key={i}>{item}</p>)}
@@ -65,7 +65,6 @@ const Info = ({ text, gallery_types, gallery, stages }) => (
 Info.propTypes = {
     text: PropTypes.arrayOf(PropTypes.string),
     gallery_types: PropTypes.arrayOf(PropTypes.string),
-    gallery: PropTypes.arrayOf(PropTypes.string),
     stages: PropTypes.arrayOf(PropTypes.object)
 };
 

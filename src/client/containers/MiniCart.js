@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { MiniCart as BaseMiniCart } from "components";
+import { MiniCart as BaseMiniCart } from "client/components";
 
 const MiniCart = ({ cart }) => {
     const totalPrice = cart.reduce(

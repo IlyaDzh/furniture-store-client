@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { Section } from "components";
-import { ModalMeasurer } from "containers";
-import designBg from "assets/home/measurer/bg.png";
+import { Section } from "client/components";
+import { ModalMeasurer } from "client/containers";
+import measurerBg from "assets/home/measurer-bg.png";
 import "./Measurer.scss";
 
 const Measurer = () => {
@@ -13,7 +13,7 @@ const Measurer = () => {
             <Section
                 className="measurer"
                 style={{
-                    background: `#e7eced url(${designBg}) no-repeat right top`,
+                    background: `#e7eced url(${measurerBg}) no-repeat right top`,
                     backgroundSize: "contain"
                 }}
             >

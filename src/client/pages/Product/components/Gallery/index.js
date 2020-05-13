@@ -2,15 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
 
-import { SliderArrow } from "components";
+import { SliderArrow } from "client/components";
 import "./Gallery.scss";
-
-// import image1 from "assets/product/1.jpg";
-// import image2 from "assets/product/2.jpg";
-// import image3 from "assets/product/3.jpg";
-// import image4 from "assets/product/4.jpg";
-// import image5 from "assets/product/5.jpg";
-// import image6 from "assets/product/6.jpg";
 
 const settings1 = {
     className: "big-slick",

@@ -6,9 +6,9 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import { Order as BaseOrder } from "../components";
-import { userActions, cartActions } from "actions";
-import { phoneRegExp } from "utils/constants";
-import { ordersApi } from "utils/api";
+import { userActions, cartActions } from "client/actions";
+import { phoneRegExp } from "client/utils/constants";
+import { ordersApi } from "client/utils/api";
 
 const Order = ({ fetchUserData, clearCart, addOrder, isAuth, data, cart }) => {
     useEffect(() => {

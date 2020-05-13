@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-import { ScrollToTop, Section, Spinner, Error } from "components";
+import { Section, Spinner, Error } from "client/components";
 import { Info } from "./components";
-import { infoActions } from "actions";
+import { infoActions } from "client/actions";
 
 const AboutUs = ({ fetchAbout, about, error, isLoading }) => {
     useEffect(() => {
@@ -15,7 +15,6 @@ const AboutUs = ({ fetchAbout, about, error, isLoading }) => {
 
     return (
         <Section className="about" title="О нашей фабрике">
-            <ScrollToTop />
             {isLoading ? (
                 <Spinner />
             ) : error && !about ? (

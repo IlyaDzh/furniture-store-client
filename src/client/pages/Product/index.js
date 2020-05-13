@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Tabs, Tab } from "react-bootstrap";
 
-import { ScrollToTop, Section, Spinner, Error } from "components";
+import { Section, Spinner, Error } from "client/components";
 import { Breadcrumbs, Gallery, Price, Chars, PayDel } from "./components";
 import { Cart, Comments } from "./containers";
-import { productsActions } from "actions";
+import { productsActions } from "client/actions";
 import "./Product.scss";
 
 const Product = ({ fetchCurrentProduct, currentItem, error, isLoading }) => {
@@ -19,7 +19,6 @@ const Product = ({ fetchCurrentProduct, currentItem, error, isLoading }) => {
 
     return (
         <Section className="product" title="Каталог">
-            <ScrollToTop />
             {isLoading ? (
                 <Spinner />
             ) : error ? (

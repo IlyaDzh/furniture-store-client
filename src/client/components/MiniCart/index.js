@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 
-import getConvertPrice from "utils/helpers/getConvertPrice";
+import getConvertPrice from "client/utils/helpers/getConvertPrice";
 import "./MiniCart.scss";
 
 const MiniCart = ({ count, total }) => (

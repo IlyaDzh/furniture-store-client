@@ -5,9 +5,9 @@ import * as Yup from "yup";
 import get from "lodash/get";
 import { toast } from "react-toastify";
 
-import { ModalRegister as BaseModalRegister } from "components";
-import { userActions } from "actions";
-import store from "store";
+import { ModalRegister as BaseModalRegister } from "client/components";
+import { userActions } from "client/actions";
+import store from "client/store";
 
 const ModalRegister = ({ show, successReg, onHide }) => {
     const formik = useFormik({

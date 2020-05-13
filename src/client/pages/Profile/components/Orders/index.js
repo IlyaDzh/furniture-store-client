@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 
-import { getConvertTime, getConvertPrice } from "utils/helpers";
+import { getConvertTime, getConvertPrice } from "client/utils/helpers";
 import "./Orders.scss";
 
 const Orders = ({ orders }) => (
