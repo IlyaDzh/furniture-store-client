@@ -11,7 +11,7 @@ const Home = () => {
     const [toggled, setToggled] = useState(false);
 
     return (
-        <div className={classNames("home", { toggled: toggled })}>
+        <div className={classNames("admin-home", { toggled: toggled })}>
             <Sidebar />
             <Header onClick={() => setToggled(!toggled)} />
 

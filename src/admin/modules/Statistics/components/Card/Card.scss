@@ -1,0 +1,17 @@
+.card-stats {
+    background: #fff;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.075);
+    padding: 15px;
+    margin-bottom: 20px;
+
+    &__title {
+        margin-bottom: 3px;
+        opacity: 0.85;
+    }
+
+    &__number {
+        font-size: 28px;
+        font-weight: 700;
+        opacity: 0.6;
+    }
+}

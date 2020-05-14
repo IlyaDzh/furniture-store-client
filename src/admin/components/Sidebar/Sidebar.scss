@@ -10,7 +10,6 @@
         width: $sidebar-width;
         height: 100%;
         transition: all 0.3s ease;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         background-color: $sidebar-color;
         color: rgba(#fff, 0.5);
     }
@@ -24,6 +23,7 @@
         justify-content: center;
         align-items: center;
         height: 55px;
+        background: $header-color;
 
         &__link {
             position: relative;
@@ -49,9 +49,16 @@
     }
 
     &-content {
-        padding: 40px 0;
+        height: calc(100% - 55px);
+        position: relative;
 
         &__list {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            left: 0;
+            transform: translateY(-50%);
+
             li {
                 a {
                     display: flex;
@@ -68,7 +75,7 @@
                         margin-right: 6px;
                     }
 
-                    &:hover {
+                    &:hover:not(.active) {
                         color: rgba(#fff, 0.75);
                     }
                 }
@@ -77,7 +84,7 @@
     }
 }
 
-.home.toggled .sidebar-wrapper {
+.admin-home.toggled .sidebar-wrapper {
     position: fixed;
     left: -$sidebar-width;
 }
@@ -92,7 +99,7 @@
         box-shadow: none;
     }
 
-    .home.toggled .sidebar-wrapper {
+    .admin-home.toggled .sidebar-wrapper {
         position: fixed;
         top: 0px;
         left: 0px;

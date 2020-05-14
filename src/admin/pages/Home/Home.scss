@@ -1,8 +1,12 @@
 @import "~styles/variables.scss";
 
+.admin-home {
+    background: #f8f8f8;
+}
+
 .content-wrapper {
     margin-left: $sidebar-width;
-    padding-top: 60px;
+    padding-top: 55px;
     overflow-x: hidden;
     transition: all 0.3s ease;
 }
@@ -11,7 +15,7 @@
     transition: all 0.3s 
 }
 
-.home.toggled {
+.admin-home.toggled {
     .content-wrapper {
         margin-left: 0;
     }
@@ -26,13 +30,13 @@
         margin-left: 0px;
     }
 
-    .home.toggled {
+    .admin-home.toggled {
         .content-wrapper {
             margin-left: 0;
         }
     }
 
-    .home.toggled {
+    .admin-home.toggled {
         .overlay {
             display: block;
             position: fixed;
