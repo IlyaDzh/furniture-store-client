@@ -1,0 +1,53 @@
+@import "~styles/variables.scss";
+
+.admin-orders {
+    .table {
+        font-size: 14px;
+
+        thead {
+            background: #fff;
+
+            th {
+                font-weight: 500;
+            }
+        }
+
+        tbody {
+            background: #fff;
+        }
+
+        .btn-link {
+            font-size: 14px;
+            padding: 0;
+        }
+
+        .order-actions {
+            display: flex;
+
+            .btn {
+                font-size: 20px;
+                padding: 5px;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+
+            .btn-confirm {
+                color: #28a745;
+            }
+
+            .btn-edit {
+                color: #ffc107;
+            }
+
+            .btn-remove {
+                color: #dc3545;
+            }
+        }
+    }
+}

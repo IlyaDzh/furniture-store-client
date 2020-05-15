@@ -1,4 +1,4 @@
-import { infoApi } from "client/utils/api";
+import { infoApi } from "utils/api";
 
 const actions = {
     setAbout: items => ({

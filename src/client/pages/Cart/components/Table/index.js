@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Table as BaseTable, Form, Button } from "react-bootstrap";
 import { MdClose } from "react-icons/md";
 
-import { getConvertPrice } from "client/utils/helpers";
+import { getConvertPrice } from "utils/helpers";
 import "./Table.scss";
 
 const Table = ({ cart, removeItem, changeCount }) => (

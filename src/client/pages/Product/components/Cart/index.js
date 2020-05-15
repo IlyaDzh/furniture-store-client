@@ -4,11 +4,11 @@ import { Col, Form, Button } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdTouchApp } from "react-icons/md";
 
-import { ModalOneClick } from "client/containers";
+import { ModalCall } from "client/containers";
 import "./Cart.scss";
 
 const Cart = ({ handleClick }) => {
-    const [showFastBuy, setShowFastBuy] = useState(false);
+    const [showCall, setShowCall] = useState(false);
     const countRef = useRef();
 
     return (
@@ -43,7 +43,7 @@ const Cart = ({ handleClick }) => {
             <Button
                 className="product-cart__buy"
                 variant="link"
-                onClick={() => setShowFastBuy(true)}
+                onClick={() => setShowCall(true)}
             >
                 <MdTouchApp
                     style={{
@@ -54,7 +54,7 @@ const Cart = ({ handleClick }) => {
                 />
                 Купить в 1 клик
             </Button>
-            <ModalOneClick show={showFastBuy} setShowFastBuy={setShowFastBuy} />
+            <ModalCall show={showCall} setShowCall={setShowCall} />
         </div>
     );
 };

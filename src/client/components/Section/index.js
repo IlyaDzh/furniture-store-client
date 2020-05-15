@@ -40,7 +40,7 @@ Section.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
     title: PropTypes.string,
-    children: PropTypes.node.isRequired,
+    children: PropTypes.node,
     viewAll: PropTypes.string,
     viewAllUrl: PropTypes.string,
     viewAllIcon: PropTypes.node

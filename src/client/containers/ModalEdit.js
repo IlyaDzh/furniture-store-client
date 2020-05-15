@@ -6,7 +6,7 @@ import { BsFillInfoCircleFill, BsExclamationCircleFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 
 import { ModalEdit as BaseModalEdit } from "client/components";
-import { phoneRegExp } from "client/utils/constants";
+import { phoneRegExp } from "utils/constants";
 import { userActions } from "client/actions";
 
 const ModalEdit = ({

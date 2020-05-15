@@ -6,9 +6,9 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import { ModalMeasurer as BaseModalMeasurer } from "client/components";
-import { phoneRegExp } from "client/utils/constants";
+import { phoneRegExp } from "utils/constants";
+import { ordersApi } from "utils/api";
 import { userActions } from "client/actions";
-import { ordersApi } from "client/utils/api";
 
 const ModalMeasurer = ({ fetchUserData, isAuth, data, show, setShowMeasurer }) => {
     useEffect(() => {

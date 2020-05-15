@@ -1,4 +1,4 @@
-import { newsApi } from "client/utils/api";
+import { newsApi } from "utils/api";
 
 const actions = {
     setNews: items => ({
@@ -61,9 +61,12 @@ const actions = {
             });
     },
     fetchLastNews: () => dispatch => {
-        newsApi.getLastNews().then(({ data }) => {
-            dispatch(actions.setLastNews(data));
-        });
+        newsApi
+            .getLastNews()
+            .then(({ data }) => {
+                dispatch(actions.setLastNews(data));
+            })
+            .catch(() => {});
     }
 };
 

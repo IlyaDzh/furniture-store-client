@@ -6,9 +6,9 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import { ModalCall as BaseModalCall } from "client/components";
-import { phoneRegExp } from "client/utils/constants";
+import { phoneRegExp } from "utils/constants";
+import { ordersApi } from "utils/api";
 import { userActions } from "client/actions";
-import { ordersApi } from "client/utils/api";
 
 const ModalCall = ({ fetchUserData, isAuth, data, show, setShowCall }) => {
     useEffect(() => {

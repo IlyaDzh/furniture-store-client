@@ -9,7 +9,7 @@ import phone from "assets/header/phone.png";
 import pin from "assets/header/pin.png";
 import "./Header.scss";
 
-import catalogJSON from "client/utils/catalog.json";
+import catalogJSON from "utils/catalog.json";
 
 const Header = () => (
     <header className="header">

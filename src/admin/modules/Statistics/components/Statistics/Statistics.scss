@@ -1,7 +1,7 @@
-.stats {
-    &-item {
-        &__title {
-            opacity: .75;
+.admin-stats {
+    &__item {
+        &>h4 {
+            opacity: .8;
         }
     }
 }

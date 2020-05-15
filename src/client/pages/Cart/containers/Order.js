@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 
 import { Order as BaseOrder } from "../components";
 import { userActions, cartActions } from "client/actions";
-import { phoneRegExp } from "client/utils/constants";
-import { ordersApi } from "client/utils/api";
+import { phoneRegExp } from "utils/constants";
+import { ordersApi } from "utils/api";
 
 const Order = ({ fetchUserData, clearCart, addOrder, isAuth, data, cart }) => {
     useEffect(() => {
@@ -56,7 +56,7 @@ const OrderEnhancer = withFormik({
             count: Number(count)
         }));
         ordersApi
-            .createOrder(values)
+            .create(values)
             .then(({ data }) => {
                 clearCart();
                 if (isAuth) {

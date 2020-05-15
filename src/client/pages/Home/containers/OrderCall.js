@@ -5,8 +5,8 @@ import * as Yup from "yup";
 import { toast } from "react-toastify";
 
 import { OrderCall as BaseOrderCall } from "../components";
-import { phoneRegExp } from "client/utils/constants";
-import { ordersApi } from "client/utils/api";
+import { phoneRegExp } from "utils/constants";
+import { ordersApi } from "utils/api";
 
 const OrderCall = () => {
     const [callReady, setCallReady] = useState(false);

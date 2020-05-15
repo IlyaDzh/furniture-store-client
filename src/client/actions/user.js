@@ -1,4 +1,4 @@
-import { userApi } from "client/utils/api";
+import { userApi } from "utils/api";
 
 const actions = {
     setData: data => ({

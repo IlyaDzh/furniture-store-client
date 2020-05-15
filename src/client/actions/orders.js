@@ -1,4 +1,4 @@
-import { ordersApi } from "client/utils/api";
+import { ordersApi } from "utils/api";
 
 const actions = {
     setCurrentOrder: item => ({

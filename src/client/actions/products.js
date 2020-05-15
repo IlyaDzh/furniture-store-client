@@ -1,4 +1,4 @@
-import { productsApi } from "client/utils/api";
+import { productsApi } from "utils/api";
 
 const actions = {
     setProducts: items => ({
@@ -50,14 +50,20 @@ const actions = {
             });
     },
     fetchNewProducts: () => dispatch => {
-        productsApi.getNewProducts().then(({ data }) => {
-            dispatch(actions.setNewProducts(data));
-        });
+        productsApi
+            .getNewProducts()
+            .then(({ data }) => {
+                dispatch(actions.setNewProducts(data));
+            })
+            .catch(() => {});
     },
     fetchPopularProducts: () => dispatch => {
-        productsApi.getPopularProducts().then(({ data }) => {
-            dispatch(actions.setPopularProducts(data));
-        });
+        productsApi
+            .getPopularProducts()
+            .then(({ data }) => {
+                dispatch(actions.setPopularProducts(data));
+            })
+            .catch(() => {});
     }
 };
 

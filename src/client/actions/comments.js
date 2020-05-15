@@ -1,4 +1,4 @@
-import { commentsApi } from "client/utils/api";
+import { commentsApi } from "utils/api";
 
 const actions = {
     setComments: items => ({
@@ -40,9 +40,12 @@ const actions = {
             });
     },
     fetchLastComments: () => dispatch => {
-        commentsApi.getLastComments().then(({ data }) => {
-            dispatch(actions.setLastComments(data));
-        });
+        commentsApi
+            .getLastComments()
+            .then(({ data }) => {
+                dispatch(actions.setLastComments(data));
+            })
+            .catch(() => {});
     }
 };
 

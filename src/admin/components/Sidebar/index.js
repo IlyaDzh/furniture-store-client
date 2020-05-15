@@ -53,7 +53,7 @@ const Sidebar = () => (
                 <li>
                     <NavLink to="/admin/orders">
                         <AiOutlineTable />
-                        Заявки
+                        Заказы
                     </NavLink>
                 </li>
             </ul>

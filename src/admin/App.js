@@ -17,9 +17,10 @@ const App = ({ isAuth }) => (
                     "/admin",
                     "/admin/statistics",
                     "/admin/about",
+                    "/admin/catalog",
                     "/admin/news",
                     "/admin/comments",
-                    "/admin/contacts"
+                    "/admin/orders"
                 ]}
                 render={() => (isAuth ? <Home /> : <Redirect to="/admin/signin" />)}
             />
