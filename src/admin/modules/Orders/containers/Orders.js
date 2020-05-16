@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
-import { Orders as BaseOrders } from "../components";
+import { Orders as BaseOrders, DetailsModal } from "../components";
 import { ordersActions } from "admin/actions";
 
 const Orders = ({
@@ -12,24 +12,53 @@ const Orders = ({
     isLoading,
     error
 }) => {
+    const [tempItems, setTempItems] = useState();
+    const [filterType, setFilterType] = useState("");
+    const [details, setDetails] = useState({});
+    const [showDetails, setShowDetails] = useState(false);
+
     useEffect(() => {
         if (!items) {
             fetchOrders();
+        } else {
+            setTempItems(
+                filterType ? items.filter(item => item.type === filterType) : items
+            );
         }
     }, [items]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const onChangeStatus = (id, e) => {
-        fetchChangeStatus({ id, status: e });
+    const handleChangeToggle = value => {
+        setTempItems(value ? items.filter(item => item.type === value) : items);
+        setFilterType(value);
+    };
+
+    const onChangeStatus = (id, status) => {
+        fetchChangeStatus({ id, status });
+    };
+
+    const openDetailsModal = data => {
+        setDetails(data);
+        setShowDetails(true);
     };
 
     return (
-        <BaseOrders
-            onChangeStatus={onChangeStatus}
-            fetchDelete={fetchDelete}
-            items={items}
-            isLoading={isLoading}
-            error={error}
-        />
+        <>
+            <BaseOrders
+                value={filterType}
+                handleChange={handleChangeToggle}
+                onChangeStatus={onChangeStatus}
+                openDetailsModal={openDetailsModal}
+                fetchDelete={fetchDelete}
+                items={tempItems}
+                isLoading={isLoading}
+                error={error}
+            />
+            <DetailsModal
+                setShow={setShowDetails}
+                show={showDetails}
+                details={details}
+            />
+        </>
     );
 };
 

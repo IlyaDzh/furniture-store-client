@@ -47,7 +47,7 @@ const ModalMeasurerEnhancer = withFormik({
     handleSubmit: (values, { resetForm, props: { setShowMeasurer } }) => {
         values.type = "Вызов замерщика";
         ordersApi
-            .createOrder(values)
+            .create(values)
             .then(() => {
                 toast.success(
                     <>

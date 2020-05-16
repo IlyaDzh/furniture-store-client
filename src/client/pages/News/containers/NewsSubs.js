@@ -22,7 +22,7 @@ const NewsSubs = () => {
         onSubmit: values => {
             values.type = "Подписка на рассылку";
             ordersApi
-                .createOrder(values)
+                .create(values)
                 .then(() => setSubsReady(true))
                 .catch(() => {
                     toast.error(

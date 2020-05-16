@@ -1,15 +1,49 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Table as BaseTable, Form, Button } from "react-bootstrap";
+import {
+    ToggleButtonGroup,
+    ToggleButton,
+    Table,
+    Form,
+    Button
+} from "react-bootstrap";
 import { MdClose } from "react-icons/md";
 
 import { Section } from "admin/components";
 import "./Orders.scss";
 
-const Orders = ({ onChangeStatus, fetchDelete, items, isLoading, error }) => (
+const Orders = ({
+    value,
+    handleChange,
+    onChangeStatus,
+    openDetailsModal,
+    fetchDelete,
+    items,
+    isLoading,
+    error
+}) => (
     <Section title="Заказы" className="admin-orders">
+        <div className="admin-orders__actions">
+            <ToggleButtonGroup
+                type="radio"
+                name="options"
+                defaultValue={1}
+                value={value}
+                onChange={handleChange}
+            >
+                <ToggleButton value="">Все</ToggleButton>
+                <ToggleButton value="Оформление заказа">
+                    Оформление заказа
+                </ToggleButton>
+                <ToggleButton value="Вызов замерщика">Вызов замерщика</ToggleButton>
+                <ToggleButton value="Заказ звонка">Заказ звонка</ToggleButton>
+                <ToggleButton value="Подписка на рассылку">
+                    Подписка на рассылку
+                </ToggleButton>
+            </ToggleButtonGroup>
+        </div>
         <div className="table-container">
-            <BaseTable borderless>
+            <Table borderless>
                 <thead>
                     <tr>
                         <th>Тип</th>
@@ -17,7 +51,7 @@ const Orders = ({ onChangeStatus, fetchDelete, items, isLoading, error }) => (
                         <th>ФИО</th>
                         <th>Телефон</th>
                         <th>Адрес</th>
-                        <th>Корзина</th>
+                        <th>Подробнее</th>
                         <th>Статус</th>
                         <th></th>
                     </tr>
@@ -35,8 +69,22 @@ const Orders = ({ onChangeStatus, fetchDelete, items, isLoading, error }) => (
                                         <td>{item.address || "---"}</td>
                                         <td>
                                             {item.cart.length ? (
-                                                <Button variant="link">
-                                                    Подробнее
+                                                <Button
+                                                    variant="link"
+                                                    onClick={() =>
+                                                        openDetailsModal(item)
+                                                    }
+                                                >
+                                                    Корзина
+                                                </Button>
+                                            ) : item.time ? (
+                                                <Button
+                                                    variant="link"
+                                                    onClick={() =>
+                                                        openDetailsModal(item)
+                                                    }
+                                                >
+                                                    Время
                                                 </Button>
                                             ) : (
                                                 "---"
@@ -54,6 +102,8 @@ const Orders = ({ onChangeStatus, fetchDelete, items, isLoading, error }) => (
                                                 value={item.status || ""}
                                             >
                                                 <option>В обработке</option>
+                                                <option>Оплата</option>
+                                                <option>В пути</option>
                                                 <option>Завершено</option>
                                             </Form.Control>
                                         </td>
@@ -83,13 +133,14 @@ const Orders = ({ onChangeStatus, fetchDelete, items, isLoading, error }) => (
                         </tr>
                     )}
                 </tbody>
-            </BaseTable>
+            </Table>
         </div>
     </Section>
 );
 
 Orders.propTypes = {
     onChangeStatus: PropTypes.func,
+    openDetailsModal: PropTypes.func,
     fetchDelete: PropTypes.func,
     items: PropTypes.arrayOf(Object),
     isLoading: PropTypes.bool,

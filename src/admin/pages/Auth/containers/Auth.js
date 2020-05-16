@@ -2,8 +2,8 @@ import { withFormik } from "formik";
 import * as Yup from "yup";
 
 import { LoginForm } from "../components";
-// import { userActions } from "actions";
-// import store from "store";
+import { adminActions } from "admin/actions";
+import store from "admin/store";
 
 const Auth = withFormik({
     enableReinitialize: true,
@@ -16,13 +16,19 @@ const Auth = withFormik({
         password: Yup.string().required("Обязательное поле")
     }),
     handleSubmit: (values, { props }) => {
-        console.log(values);
-        // store
-        //     .dispatch(userActions.fetchUserSignIn(values))
-        //     .then(({ status }) => {
-        //         props.history.push("/");
-        //     })
-        //     .catch(() => { });
+        store
+            .dispatch(adminActions.fetchAdminSignIn(values))
+            .then(({ admin }) => {
+                if (admin) {
+                    console.log("Вы вошли в аккаунт");
+                    props.history.push("/admin/statistics");
+                } else {
+                    console.log("Вы не являетесь администратором");
+                }
+            })
+            .catch(() => {
+                console.log("Неверный пароль");
+            });
     }
 })(LoginForm);
 

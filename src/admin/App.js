@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import { Auth, Home } from "./pages";
@@ -33,8 +34,4 @@ const App = ({ isAuth }) => (
     </div>
 );
 
-App.defaultProps = {
-    isAuth: true
-};
-
-export default App;
+export default connect(({ admin }) => ({ isAuth: admin.isAuth }), null)(App);

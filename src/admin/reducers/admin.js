@@ -1,16 +1,9 @@
 const initialState = {
-    data: null,
-    isAuth: !!window.localStorage.token_admin
+    isAuth: !!window.localStorage.admin && !!window.localStorage.token
 };
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
-        case "ADMIN:SET_DATA":
-            return {
-                ...state,
-                data: payload,
-                isAuth: true
-            };
         case "ADMIN:SET_IS_AUTH":
             return {
                 ...state,

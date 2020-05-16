@@ -14,18 +14,18 @@ const OrderCall = () => {
     const formik = useFormik({
         initialValues: {
             fullname: "",
-            number: ""
+            phone: ""
         },
         validationSchema: Yup.object({
             fullname: Yup.string().required("Укажите своё Имя и Фамилию"),
-            number: Yup.string()
+            phone: Yup.string()
                 .matches(phoneRegExp, "Не правильно набран номер")
                 .required("Укажите свой Номер телефона")
         }),
         onSubmit: values => {
             values.type = "Заказ звонка";
             ordersApi
-                .createOrder(values)
+                .create(values)
                 .then(() => {
                     setCallReady(true);
                 })

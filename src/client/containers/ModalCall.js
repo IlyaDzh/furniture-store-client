@@ -35,7 +35,7 @@ const ModalCallEnhancer = withFormik({
     handleSubmit: (values, { resetForm, props: { setShowCall } }) => {
         values.type = "Заказ звонка";
         ordersApi
-            .createOrder(values)
+            .create(values)
             .then(() => {
                 toast.success(
                     <>
