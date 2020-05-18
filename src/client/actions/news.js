@@ -32,7 +32,7 @@ const actions = {
     fetchNews: page => dispatch => {
         dispatch(actions.setIsLoading(true));
         newsApi
-            .getAll(page)
+            .getByPage(page)
             .then(({ data }) => {
                 dispatch(actions.setNews(data.results));
                 dispatch(actions.setCurrentPage(data.page));

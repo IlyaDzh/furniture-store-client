@@ -1,29 +1,29 @@
-import { ordersApi } from "utils/api";
+import { commentsApi } from "utils/api";
 
 const actions = {
     setItems: items => ({
-        type: "ORDERS:SET_ITEMS",
+        type: "COMMENTS:SET_ITEMS",
         payload: items
     }),
-    changeStatus: item => ({
-        type: "ORDERS:CHANGE_STATUS",
+    editItem: item => ({
+        type: "COMMENTS:CHANGE_STATUS",
         payload: item
     }),
     removeItem: id => ({
-        type: "ORDERS:REMOVE_ITEM",
+        type: "COMMENTS:REMOVE_ITEM",
         payload: id
     }),
     setIsLoading: bool => ({
-        type: "ORDERS:SET_IS_LOADING",
+        type: "COMMENTS:SET_IS_LOADING",
         payload: bool
     }),
     setError: bool => ({
-        type: "ORDERS:SET_ERROR",
+        type: "COMMENTS:SET_ERROR",
         payload: bool
     }),
-    fetchOrders: () => dispatch => {
+    fetchComments: () => dispatch => {
         dispatch(actions.setIsLoading(true));
-        ordersApi
+        commentsApi
             .getAll()
             .then(({ data }) => {
                 dispatch(actions.setItems(data));
@@ -33,16 +33,8 @@ const actions = {
                 dispatch(actions.setError(true));
             });
     },
-    fetchChangeStatus: item => dispatch => {
-        ordersApi
-            .update(item)
-            .then(() => {
-                dispatch(actions.changeStatus(item));
-            })
-            .catch(() => {});
-    },
     fetchDelete: id => dispatch => {
-        ordersApi
+        commentsApi
             .delete(id)
             .then(() => {
                 dispatch(actions.removeItem(id));

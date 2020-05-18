@@ -28,7 +28,7 @@ const actions = {
     fetchComments: page => dispatch => {
         dispatch(actions.setIsLoading(true));
         commentsApi
-            .getAll(page)
+            .getByPage(page)
             .then(({ data }) => {
                 dispatch(actions.setComments(data.results));
                 dispatch(actions.setCurrentPage(data.page));

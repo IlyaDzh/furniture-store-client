@@ -4,55 +4,32 @@
     &__actions {
         margin-bottom: 20px;
     }
+}
 
-    .table {
-        font-size: 14px;
-        min-width: 880px;
-
-        thead {
-            background: #fff;
-
-            th {
-                font-weight: 500;
-            }
-        }
-
-        tbody {
-            background: #fff;
-        }
-
-        .btn-link {
-            font-size: 14px;
-            padding: 0;
-        }
-
-        .order-actions {
+@media (max-width: 768px) {
+    .admin-orders__actions {
+        .btn {
             display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+    }
+}
 
-            .btn {
-                font-size: 20px;
-                padding: 5px;
+@media (max-width: 460px) {
+    .admin-orders__actions {
+        .btn {
+            font-size: 14px;
+            padding: 4px;
+        }
+    }
+}
 
-                &:focus {
-                    box-shadow: none;
-                }
-
-                &:hover {
-                    transform: scale(1.2);
-                }
-            }
-
-            .btn-confirm {
-                color: #28a745;
-            }
-
-            .btn-edit {
-                color: #ffc107;
-            }
-
-            .btn-remove {
-                color: #dc3545;
-            }
+@media (max-width: 400px) {
+    .admin-orders__actions {
+        .btn {
+            font-size: 13px;
+            padding: 2px;
         }
     }
 }

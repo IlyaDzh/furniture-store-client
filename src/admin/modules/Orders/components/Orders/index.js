@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import { MdClose } from "react-icons/md";
 
-import { Section } from "admin/components";
+import { Section, Spinner } from "admin/components";
 import "./Orders.scss";
 
 const Orders = ({
@@ -43,11 +43,11 @@ const Orders = ({
             </ToggleButtonGroup>
         </div>
         <div className="table-container">
-            <Table borderless>
+            <Table className="admin-table" hover borderless>
                 <thead>
                     <tr>
                         <th>Тип</th>
-                        <th>E-mail</th>
+                        <th>Email</th>
                         <th>ФИО</th>
                         <th>Телефон</th>
                         <th>Адрес</th>
@@ -103,17 +103,21 @@ const Orders = ({
                                             >
                                                 <option>В обработке</option>
                                                 <option>Оплата</option>
-                                                <option>В пути</option>
+                                                <option>Доставка</option>
                                                 <option>Завершено</option>
                                             </Form.Control>
                                         </td>
-                                        <td className="order-actions">
-                                            <Button
-                                                variant="remove"
-                                                onClick={() => fetchDelete(item._id)}
-                                            >
-                                                <MdClose />
-                                            </Button>
+                                        <td>
+                                            <div className="table-actions">
+                                                <Button
+                                                    variant="remove"
+                                                    onClick={() =>
+                                                        fetchDelete(item._id)
+                                                    }
+                                                >
+                                                    <MdClose />
+                                                </Button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))
@@ -129,7 +133,9 @@ const Orders = ({
                         )
                     ) : (
                         <tr className="table__empty">
-                            <td colSpan="8">Загрузка...</td>
+                            <td colSpan="8">
+                                <Spinner size="sm" />
+                            </td>
                         </tr>
                     )}
                 </tbody>
