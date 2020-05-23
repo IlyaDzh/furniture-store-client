@@ -6,7 +6,7 @@ const actions = {
         payload: items
     }),
     editItem: item => ({
-        type: "COMMENTS:CHANGE_STATUS",
+        type: "COMMENTS:EDIT_ITEM",
         payload: item
     }),
     removeItem: id => ({
@@ -33,7 +33,7 @@ const actions = {
                 dispatch(actions.setError(true));
             });
     },
-    fetchDelete: id => dispatch => {
+    deleteComment: id => dispatch => {
         commentsApi
             .delete(id)
             .then(() => {

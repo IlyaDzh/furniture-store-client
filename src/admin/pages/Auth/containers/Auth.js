@@ -20,15 +20,10 @@ const Auth = withFormik({
             .dispatch(adminActions.fetchAdminSignIn(values))
             .then(({ admin }) => {
                 if (admin) {
-                    console.log("Вы вошли в аккаунт");
                     props.history.push("/admin/statistics");
-                } else {
-                    console.log("Вы не являетесь администратором");
                 }
             })
-            .catch(() => {
-                console.log("Неверный пароль");
-            });
+            .catch(() => {});
     }
 })(LoginForm);
 

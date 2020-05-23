@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Card as BaseCard } from "react-bootstrap";
 
+import { baseUrl } from "utils/constants";
 import { getConvertTime } from "utils/helpers";
 import "./CardNews.scss";
 
@@ -10,7 +11,7 @@ const CardNews = ({ _id, image, title, short_description, date }) => (
     <div className="card-displaying col-lg-4 col-md-6 col-sm-6 mb-4">
         <BaseCard className="card-news">
             <Link to={`/news/${_id}`}>
-                <BaseCard.Img variant="top" src={image} />
+                <BaseCard.Img variant="top" src={`${baseUrl}/${image}`} />
             </Link>
             <BaseCard.Body>
                 <BaseCard.Title>{title}</BaseCard.Title>

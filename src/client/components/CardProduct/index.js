@@ -6,13 +6,14 @@ import { Card as BaseCard, Button } from "react-bootstrap";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 
+import { baseUrl } from "utils/constants";
 import getConvertPrice from "utils/helpers/getConvertPrice";
 import "./CardProduct.scss";
 
 const CardProduct = ({ _id, images, name, price, addToCart }) => (
     <BaseCard className="card-product">
         <Link to={`/product/${_id}`}>
-            <BaseCard.Img variant="top" src={images[0]} />
+            <BaseCard.Img variant="top" src={`${baseUrl}/${images[0]}`} />
         </Link>
         <BaseCard.Body>
             <Link to={`/product/${_id}`}>

@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import classNames from "classnames";
 
 import { Sidebar, Header } from "admin/components";
-import { Statistics, About, Comments, Orders } from "admin/modules";
+import { Statistics, About, News, Comments, Orders } from "admin/modules";
 import "./Home.scss";
 
 const Home = () => {
@@ -22,6 +22,7 @@ const Home = () => {
                         component={Statistics}
                     />
                     <Route exact path="/admin/about" component={About} />
+                    <Route exact path="/admin/news" component={News} />
                     <Route exact path="/admin/comments" component={Comments} />
                     <Route exact path="/admin/orders" component={Orders} />
                 </Switch>
