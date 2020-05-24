@@ -8,8 +8,8 @@ import { getConvertTime } from "utils/helpers";
 import "./News.scss";
 
 const News = ({
-    openEditModal,
     setShowAdd,
+    openEditModal,
     deleteNews,
     items,
     isLoading,
@@ -86,6 +86,7 @@ const News = ({
 );
 
 News.propTypes = {
+    setShowAdd: PropTypes.func,
     openEditModal: PropTypes.func,
     deleteNews: PropTypes.func,
     items: PropTypes.arrayOf(Object),

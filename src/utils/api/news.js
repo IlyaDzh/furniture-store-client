@@ -6,6 +6,6 @@ export default {
     getById: id => axios.get("/news/" + id),
     getLastNews: () => axios.get("/news/last"),
     create: data => axios.post("/news/create", data),
-    update: ({ id, ...data }) => axios.put("/news/" + id, data),
+    edit: ({ id, formData }) => axios.put("/news/" + id, formData),
     delete: id => axios.delete("/news/" + id)
 };

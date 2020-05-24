@@ -54,10 +54,10 @@ const actions = {
             .catch(() => {});
     },
     editNews: item => dispatch => {
-        newsApi
+        return newsApi
             .edit(item)
-            .then(() => {
-                dispatch(actions.editItem(item));
+            .then(({ data }) => {
+                dispatch(actions.editItem(data));
             })
             .catch(() => {});
     }

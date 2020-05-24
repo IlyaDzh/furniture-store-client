@@ -1,18 +1,18 @@
 import React from "react";
 import { Modal as BaseModal, Form, Button } from "react-bootstrap";
 
-const AddModal = ({
-    formik: {
-        handleSubmit,
-        touched,
-        values,
-        errors,
-        handleChange,
-        handleBlur,
-        setValues
-    },
+const Modal = ({
+    handleSubmit,
+    touched,
+    values,
+    errors,
+    handleChange,
+    handleBlur,
+    setValues,
     show,
-    setShow
+    setShow,
+    title = "Добавление новости",
+    textButton = "Добавить"
 }) => (
     <BaseModal
         className="my-modal"
@@ -21,7 +21,7 @@ const AddModal = ({
         centered
     >
         <BaseModal.Header closeButton>
-            <BaseModal.Title>Добавить новость</BaseModal.Title>
+            <BaseModal.Title>{title}</BaseModal.Title>
         </BaseModal.Header>
         <BaseModal.Body>
             <Form onSubmit={handleSubmit}>
@@ -33,7 +33,10 @@ const AddModal = ({
                         isInvalid={touched.date && errors.date}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        value={values.date}
+                        value={
+                            values.date &&
+                            new Date(values.date).toISOString().slice(0, 10)
+                        }
                     />
                     <Form.Control.Feedback type="invalid">
                         {errors.date}
@@ -90,7 +93,7 @@ const AddModal = ({
                 <Form.Group>
                     <Form.Control
                         as="textarea"
-                        rows="4"
+                        rows="5"
                         name="description"
                         placeholder="Полное писание"
                         isInvalid={touched.description && errors.description}
@@ -103,7 +106,7 @@ const AddModal = ({
                     </Form.Control.Feedback>
                 </Form.Group>
                 <Button variant="orange" type="button" onClick={handleSubmit}>
-                    Создать
+                    {textButton}
                 </Button>
             </Form>
         </BaseModal.Body>
@@ -111,4 +114,4 @@ const AddModal = ({
     </BaseModal>
 );
 
-export default AddModal;
+export default Modal;

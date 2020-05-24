@@ -24,7 +24,7 @@ export default (state = initialState, { type, payload }) => {
             };
         case "NEWS:EDIT_ITEM":
             const temp = [...state.items];
-            const selected = temp.find(item => item._id === payload.id);
+            const selected = temp.find(item => item._id === payload._id);
             const index = temp.indexOf(selected);
             temp[index] = payload;
 
