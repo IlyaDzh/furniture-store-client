@@ -6,62 +6,62 @@ import "./List.scss";
 
 const List = ({ number, email, time, address_office, address_prod }) => (
     <div className="contacts-list">
-        <div className="contacts-list__item">
-            <FiPhone className="item__icon" />
-            <div className="item__info">
-                <p>Телефон:</p>
-                {number &&
-                    number.map((item, i) => (
-                        <a href={`tel:${Number(item.replace(/\D+/g, ""))}`} key={i}>
-                            {item}
-                        </a>
-                    ))}
+        {number && (
+            <div className="contacts-list__item">
+                <FiPhone className="item__icon" />
+                <div className="item__info">
+                    <p>Телефон:</p>
+                    <a href={`tel:${Number(number.replace(/\D+/g, ""))}`}>
+                        {number}
+                    </a>
+                </div>
             </div>
-        </div>
-        <div className="contacts-list__item">
-            <FiMail className="item__icon" />
-            <div className="item__info">
-                <p>Электронная почта:</p>
-                {email &&
-                    email.map((item, i) => (
-                        <a href={`mailto:${item}`} key={i}>
-                            {item}
-                        </a>
-                    ))}
+        )}
+        {email && (
+            <div className="contacts-list__item">
+                <FiMail className="item__icon" />
+                <div className="item__info">
+                    <p>Электронная почта:</p>
+                    <a href={`mailto:${email}`}>{email}</a>
+                </div>
             </div>
-        </div>
-        <div className="contacts-list__item">
-            <FiWatch className="item__icon" />
-            <div className="item__info">
-                <p>Время работы:</p>
-                {time && time.map((item, i) => <p key={i}>{item}</p>)}
+        )}
+        {time.length ? (
+            <div className="contacts-list__item">
+                <FiWatch className="item__icon" />
+                <div className="item__info">
+                    <p>Время работы:</p>
+                    {time && time.map((item, i) => <p key={i}>{item}</p>)}
+                </div>
             </div>
-        </div>
-        <div className="contacts-list__item">
-            <FiMapPin className="item__icon" />
-            <div className="item__info">
-                <p>Адрес офиса:</p>
-                {address_office &&
-                    address_office.map((item, i) => <p key={i}>{item}</p>)}
+        ) : null}
+        {address_office && (
+            <div className="contacts-list__item">
+                <FiMapPin className="item__icon" />
+                <div className="item__info">
+                    <p>Адрес офиса:</p>
+                    <p>{address_office}</p>
+                </div>
             </div>
-        </div>
-        <div className="contacts-list__item">
-            <FiMapPin className="item__icon" />
-            <div className="item__info">
-                <p>Адрес производства:</p>
-                {address_prod &&
-                    address_prod.map((item, i) => <p key={i}>{item}</p>)}
+        )}
+        {address_prod && (
+            <div className="contacts-list__item">
+                <FiMapPin className="item__icon" />
+                <div className="item__info">
+                    <p>Адрес производства:</p>
+                    <p>{address_prod}</p>
+                </div>
             </div>
-        </div>
+        )}
     </div>
 );
 
 List.propTypes = {
-    number: PropTypes.arrayOf(PropTypes.string),
-    email: PropTypes.arrayOf(PropTypes.string),
+    number: PropTypes.string,
+    email: PropTypes.string,
     time: PropTypes.arrayOf(PropTypes.string),
-    address_office: PropTypes.arrayOf(PropTypes.string),
-    address_prod: PropTypes.arrayOf(PropTypes.string)
+    address_office: PropTypes.string,
+    address_prod: PropTypes.string
 };
 
 export default List;
