@@ -20,6 +20,9 @@
                 }
 
                 &__list {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                     background: $orange;
                     height: 100%;
                     color: #fff;

@@ -1,5 +1,9 @@
 .admin-news {
     &__actions {
         margin-bottom: 20px;
+
+        .btn {
+            border-radius: 0;
+        }
     }
 }

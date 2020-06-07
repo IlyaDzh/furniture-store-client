@@ -12,7 +12,7 @@ import image5 from "assets/about/5.jpg";
 const Info = ({ text, gallery_types, stages }) => (
     <>
         <div className="about__header">
-            {text && text.map((item, i) => <p key={i}>{item}</p>)}
+            <p>{text}</p>
         </div>
 
         <div className="about-gallery">
@@ -22,8 +22,14 @@ const Info = ({ text, gallery_types, stages }) => (
             <div className="about-gallery__grid">
                 <div className="gallery__item gallery__item--1">
                     <ul className="gallery__list">
-                        {gallery_types &&
-                            gallery_types.map((item, i) => <li key={i}>{item}</li>)}
+                        <li>Гостиные</li>
+                        <li>Спальни</li>
+                        <li>Кухни</li>
+                        <li>Шкафы и полки</li>
+                        <li>Детские</li>
+                        <li>Прихожие</li>
+                        <li>Столы, стулья и кресла</li>
+                        <li>Диваны</li>
                     </ul>
                 </div>
                 <div className="gallery__item gallery__item--2">
@@ -49,21 +55,64 @@ const Info = ({ text, gallery_types, stages }) => (
                 <h4>Этапы мебельного производства</h4>
             </div>
             <ol className="stages__list">
-                {stages &&
-                    stages.map(item => (
-                        <li key={item._id}>
-                            <div>
-                                <span>{item.title}</span> {item.stage}
-                            </div>
-                        </li>
-                    ))}
+                <li>
+                    <div>
+                        <span>
+                            Подбор качественных материалов, а также их последующее
+                            хранение.
+                        </span>{" "}
+                        В нашем распоряжении – просторные складские помещения,
+                        обеспечивающие оптимальные условия для сохранности древесины.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>Распил ЛДСП и МДФ плит.</span> Операции выполняются
+                        согласно утвержденному проекту с помощью профессионального
+                        оборудования.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>Кромление.</span> На этом этапе производства мебели на
+                        изделия наносятся кромки. Так обрабатываются торцы имеющихся
+                        деталей в целях улучшения своего внешнего вида и срока
+                        службы.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>Присадка петель.</span> Как правило, при производстве
+                        мебели мы используем четырехшарнирные петли.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>Малярные работы.</span> На изделия наносятся
+                        специальные защитные покрытия, тонирующие составы или другая
+                        лакокрасочная продукция.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>Сборка готового изделия.</span> Специалисты
+                        осуществляют монтаж, полностью соблюдая технологии.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span>Упаковка.</span> Мы работаем с профессиональными
+                        упаковочными материалами, которые обеспечивают надежную
+                        защиту изделий во время перевозки.
+                    </div>
+                </li>
             </ol>
         </div>
     </>
 );
 
 Info.propTypes = {
-    text: PropTypes.arrayOf(PropTypes.string),
+    text: PropTypes.string,
     gallery_types: PropTypes.arrayOf(PropTypes.string),
     stages: PropTypes.arrayOf(PropTypes.object)
 };

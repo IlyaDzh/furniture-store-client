@@ -3,6 +3,14 @@
 .admin-orders {
     &__actions {
         margin-bottom: 20px;
+
+        .btn {
+            border-radius: 0;
+
+            &.focus {
+                box-shadow: none !important;
+            }
+        }
     }
 }
 
