@@ -1,7 +1,7 @@
 import { withFormik } from "formik";
 import * as Yup from "yup";
 
-import { AddModal as BaseModal } from "../components";
+import { Modal as BaseModal } from "../components";
 import { catalogActions } from "admin/actions";
 import store from "admin/store";
 
@@ -24,7 +24,8 @@ const AddModal = withFormik({
         images: Yup.string().required("Вставьте картинку"),
         price_current: Yup.number()
             .positive("Цена должна быть положительной")
-            .required("Заполните текущую цену")
+            .required("Заполните текущую цену"),
+        price_old: Yup.number().positive("Цена должна быть положительной")
     }),
     handleSubmit: (values, { resetForm, props: { type, setShow } }) => {
         const price = {
@@ -33,9 +34,9 @@ const AddModal = withFormik({
         };
         const chars = {
             shape: values.shape,
-            material: values.material,
+            material: values.material.split(","),
             style: values.style,
-            color: values.color,
+            color: values.color.split(","),
             collection: values.collection
         };
 

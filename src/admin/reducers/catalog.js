@@ -28,6 +28,16 @@ export default (state = initialState, { type, payload }) => {
                 ...state,
                 items: state.items.filter(item => item._id !== payload)
             };
+        case "CATALOG:EDIT_ITEM":
+            const temp = [...state.items];
+            const selected = temp.find(item => item._id === payload._id);
+            const index = temp.indexOf(selected);
+            temp[index] = payload;
+
+            return {
+                ...state,
+                items: [...temp]
+            };
         case "CATALOG:SET_IS_LOADING":
             return {
                 ...state,

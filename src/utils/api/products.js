@@ -5,5 +5,6 @@ export default {
     getNewProducts: () => axios.get("/product/new"),
     getPopularProducts: () => axios.get("/product/popular"),
     create: data => axios.post("/product/create", data),
+    edit: ({ id, formData }) => axios.put("/product/" + id, formData),
     delete: id => axios.delete("/product/" + id)
 };

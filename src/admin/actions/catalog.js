@@ -13,6 +13,10 @@ const actions = {
         type: "CATALOG:ADD_ITEM",
         payload: item
     }),
+    editItem: item => ({
+        type: "CATALOG:EDIT_ITEM",
+        payload: item
+    }),
     removeItem: id => ({
         type: "CATALOG:REMOVE_ITEM",
         payload: id
@@ -51,6 +55,14 @@ const actions = {
             .delete(id)
             .then(() => {
                 dispatch(actions.removeItem(id));
+            })
+            .catch(() => {});
+    },
+    editProduct: item => dispatch => {
+        return productsApi
+            .edit(item)
+            .then(({ data }) => {
+                dispatch(actions.editItem(data));
             })
             .catch(() => {});
     }

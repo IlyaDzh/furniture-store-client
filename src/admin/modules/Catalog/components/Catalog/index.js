@@ -1,12 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-    ToggleButtonGroup,
-    ToggleButton,
-    Table,
-    Form,
-    Button
-} from "react-bootstrap";
+import { ToggleButtonGroup, ToggleButton, Table, Button } from "react-bootstrap";
 import { MdModeEdit, MdClose } from "react-icons/md";
 
 import { Section, Spinner } from "admin/components";
@@ -19,7 +13,6 @@ const Catalog = ({
     setShowAdd,
     openDetailsModal,
     openEditModal,
-    onChangeStatus,
     deleteProduct,
     items,
     isLoading,
@@ -97,36 +90,8 @@ const Catalog = ({
                                                 Открыть
                                             </Button>
                                         </td>
-                                        <td>
-                                            <Form.Control
-                                                as="select"
-                                                onChange={event =>
-                                                    onChangeStatus(
-                                                        item._id,
-                                                        event.currentTarget.value
-                                                    )
-                                                }
-                                                value={item.new ? "Да" : "Нет"}
-                                            >
-                                                <option>Да</option>
-                                                <option>Нет</option>
-                                            </Form.Control>
-                                        </td>
-                                        <td>
-                                            <Form.Control
-                                                as="select"
-                                                onChange={event =>
-                                                    onChangeStatus(
-                                                        item._id,
-                                                        event.currentTarget.value
-                                                    )
-                                                }
-                                                value={item.hit ? "Да" : "Нет"}
-                                            >
-                                                <option>Да</option>
-                                                <option>Нет</option>
-                                            </Form.Control>
-                                        </td>
+                                        <td>{item.new ? "Да" : "Нет"}</td>
+                                        <td>{item.hit ? "Да" : "Нет"}</td>
                                         <td>
                                             <div className="table-actions">
                                                 <Button

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Slider from "react-slick";
 
 import { SliderArrow } from "client/components";
+import { baseUrl } from "utils/constants";
 import "./Gallery.scss";
 
 const settings1 = {
@@ -59,7 +60,7 @@ const Gallery = ({ images }) => {
                 {images &&
                     images.map((item, index) => (
                         <div key={index} className="big-slick__image">
-                            <img src={item} alt="" />
+                            <img src={`${baseUrl}/${item}`} alt="" />
                         </div>
                     ))}
             </Slider>
@@ -71,7 +72,7 @@ const Gallery = ({ images }) => {
                 {images &&
                     images.map((item, index) => (
                         <div key={index} className="small-slick__image">
-                            <img src={item} alt="" />
+                            <img src={`${baseUrl}/${item}`} alt="" />
                         </div>
                     ))}
             </Slider>

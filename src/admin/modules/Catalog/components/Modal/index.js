@@ -1,7 +1,7 @@
 import React from "react";
 import { Modal as BaseModal, Form, Button, Col } from "react-bootstrap";
 
-const AddModal = ({
+const Modal = ({
     handleSubmit,
     touched,
     values,
@@ -10,7 +10,9 @@ const AddModal = ({
     handleBlur,
     setValues,
     show,
-    setShow
+    setShow,
+    title = "Добавление продукта",
+    textButton = "Добавить"
 }) => (
     <BaseModal
         className="my-modal"
@@ -19,7 +21,7 @@ const AddModal = ({
         centered
     >
         <BaseModal.Header closeButton>
-            <BaseModal.Title>Добавление продукта</BaseModal.Title>
+            <BaseModal.Title>{title}</BaseModal.Title>
         </BaseModal.Header>
         <BaseModal.Body>
             <Form onSubmit={handleSubmit}>
@@ -156,7 +158,7 @@ const AddModal = ({
                     />
                 </Form.Group>
                 <Button variant="orange" type="button" onClick={handleSubmit}>
-                    Добавить
+                    {textButton}
                 </Button>
             </Form>
         </BaseModal.Body>
@@ -164,4 +166,4 @@ const AddModal = ({
     </BaseModal>
 );
 
-export default AddModal;
+export default Modal;

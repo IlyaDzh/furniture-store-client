@@ -16,7 +16,3 @@ ReactDOM.render(
     </Router>,
     document.getElementById("root")
 );
-
-// TODO:
-// Поиск товаров в каталоге
-// Картинки

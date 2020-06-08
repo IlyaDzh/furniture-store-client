@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Catalog as BaseCatalog, DetailsModal } from "../components";
 import { catalogActions } from "admin/actions";
 import AddModal from "./AddModal";
+import EditModal from "./EditModal";
 
 const Catalog = ({
     fetchCatalog,
@@ -37,11 +38,6 @@ const Catalog = ({
         setShowEdit(true);
     };
 
-    const onChangeStatus = (id, status) => {
-        console.log("id: ", id);
-        console.log("status: ", status);
-    };
-
     return (
         <>
             <BaseCatalog
@@ -50,7 +46,6 @@ const Catalog = ({
                 setShowAdd={setShowAdd}
                 openDetailsModal={openDetailsModal}
                 openEditModal={openEditModal}
-                onChangeStatus={onChangeStatus}
                 deleteProduct={deleteProduct}
                 items={items}
                 isLoading={isLoading}
@@ -62,7 +57,7 @@ const Catalog = ({
                 details={details}
             />
             <AddModal setShow={setShowAdd} show={showAdd} type={currentId} />
-            {/* <EditModal setShow={setShowEdit} show={showEdit} details={details} /> */}
+            <EditModal setShow={setShowEdit} show={showEdit} itemData={details} />
         </>
     );
 };
