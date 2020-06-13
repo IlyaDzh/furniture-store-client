@@ -5,17 +5,20 @@ import { useFormik } from "formik";
 import { Menu as BaseMenu } from "../components";
 import { catalogActions } from "client/actions";
 
-const Menu = ({ currentItem }) => {
+const Menu = ({ currentItem, setFilterItems }) => {
     const formik = useFormik({
         initialValues: {
             lowerBound: 0,
             upperBound: 400000,
             new: false,
             hit: false,
-            search: {}
+            material: [],
+            color: [],
+            style: [],
+            shape: []
         },
         onSubmit: values => {
-            console.log(values);
+            setFilterItems(values);
         }
     });
 
@@ -29,6 +32,7 @@ const Menu = ({ currentItem }) => {
 export default connect(
     ({ catalog }) => ({
         currentItem: catalog.currentItem,
+        setFilterItems: catalog.setFilterItems,
         isLoading: catalog.isLoading,
         error: catalog.error
     }),

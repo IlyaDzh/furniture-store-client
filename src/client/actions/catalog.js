@@ -5,6 +5,10 @@ const actions = {
         type: "CATALOG:SET_CURRENT_ITEM",
         payload: item
     }),
+    setFilterItems: data => ({
+        type: "CATALOG:FILTER_ITEMS",
+        payload: data
+    }),
     setError: bool => ({
         type: "CATALOG:SET_ERROR",
         payload: bool
@@ -12,6 +16,9 @@ const actions = {
     setIsLoading: bool => ({
         type: "CATALOG:SET_IS_LOADING",
         payload: bool
+    }),
+    reset: () => ({
+        type: "CATALOG:RESET"
     }),
     fetchCurrentCatalog: path => dispatch => {
         dispatch(actions.setIsLoading(true));

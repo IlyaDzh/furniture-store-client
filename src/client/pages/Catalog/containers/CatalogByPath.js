@@ -10,14 +10,17 @@ const CatalogByPath = ({
     fetchCurrentCatalog,
     addToCart,
     currentItem,
+    tempItem,
     isLoading,
-    error
+    error,
+    reset
 }) => {
     const { path } = useParams();
 
     useEffect(() => {
         if (currentItem && currentItem.path === path) return;
         fetchCurrentCatalog(path);
+        return () => reset();
     }, [path]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return isLoading ? (
@@ -27,7 +30,7 @@ const CatalogByPath = ({
     ) : (
         currentItem && (
             <BaseCatalogByPath
-                currentItem={currentItem}
+                currentItem={tempItem || currentItem}
                 addToCart={addToCart}
             />
         )
@@ -37,11 +40,13 @@ const CatalogByPath = ({
 export default connect(
     ({ catalog }) => ({
         currentItem: catalog.currentItem,
+        tempItem: catalog.tempItem,
         isLoading: catalog.isLoading,
         error: catalog.error
     }),
     {
         fetchCurrentCatalog: catalogActions.fetchCurrentCatalog,
+        reset: catalogActions.reset,
         addToCart: cartActions.addToCart
     }
 )(CatalogByPath);

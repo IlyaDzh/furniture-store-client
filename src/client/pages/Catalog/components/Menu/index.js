@@ -67,34 +67,127 @@ const Menu = ({
                         id="new"
                         label="Новинки"
                         checked={values.new || false}
-                        onChange={() => setFieldValue("new", !values.isNew)}
+                        onChange={() => setFieldValue("new", !values.new)}
                         custom
                     />
                     <Form.Check
                         id="hit"
                         label="Хит продаж"
                         checked={values.hit || false}
-                        onChange={() => setFieldValue("hit", !values.isHit)}
+                        onChange={() => setFieldValue("hit", !values.hit)}
                         custom
                     />
                 </BaseCollapse.Panel>
                 {categories.map(item => (
                     <BaseCollapse.Panel key={item._id} header={item.title}>
-                        {item.content.map((checkbox, index) => (
-                            <Form.Check
-                                key={index}
-                                id={checkbox}
-                                label={checkbox}
-                                checked={values.search[checkbox] || false}
-                                onChange={() =>
-                                    setFieldValue(
-                                        `search[${checkbox}]`,
-                                        !values.search[checkbox]
-                                    )
-                                }
-                                custom
-                            />
-                        ))}
+                        {item.content.map((checkbox, index) => {
+                            switch (item.title) {
+                                case "По стилю":
+                                    return (
+                                        <Form.Check
+                                            key={index}
+                                            id={checkbox}
+                                            label={checkbox}
+                                            checked={
+                                                values.style.indexOf(checkbox) >
+                                                    -1 || false
+                                            }
+                                            onChange={() =>
+                                                setFieldValue(
+                                                    `style`,
+                                                    !values.style.includes(checkbox)
+                                                        ? [...values.style, checkbox]
+                                                        : values.style.filter(
+                                                              item =>
+                                                                  item !== checkbox
+                                                          )
+                                                )
+                                            }
+                                            custom
+                                        />
+                                    );
+                                case "По форме":
+                                    return (
+                                        <Form.Check
+                                            key={index}
+                                            id={checkbox}
+                                            label={checkbox}
+                                            checked={
+                                                values.shape.indexOf(checkbox) >
+                                                    -1 || false
+                                            }
+                                            onChange={() =>
+                                                setFieldValue(
+                                                    `shape`,
+                                                    !values.shape.includes(checkbox)
+                                                        ? [...values.shape, checkbox]
+                                                        : values.shape.filter(
+                                                              item =>
+                                                                  item !== checkbox
+                                                          )
+                                                )
+                                            }
+                                            custom
+                                        />
+                                    );
+                                case "По цвету":
+                                    return (
+                                        <Form.Check
+                                            key={index}
+                                            id={checkbox}
+                                            label={checkbox}
+                                            checked={
+                                                values.color.indexOf(checkbox) >
+                                                    -1 || false
+                                            }
+                                            onChange={() =>
+                                                setFieldValue(
+                                                    `color`,
+                                                    !values.color.includes(checkbox)
+                                                        ? [...values.color, checkbox]
+                                                        : values.color.filter(
+                                                              item =>
+                                                                  item !== checkbox
+                                                          )
+                                                )
+                                            }
+                                            custom
+                                        />
+                                    );
+                                case "По материалу":
+                                    return (
+                                        <Form.Check
+                                            key={index}
+                                            id={checkbox}
+                                            label={checkbox}
+                                            checked={
+                                                values.material.indexOf(checkbox) >
+                                                    -1 || false
+                                            }
+                                            onChange={() =>
+                                                setFieldValue(
+                                                    `material`,
+                                                    !values.material.includes(
+                                                        checkbox
+                                                    )
+                                                        ? [
+                                                              ...values.material,
+                                                              checkbox
+                                                          ]
+                                                        : values.material.filter(
+                                                              item =>
+                                                                  item !== checkbox
+                                                          )
+                                                )
+                                            }
+                                            custom
+                                        />
+                                    );
+                                default:
+                                    break;
+                            }
+                            return null;
+                        })}
                     </BaseCollapse.Panel>
                 ))}
                 <div className="rc-collapse-footer">
