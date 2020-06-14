@@ -35,9 +35,9 @@ const EditModalEnhancer = withFormik({
         price_current: (data.price && data.price.current) || "",
         price_old: (data.price && data.price.old) || "",
         shape: (data.chars && data.chars.shape) || "",
-        material: (data.chars && data.chars.material) || "",
+        material: (data.chars && data.chars.material.join(",")) || "",
         style: (data.chars && data.chars.style) || "",
-        color: (data.chars && data.chars.color) || "",
+        color: (data.chars && data.chars.color.join(",")) || "",
         collection: (data.chars && data.chars.collection) || ""
     }),
     validationSchema: Yup.object({
@@ -54,9 +54,9 @@ const EditModalEnhancer = withFormik({
         };
         const chars = {
             shape: values.shape,
-            material: values.material,
+            material: values.material.split(","),
             style: values.style,
-            color: values.color,
+            color: values.color.split(","),
             collection: values.collection
         };
 

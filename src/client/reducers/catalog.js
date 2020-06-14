@@ -1,26 +1,11 @@
 import { filter } from "lodash";
+import { cleanObject, isEqualArray } from "utils/helpers";
 
 const initialState = {
     currentItem: null,
     tempItem: null,
     error: false,
     isLoading: false
-};
-
-const clean = obj => {
-    for (let propName in obj) {
-        if (
-            obj[propName] === null ||
-            obj[propName] === undefined ||
-            obj[propName] === false ||
-            obj[propName].length === 0
-        ) {
-            delete obj[propName];
-        } else if (typeof obj[propName] === "object") {
-            clean(obj[propName]);
-        }
-    }
-    return obj;
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -32,23 +17,60 @@ export default (state = initialState, { type, payload }) => {
                 isLoading: false
             };
         case "CATALOG:FILTER_ITEMS":
-            const filterParams = {
+            const priceParams = cleanObject({
+                lowerBound: payload.lowerBound,
+                upperBound: payload.upperBound
+            });
+
+            const statusParams = cleanObject({
                 hit: payload.hit,
-                new: payload.new,
-                chars: {
-                    shape: payload.shape,
-                    material: payload.material,
-                    color: payload.color,
-                    style: payload.style
-                }
-            };
-            const cleanFilterParams = clean(filterParams);
-            console.log(cleanFilterParams);
-            const filtredProducts = filter(
-                state.currentItem.products,
-                cleanFilterParams
+                new: payload.new
+            });
+
+            const charsParams = cleanObject({
+                color: payload.color,
+                material: payload.material,
+                shape: payload.shape,
+                style: payload.style
+            });
+
+            // sort by status (new, hit)
+            let filtredProducts = filter(state.currentItem.products, statusParams);
+
+            // sort by shape
+            filtredProducts = charsParams.shape
+                ? filtredProducts.filter(
+                      product => charsParams.shape.indexOf(product.chars.shape) >= 0
+                  )
+                : filtredProducts;
+
+            // sort by style
+            filtredProducts = charsParams.style
+                ? filtredProducts.filter(
+                      product => charsParams.style.indexOf(product.chars.style) >= 0
+                  )
+                : filtredProducts;
+
+            // sort by color
+            filtredProducts = charsParams.color
+                ? filtredProducts.filter(product =>
+                      isEqualArray(product.chars.color, charsParams.color)
+                  )
+                : filtredProducts;
+
+            // sort by material
+            filtredProducts = charsParams.material
+                ? filtredProducts.filter(product =>
+                      isEqualArray(product.chars.material, charsParams.material)
+                  )
+                : filtredProducts;
+
+            // sort by price
+            filtredProducts = filtredProducts.filter(
+                product =>
+                    product.price.current >= priceParams.lowerBound &&
+                    product.price.current <= priceParams.upperBound
             );
-            console.log(filtredProducts);
 
             return {
                 ...state,

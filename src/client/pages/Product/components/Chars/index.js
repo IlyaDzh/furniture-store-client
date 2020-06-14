@@ -8,27 +8,35 @@ const Chars = ({ type, chars: { shape, material, style, color, collection } }) =
         <tbody>
             <tr>
                 <td>Форма:</td>
-                <td>{shape}</td>
+                <td>{shape || "---"}</td>
             </tr>
             <tr>
                 <td>Материал:</td>
-                <td>{material.map((item, index) => (index ? ", " : "") + item)}</td>
+                <td>
+                    {material[0] !== ""
+                        ? material.map((item, index) => (index ? ", " : "") + item)
+                        : "---"}
+                </td>
             </tr>
             <tr>
                 <td>Назначение:</td>
-                <td>{type}</td>
+                <td>{type || "---"}</td>
             </tr>
             <tr>
                 <td>Стиль:</td>
-                <td>{style}</td>
+                <td>{style || "---"}</td>
             </tr>
             <tr>
                 <td>Цвет:</td>
-                <td>{color.map((item, index) => (index ? ", " : "") + item)}</td>
+                <td>
+                    {color[0] !== ""
+                        ? color.map((item, index) => (index ? ", " : "") + item)
+                        : "---"}
+                </td>
             </tr>
             <tr>
                 <td>Коллекция:</td>
-                <td>{collection}</td>
+                <td>{collection || "---"}</td>
             </tr>
         </tbody>
     </table>

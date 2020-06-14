@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import classNames from "classnames";
 import { Navbar as BaseNavbar, Container, Nav } from "react-bootstrap";
 
 import logo from "assets/logo.png";
@@ -81,35 +80,6 @@ const Header = () => (
                                         {item.title}
                                     </span>
                                 </Link>
-                                <div
-                                    className={classNames("categories__block", {
-                                        "categories__block--right":
-                                            item.position === "right"
-                                    })}
-                                >
-                                    {item.categories &&
-                                        item.categories.map(category => (
-                                            <ul
-                                                className="categories-items"
-                                                key={category.id}
-                                            >
-                                                <li className="categories-items__title">
-                                                    {category.title}
-                                                </li>
-                                                {category.content.map(
-                                                    (text, index) => (
-                                                        <li key={index}>
-                                                            <Link
-                                                                to={`/catalog/${item.path}?test=2`}
-                                                            >
-                                                                {text}
-                                                            </Link>
-                                                        </li>
-                                                    )
-                                                )}
-                                            </ul>
-                                        ))}
-                                </div>
                             </li>
                         ))}
                 </ul>
@@ -123,35 +93,6 @@ const Header = () => (
                                     <Link to={`/catalog/${item.path}`}>
                                         {item.title}
                                     </Link>
-                                    <div
-                                        className={classNames("categories__block", {
-                                            "categories__block--right":
-                                                item.position === "right"
-                                        })}
-                                    >
-                                        {item.categories &&
-                                            item.categories.map(category => (
-                                                <ul
-                                                    className="categories-items"
-                                                    key={category.id}
-                                                >
-                                                    <li className="categories-items__title">
-                                                        {category.title}
-                                                    </li>
-                                                    {category.content.map(
-                                                        (text, index) => (
-                                                            <li key={index}>
-                                                                <Link
-                                                                    to={`/catalog/${item.path}?test=2`}
-                                                                >
-                                                                    {text}
-                                                                </Link>
-                                                            </li>
-                                                        )
-                                                    )}
-                                                </ul>
-                                            ))}
-                                    </div>
                                 </li>
                             ))}
                     </ul>

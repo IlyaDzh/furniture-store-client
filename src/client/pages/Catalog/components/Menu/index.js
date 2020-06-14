@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Col, Button } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import BaseCollapse from "rc-collapse";
 import Slider from "rc-slider";
 
 import "./Menu.scss";
 
-const Menu = ({
-    formik: { values, handleSubmit, setFieldValue, resetForm },
-    categories
-}) => {
+const Menu = ({ values, handleSubmit, setFieldValue, resetForm, categories }) => {
     const minValue = 0;
-    const maxValue = 400000;
+    const maxValue = 300000;
     const [rangeValue, setRangeValue] = useState([minValue, maxValue]);
+    const { path } = useParams();
+
+    useEffect(() => {
+        setRangeValue([minValue, maxValue]);
+    }, [path]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const onLowerBoundChange = ({ target: { value } }) => {
         setFieldValue("lowerBound", value);

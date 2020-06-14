@@ -25,7 +25,7 @@ const DetailsModal = ({ setShow, show, details }) => (
                     <tr>
                         <td>Материалы:</td>
                         <td>
-                            {details.material
+                            {details.material && details.material[0] !== ""
                                 ? details.material.map(
                                       (item, index) => (index ? ", " : "") + item
                                   )
@@ -39,7 +39,7 @@ const DetailsModal = ({ setShow, show, details }) => (
                     <tr>
                         <td>Цвет:</td>
                         <td>
-                            {details.color
+                            {details.color && details.color[0] !== ""
                                 ? details.color.map(
                                       (item, index) => (index ? ", " : "") + item
                                   )

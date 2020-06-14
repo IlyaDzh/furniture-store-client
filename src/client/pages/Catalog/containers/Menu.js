@@ -1,33 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { useFormik } from "formik";
+import { useParams } from "react-router-dom";
+import { withFormik } from "formik";
 
 import { Menu as BaseMenu } from "../components";
 import { catalogActions } from "client/actions";
 
 const Menu = ({ currentItem, setFilterItems }) => {
-    const formik = useFormik({
-        initialValues: {
-            lowerBound: 0,
-            upperBound: 400000,
-            new: false,
-            hit: false,
-            material: [],
-            color: [],
-            style: [],
-            shape: []
-        },
-        onSubmit: values => {
-            setFilterItems(values);
-        }
-    });
+    const { path } = useParams();
+    const [resetMenu, setResetMenu] = useState(false);
+
+    useEffect(() => {
+        setResetMenu(!resetMenu);
+    }, [path]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         currentItem && (
-            <BaseMenu formik={formik} categories={currentItem.categories} />
+            <MenuEnhancer
+                resetMenu={resetMenu}
+                categories={currentItem.categories}
+                setFilterItems={setFilterItems}
+            />
         )
     );
 };
+
+const MenuEnhancer = withFormik({
+    enableReinitialize: true,
+    mapPropsToValues: ({ resetMenu }) => ({
+        lowerBound: 0,
+        upperBound: 300000,
+        new: false,
+        hit: false,
+        material: [],
+        color: [],
+        style: [],
+        shape: [],
+        reseted: resetMenu
+    }),
+    handleSubmit: (values, { props: { setFilterItems } }) => {
+        setFilterItems(values);
+    }
+})(BaseMenu);
 
 export default connect(
     ({ catalog }) => ({
